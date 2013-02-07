@@ -1,0 +1,52 @@
+# You can find more information about this file on the symfony website:
+# http://www.symfony-project.org/reference/1_4/en/10-Routing
+
+# default rules
+homepage:
+  url:   /
+  param: { module: sala, action: index }
+
+usuarios:
+  url: /usuario
+  param: { module: sfGuardUserProfile, action: index }
+
+# generic rules
+# please, remove them by adding more specific rules
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*
+
+actividad:
+  url:   /actividad/index/*
+
+encuesta:
+  url:   /encuesta/index/*
+
+sala:
+  url:   /sala/index/*
+  
+respuesta_encuesta_visitante:  
+  url:   /respuesta_encuesta_visitante/index/*
+
+informe:
+  url:   /informe/index/*
+
+pagina:
+  url:   /pagina/index/*
+  
+
+
+sf_guard_signin:
+  url:   /login
+  param: { module: sfGuardAuth, action: signin }
+
+sf_guard_signout:
+   url:   /logout
+   param: { module: sfGuardAuth, action: signout }
+
+sf_guard_password:
+    url:   /request_password
+    param: { module: sfGuardAuth, action: password }

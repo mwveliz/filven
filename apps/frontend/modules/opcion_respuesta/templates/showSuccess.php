@@ -1,0 +1,22 @@
+<table>
+  <tbody>
+    <tr>
+      <th>Id:</th>
+      <td><?php echo $OpcionRespuesta->getId() ?></td>
+    </tr>
+    <tr>
+      <th>Id item:</th>
+      <td><?php echo $OpcionRespuesta->getIdItem() ?></td>
+    </tr>
+    <tr>
+      <th>Respuesta:</th>
+      <td><?php echo $OpcionRespuesta->getRespuesta() ?></td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<a href="<?php echo url_for('opcion_respuesta/edit?id='.$OpcionRespuesta->getId()) ?>">Edit</a>
+&nbsp;
+<a href="<?php echo url_for('opcion_respuesta/index') ?>">List</a>
