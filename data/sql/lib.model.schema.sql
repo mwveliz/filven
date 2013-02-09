@@ -9,7 +9,6 @@ DROP TABLE "actividad" CASCADE;
 CREATE TABLE "actividad"
 (
 	"id" serial  NOT NULL,
-	"fecha_hora" TIME,
 	"nombre_actividad" VARCHAR(255),
 	"ponente" VARCHAR(255),
 	"turno" BOOLEAN,
@@ -24,6 +23,7 @@ CREATE TABLE "actividad"
 	"observaciones" VARCHAR(255),
 	"id_sala" INTEGER,
 	"id_tipo_actividad" INTEGER,
+	"fecha_hora" TIMESTAMP,
 	PRIMARY KEY ("id")
 );
 
@@ -43,6 +43,8 @@ CREATE TABLE "encuesta"
 	"id" serial  NOT NULL,
 	"nombre_encuesta" VARCHAR(255),
 	"descripcion_encuesta" VARCHAR(255),
+	"tipo_encuesta" VARCHAR(255),
+	"fecha_elaboracion" TIMESTAMP default now(),
 	PRIMARY KEY ("id")
 );
 
@@ -82,6 +84,8 @@ CREATE TABLE "item"
 	"id" serial  NOT NULL,
 	"texto" VARCHAR(255),
 	"id_encuesta" INTEGER,
+	"seleccion_simple" BOOLEAN default 't',
+	"identificador_item" INTEGER,
 	PRIMARY KEY ("id")
 );
 
@@ -120,6 +124,7 @@ CREATE TABLE "opcion_respuesta"
 	"id" serial  NOT NULL,
 	"id_item" INTEGER,
 	"respuesta" VARCHAR(255),
+	"seleccion_simple" BOOLEAN default 't',
 	PRIMARY KEY ("id")
 );
 

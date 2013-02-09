@@ -10749,3 +10749,1150 @@ Feb 03 13:11:03 symfony [info] {sfWebDebugLogger} Factories 203.48 ms (1)
 Feb 03 13:11:03 symfony [info] {sfWebDebugLogger} Action "item/agregarvarios" 182.07 ms (1)
 Feb 03 13:11:03 symfony [info] {sfWebDebugLogger} View "Success" for "item/agregarvarios" 112.23 ms (1)
 Feb 03 13:11:03 symfony [info] {sfWebResponse} Send content (34642 o)
+Feb 09 12:06:41 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:06:41 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:06:41 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:06:41 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'sala',  'action' => 'index',)
+Feb 09 12:06:42 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:06:42 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:06:42 symfony [info] {sfBasicSecurityFilter} Action "sala/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:06:42 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:06:42 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:06:42 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:06:42 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:06:42 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:06:42 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:06:42 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:06:42 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:06:42 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:06:42 symfony [info] {sfWebDebugLogger} Configuration 341.88 ms (12)
+Feb 09 12:06:42 symfony [info] {sfWebDebugLogger} Factories 480.84 ms (1)
+Feb 09 12:06:42 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 13.57 ms (1)
+Feb 09 12:06:42 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 29.61 ms (1)
+Feb 09 12:06:42 symfony [info] {sfWebResponse} Send content (66542 o)
+Feb 09 12:06:42 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:06:42 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:06:42 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:06:42 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/images/favicon.ico" (/).
+Feb 09 12:06:42 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:06:42 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:06:42 symfony [info] {sfWebDebugLogger} Configuration 1.52 ms (5)
+Feb 09 12:06:42 symfony [info] {sfWebDebugLogger} Factories 47.18 ms (1)
+Feb 09 12:07:13 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:07:13 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:07:13 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:07:13 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'sala',  'action' => 'index',)
+Feb 09 12:07:13 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:07:13 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:07:13 symfony [info] {sfBasicSecurityFilter} Action "sala/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:07:13 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:07:13 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:07:13 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:07:13 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:07:13 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:07:13 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:07:13 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:07:13 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:07:13 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:07:13 symfony [info] {sfWebDebugLogger} Configuration 3.56 ms (12)
+Feb 09 12:07:13 symfony [info] {sfWebDebugLogger} Factories 46.40 ms (1)
+Feb 09 12:07:13 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 13.74 ms (1)
+Feb 09 12:07:13 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 22.02 ms (1)
+Feb 09 12:07:13 symfony [info] {sfWebResponse} Send content (66588 o)
+Feb 09 12:07:14 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:07:14 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:07:14 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:07:14 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/images/favicon.ico" (/).
+Feb 09 12:07:14 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:07:14 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:07:14 symfony [info] {sfWebDebugLogger} Configuration 1.46 ms (5)
+Feb 09 12:07:14 symfony [info] {sfWebDebugLogger} Factories 45.96 ms (1)
+Feb 09 12:08:29 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:08:29 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:08:29 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:08:29 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'sala',  'action' => 'index',)
+Feb 09 12:08:29 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:08:29 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:08:29 symfony [info] {sfBasicSecurityFilter} Action "sala/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:08:29 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:08:29 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:08:29 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:08:29 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:08:29 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:08:29 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:08:29 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:08:29 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:08:29 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:08:29 symfony [info] {sfWebDebugLogger} Configuration 3.46 ms (12)
+Feb 09 12:08:29 symfony [info] {sfWebDebugLogger} Factories 52.06 ms (1)
+Feb 09 12:08:29 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 13.65 ms (1)
+Feb 09 12:08:29 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 22.85 ms (1)
+Feb 09 12:08:29 symfony [info] {sfWebResponse} Send content (66588 o)
+Feb 09 12:08:29 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:08:29 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:08:29 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:08:29 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'sala',  'action' => 'index',)
+Feb 09 12:08:29 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:08:29 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:08:29 symfony [info] {sfBasicSecurityFilter} Action "sala/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:08:29 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:08:29 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:08:29 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:08:29 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:08:29 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:08:29 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:08:29 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:08:29 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:08:29 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:08:29 symfony [info] {sfWebDebugLogger} Configuration 3.38 ms (12)
+Feb 09 12:08:29 symfony [info] {sfWebDebugLogger} Factories 46.23 ms (1)
+Feb 09 12:08:29 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 12.48 ms (1)
+Feb 09 12:08:29 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 21.11 ms (1)
+Feb 09 12:08:29 symfony [info] {sfWebResponse} Send content (66588 o)
+Feb 09 12:08:29 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:08:29 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:08:29 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:08:29 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/images/favicon.ico" (/).
+Feb 09 12:08:29 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:08:29 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:08:29 symfony [info] {sfWebDebugLogger} Configuration 1.42 ms (5)
+Feb 09 12:08:29 symfony [info] {sfWebDebugLogger} Factories 56.31 ms (1)
+Feb 09 12:08:29 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:08:29 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:08:29 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:08:29 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'sala',  'action' => 'index',)
+Feb 09 12:08:29 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:08:29 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:08:29 symfony [info] {sfBasicSecurityFilter} Action "sala/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:08:29 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:08:29 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:08:30 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:08:30 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:08:30 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:08:30 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:08:30 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:08:30 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:08:30 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:08:30 symfony [info] {sfWebDebugLogger} Configuration 3.39 ms (12)
+Feb 09 12:08:30 symfony [info] {sfWebDebugLogger} Factories 107.54 ms (1)
+Feb 09 12:08:30 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 16.31 ms (1)
+Feb 09 12:08:30 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 28.06 ms (1)
+Feb 09 12:08:30 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:08:30 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:08:30 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:08:30 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'sala',  'action' => 'index',)
+Feb 09 12:08:30 symfony [info] {sfWebResponse} Send content (66588 o)
+Feb 09 12:08:30 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:08:30 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:08:30 symfony [info] {sfBasicSecurityFilter} Action "sala/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:08:30 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:08:30 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:08:30 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:08:30 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:08:30 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:08:30 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:08:30 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:08:30 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:08:30 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:08:30 symfony [info] {sfWebDebugLogger} Configuration 3.42 ms (12)
+Feb 09 12:08:30 symfony [info] {sfWebDebugLogger} Factories 87.59 ms (1)
+Feb 09 12:08:30 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 14.17 ms (1)
+Feb 09 12:08:30 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 20.61 ms (1)
+Feb 09 12:08:30 symfony [info] {sfWebResponse} Send content (66587 o)
+Feb 09 12:08:30 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:08:30 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:08:30 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:08:30 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/images/favicon.ico" (/).
+Feb 09 12:08:30 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:08:30 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:08:30 symfony [info] {sfWebDebugLogger} Configuration 1.39 ms (5)
+Feb 09 12:08:30 symfony [info] {sfWebDebugLogger} Factories 50.54 ms (1)
+Feb 09 12:08:31 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:08:31 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:08:31 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:08:31 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'sala',  'action' => 'index',)
+Feb 09 12:08:31 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:08:31 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:08:31 symfony [info] {sfBasicSecurityFilter} Action "sala/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:08:31 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:08:31 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:08:31 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:08:31 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:08:31 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:08:31 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:08:31 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:08:31 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:08:31 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:08:31 symfony [info] {sfWebDebugLogger} Configuration 3.43 ms (12)
+Feb 09 12:08:31 symfony [info] {sfWebDebugLogger} Factories 49.39 ms (1)
+Feb 09 12:08:31 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 13.26 ms (1)
+Feb 09 12:08:31 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 20.85 ms (1)
+Feb 09 12:08:31 symfony [info] {sfWebResponse} Send content (66588 o)
+Feb 09 12:08:31 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:08:31 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:08:31 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:08:31 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/images/favicon.ico" (/).
+Feb 09 12:08:31 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:08:31 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:08:31 symfony [info] {sfWebDebugLogger} Configuration 1.40 ms (5)
+Feb 09 12:08:31 symfony [info] {sfWebDebugLogger} Factories 45.71 ms (1)
+Feb 09 12:08:31 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:08:31 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:08:31 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:08:31 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'sala',  'action' => 'index',)
+Feb 09 12:08:31 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:08:31 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:08:31 symfony [info] {sfBasicSecurityFilter} Action "sala/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:08:31 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:08:31 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:08:31 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:08:31 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:08:31 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:08:31 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:08:31 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:08:31 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:08:31 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:08:31 symfony [info] {sfWebDebugLogger} Configuration 3.45 ms (12)
+Feb 09 12:08:31 symfony [info] {sfWebDebugLogger} Factories 50.19 ms (1)
+Feb 09 12:08:31 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 13.91 ms (1)
+Feb 09 12:08:31 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 20.97 ms (1)
+Feb 09 12:08:32 symfony [info] {sfWebResponse} Send content (66588 o)
+Feb 09 12:08:32 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:08:32 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:08:32 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:08:32 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/images/favicon.ico" (/).
+Feb 09 12:08:32 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:08:32 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:08:32 symfony [info] {sfWebDebugLogger} Configuration 1.39 ms (5)
+Feb 09 12:08:32 symfony [info] {sfWebDebugLogger} Factories 51.15 ms (1)
+Feb 09 12:08:32 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:08:32 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:08:32 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:08:32 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'sala',  'action' => 'index',)
+Feb 09 12:08:32 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:08:32 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:08:32 symfony [info] {sfBasicSecurityFilter} Action "sala/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:08:32 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:08:32 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:08:32 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:08:32 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:08:32 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:08:32 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:08:32 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:08:32 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:08:32 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:08:32 symfony [info] {sfWebDebugLogger} Configuration 3.34 ms (12)
+Feb 09 12:08:32 symfony [info] {sfWebDebugLogger} Factories 45.91 ms (1)
+Feb 09 12:08:32 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 13.33 ms (1)
+Feb 09 12:08:32 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 21.39 ms (1)
+Feb 09 12:08:32 symfony [info] {sfWebResponse} Send content (66588 o)
+Feb 09 12:08:33 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:08:33 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:08:33 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:08:33 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/images/favicon.ico" (/).
+Feb 09 12:08:33 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:08:33 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:08:33 symfony [info] {sfWebDebugLogger} Configuration 1.40 ms (5)
+Feb 09 12:08:33 symfony [info] {sfWebDebugLogger} Factories 64.70 ms (1)
+Feb 09 12:08:33 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:08:33 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:08:33 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:08:33 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'sala',  'action' => 'index',)
+Feb 09 12:08:33 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:08:33 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:08:33 symfony [info] {sfBasicSecurityFilter} Action "sala/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:08:33 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:08:33 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:08:33 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:08:33 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:08:33 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:08:33 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:08:33 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:08:33 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:08:33 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:08:33 symfony [info] {sfWebDebugLogger} Configuration 3.55 ms (12)
+Feb 09 12:08:33 symfony [info] {sfWebDebugLogger} Factories 73.64 ms (1)
+Feb 09 12:08:33 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 13.24 ms (1)
+Feb 09 12:08:33 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 22.18 ms (1)
+Feb 09 12:08:33 symfony [info] {sfWebResponse} Send content (66588 o)
+Feb 09 12:08:33 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:08:33 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:08:33 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:08:33 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'sala',  'action' => 'index',)
+Feb 09 12:08:33 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:08:33 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:08:33 symfony [info] {sfBasicSecurityFilter} Action "sala/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:08:33 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:08:33 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:08:33 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:08:33 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:08:33 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:08:33 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:08:33 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:08:33 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:08:33 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:08:33 symfony [info] {sfWebDebugLogger} Configuration 3.52 ms (12)
+Feb 09 12:08:33 symfony [info] {sfWebDebugLogger} Factories 49.72 ms (1)
+Feb 09 12:08:33 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 13.23 ms (1)
+Feb 09 12:08:33 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 20.95 ms (1)
+Feb 09 12:08:33 symfony [info] {sfWebResponse} Send content (66588 o)
+Feb 09 12:08:33 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:08:33 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:08:33 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:08:33 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'sala',  'action' => 'index',)
+Feb 09 12:08:33 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:08:33 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:08:33 symfony [info] {sfBasicSecurityFilter} Action "sala/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:08:33 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:08:33 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:08:33 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:08:33 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:08:33 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:08:33 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:08:33 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:08:33 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:08:33 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:08:33 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:08:33 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:08:33 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:08:33 symfony [info] {sfWebDebugLogger} Configuration 4.80 ms (12)
+Feb 09 12:08:33 symfony [info] {sfWebDebugLogger} Factories 56.23 ms (1)
+Feb 09 12:08:33 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 16.91 ms (1)
+Feb 09 12:08:33 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 24.64 ms (1)
+Feb 09 12:08:33 symfony [info] {sfWebResponse} Send content (66588 o)
+Feb 09 12:08:33 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:08:33 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/images/favicon.ico" (/).
+Feb 09 12:08:33 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:08:33 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:08:33 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'sala',  'action' => 'index',)
+Feb 09 12:08:33 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:08:33 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:08:33 symfony [info] {sfWebDebugLogger} Configuration 1.39 ms (5)
+Feb 09 12:08:33 symfony [info] {sfWebDebugLogger} Factories 144.71 ms (1)
+Feb 09 12:08:34 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:08:34 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:08:34 symfony [info] {sfBasicSecurityFilter} Action "sala/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:08:34 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:08:34 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:08:34 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:08:34 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:08:34 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:08:34 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:08:34 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:08:34 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:08:34 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:08:34 symfony [info] {sfWebDebugLogger} Configuration 3.44 ms (12)
+Feb 09 12:08:34 symfony [info] {sfWebDebugLogger} Factories 125.34 ms (1)
+Feb 09 12:08:34 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 13.27 ms (1)
+Feb 09 12:08:34 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 20.70 ms (1)
+Feb 09 12:08:34 symfony [info] {sfWebResponse} Send content (66588 o)
+Feb 09 12:08:34 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:08:34 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:08:34 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:08:34 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/images/favicon.ico" (/).
+Feb 09 12:08:34 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:08:34 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:08:34 symfony [info] {sfWebDebugLogger} Configuration 1.43 ms (5)
+Feb 09 12:08:34 symfony [info] {sfWebDebugLogger} Factories 49.74 ms (1)
+Feb 09 12:09:12 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:09:12 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:09:12 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:09:12 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /actividad/new with parameters array (  'module' => 'actividad',  'action' => 'new',)
+Feb 09 12:09:12 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:09:12 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:09:12 symfony [info] {sfBasicSecurityFilter} Action "actividad/new" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:09:12 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:09:12 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:09:12 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:09:12 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:09:12 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:09:12 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:09:12 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:09:12 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:09:12 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:09:12 symfony [info] {sfWebDebugLogger} Configuration 28.43 ms (13)
+Feb 09 12:09:12 symfony [info] {sfWebDebugLogger} Factories 49.24 ms (1)
+Feb 09 12:09:12 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 14.41 ms (1)
+Feb 09 12:09:12 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 23.32 ms (1)
+Feb 09 12:09:12 symfony [info] {sfWebResponse} Send content (66770 o)
+Feb 09 12:09:13 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:09:13 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:09:13 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:09:13 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /actividad/images/favicon.ico with parameters array (  'module' => 'actividad',  'action' => 'images',  'favicon.ico' => true,)
+Feb 09 12:09:13 symfony [info] {sfFrontWebController} Action "actividad/images" does not exist
+Feb 09 12:09:13 symfony [err] {sfError404Exception} Action "actividad/images" does not exist.
+Feb 09 12:09:13 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:09:13 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:09:13 symfony [info] {sfWebDebugLogger} Configuration 1.40 ms (5)
+Feb 09 12:09:13 symfony [info] {sfWebDebugLogger} Factories 50.95 ms (1)
+Feb 09 12:09:13 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:09:13 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:09:13 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:09:13 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /actividad/new with parameters array (  'module' => 'actividad',  'action' => 'new',)
+Feb 09 12:09:13 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:09:13 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:09:13 symfony [info] {sfBasicSecurityFilter} Action "actividad/new" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:09:13 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:09:13 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:09:13 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:09:13 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:09:13 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:09:13 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:09:13 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:09:13 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:09:13 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:09:14 symfony [info] {sfWebDebugLogger} Configuration 3.45 ms (12)
+Feb 09 12:09:14 symfony [info] {sfWebDebugLogger} Factories 50.88 ms (1)
+Feb 09 12:09:14 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 15.62 ms (1)
+Feb 09 12:09:14 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 29.13 ms (1)
+Feb 09 12:09:14 symfony [info] {sfWebResponse} Send content (66781 o)
+Feb 09 12:09:14 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:09:14 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:09:14 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:09:14 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:09:14 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /actividad/new with parameters array (  'module' => 'actividad',  'action' => 'new',)
+Feb 09 12:09:14 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:09:14 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:09:14 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /actividad/images/favicon.ico with parameters array (  'module' => 'actividad',  'action' => 'images',  'favicon.ico' => true,)
+Feb 09 12:09:14 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:09:14 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:09:14 symfony [info] {sfBasicSecurityFilter} Action "actividad/new" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:09:14 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:09:14 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:09:14 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:09:14 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:09:14 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:09:14 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:09:14 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:09:14 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:09:14 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:09:14 symfony [info] {sfWebDebugLogger} Configuration 9.24 ms (12)
+Feb 09 12:09:14 symfony [info] {sfWebDebugLogger} Factories 86.80 ms (1)
+Feb 09 12:09:14 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 25.59 ms (1)
+Feb 09 12:09:14 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 33.31 ms (1)
+Feb 09 12:09:14 symfony [info] {sfWebResponse} Send content (66782 o)
+Feb 09 12:09:14 symfony [info] {sfFrontWebController} Action "actividad/images" does not exist
+Feb 09 12:09:14 symfony [err] {sfError404Exception} Action "actividad/images" does not exist.
+Feb 09 12:09:14 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:09:14 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:09:14 symfony [info] {sfWebDebugLogger} Configuration 1.49 ms (5)
+Feb 09 12:09:14 symfony [info] {sfWebDebugLogger} Factories 283.24 ms (1)
+Feb 09 12:09:15 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:09:15 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:09:15 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:09:15 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /actividad/new with parameters array (  'module' => 'actividad',  'action' => 'new',)
+Feb 09 12:09:15 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:09:15 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:09:15 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:09:15 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /actividad/images/favicon.ico with parameters array (  'module' => 'actividad',  'action' => 'images',  'favicon.ico' => true,)
+Feb 09 12:09:15 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:09:15 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:09:15 symfony [info] {sfBasicSecurityFilter} Action "actividad/new" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:09:15 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:09:15 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:09:15 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:09:15 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:09:15 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:09:15 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:09:15 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:09:15 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:09:15 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:09:15 symfony [info] {sfWebDebugLogger} Configuration 3.50 ms (12)
+Feb 09 12:09:15 symfony [info] {sfWebDebugLogger} Factories 93.90 ms (1)
+Feb 09 12:09:15 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 13.81 ms (1)
+Feb 09 12:09:15 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 22.19 ms (1)
+Feb 09 12:09:15 symfony [info] {sfWebResponse} Send content (66780 o)
+Feb 09 12:09:15 symfony [info] {sfFrontWebController} Action "actividad/images" does not exist
+Feb 09 12:09:15 symfony [err] {sfError404Exception} Action "actividad/images" does not exist.
+Feb 09 12:09:15 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:09:15 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:09:15 symfony [info] {sfWebDebugLogger} Configuration 1.44 ms (5)
+Feb 09 12:09:15 symfony [info] {sfWebDebugLogger} Factories 183.81 ms (1)
+Feb 09 12:09:15 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:09:15 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:09:15 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:09:15 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /actividad/new with parameters array (  'module' => 'actividad',  'action' => 'new',)
+Feb 09 12:09:15 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:09:15 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:09:15 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:09:15 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /actividad/images/favicon.ico with parameters array (  'module' => 'actividad',  'action' => 'images',  'favicon.ico' => true,)
+Feb 09 12:09:15 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:09:15 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:09:15 symfony [info] {sfBasicSecurityFilter} Action "actividad/new" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:09:15 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:09:15 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:09:15 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:09:15 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:09:15 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:09:15 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:09:15 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:09:15 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:09:15 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:09:15 symfony [info] {sfWebDebugLogger} Configuration 3.40 ms (12)
+Feb 09 12:09:15 symfony [info] {sfWebDebugLogger} Factories 77.77 ms (1)
+Feb 09 12:09:15 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 12.94 ms (1)
+Feb 09 12:09:15 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 20.87 ms (1)
+Feb 09 12:09:15 symfony [info] {sfWebResponse} Send content (66780 o)
+Feb 09 12:09:15 symfony [info] {sfFrontWebController} Action "actividad/images" does not exist
+Feb 09 12:09:15 symfony [err] {sfError404Exception} Action "actividad/images" does not exist.
+Feb 09 12:09:16 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:09:16 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:09:16 symfony [info] {sfWebDebugLogger} Configuration 1.40 ms (5)
+Feb 09 12:09:16 symfony [info] {sfWebDebugLogger} Factories 220.29 ms (1)
+Feb 09 12:09:16 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:09:16 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:09:16 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:09:16 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /actividad/new with parameters array (  'module' => 'actividad',  'action' => 'new',)
+Feb 09 12:09:16 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:09:16 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:09:16 symfony [info] {sfBasicSecurityFilter} Action "actividad/new" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:09:16 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:09:16 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:09:16 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:09:16 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:09:16 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:09:16 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:09:16 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:09:16 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:09:16 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:09:16 symfony [info] {sfWebDebugLogger} Configuration 5.51 ms (12)
+Feb 09 12:09:16 symfony [info] {sfWebDebugLogger} Factories 83.07 ms (1)
+Feb 09 12:09:16 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 24.89 ms (1)
+Feb 09 12:09:16 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 28.78 ms (1)
+Feb 09 12:09:16 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:09:16 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:09:16 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:09:16 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /actividad/images/favicon.ico with parameters array (  'module' => 'actividad',  'action' => 'images',  'favicon.ico' => true,)
+Feb 09 12:09:16 symfony [info] {sfWebResponse} Send content (66782 o)
+Feb 09 12:09:16 symfony [info] {sfFrontWebController} Action "actividad/images" does not exist
+Feb 09 12:09:16 symfony [err] {sfError404Exception} Action "actividad/images" does not exist.
+Feb 09 12:09:16 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:09:16 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:09:16 symfony [info] {sfWebDebugLogger} Configuration 1.47 ms (5)
+Feb 09 12:09:16 symfony [info] {sfWebDebugLogger} Factories 194.44 ms (1)
+Feb 09 12:09:17 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:09:17 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:09:17 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:09:17 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /actividad/images/favicon.ico with parameters array (  'module' => 'actividad',  'action' => 'images',  'favicon.ico' => true,)
+Feb 09 12:09:17 symfony [info] {sfFrontWebController} Action "actividad/images" does not exist
+Feb 09 12:09:17 symfony [err] {sfError404Exception} Action "actividad/images" does not exist.
+Feb 09 12:09:17 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:09:17 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:09:17 symfony [info] {sfWebDebugLogger} Configuration 1.44 ms (5)
+Feb 09 12:09:17 symfony [info] {sfWebDebugLogger} Factories 53.67 ms (1)
+Feb 09 12:09:21 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:09:21 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:09:21 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:09:21 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'sala',  'action' => 'index',)
+Feb 09 12:09:21 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:09:21 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:09:21 symfony [info] {sfBasicSecurityFilter} Action "sala/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:09:21 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:09:21 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:09:21 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:09:21 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:09:21 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:09:21 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:09:21 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:09:21 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:09:21 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:09:21 symfony [info] {sfWebDebugLogger} Configuration 3.41 ms (12)
+Feb 09 12:09:21 symfony [info] {sfWebDebugLogger} Factories 46.68 ms (1)
+Feb 09 12:09:21 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 13.55 ms (1)
+Feb 09 12:09:21 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 22.46 ms (1)
+Feb 09 12:09:22 symfony [info] {sfWebResponse} Send content (66491 o)
+Feb 09 12:10:16 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:10:16 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:10:16 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:10:16 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Feb 09 12:10:16 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:10:16 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:10:16 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:10:16 symfony [err] {PropelException} Unable to open PDO connection [wrapped: SQLSTATE[08006] [7] FATAL:  password authentication failed for user "filven"
+FATAL:  password authentication failed for user "filven"]
+Feb 09 12:10:17 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Feb 09 12:10:17 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:10:17 symfony [info] {sfWebDebugLogger} Configuration 2.29 ms (8)
+Feb 09 12:10:17 symfony [info] {sfWebDebugLogger} Factories 51.23 ms (1)
+Feb 09 12:10:17 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 353.66 ms (1)
+Feb 09 12:11:28 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:11:28 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:11:28 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:11:28 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Feb 09 12:11:28 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:11:28 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:11:28 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:11:28 symfony [err] {PropelException} Unable to open PDO connection [wrapped: SQLSTATE[08006] [7] FATAL:  password authentication failed for user "filven"
+FATAL:  password authentication failed for user "filven"]
+Feb 09 12:11:28 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Feb 09 12:11:28 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:11:28 symfony [info] {sfWebDebugLogger} Configuration 2.42 ms (8)
+Feb 09 12:11:28 symfony [info] {sfWebDebugLogger} Factories 47.38 ms (1)
+Feb 09 12:11:28 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 355.80 ms (1)
+Feb 09 12:11:31 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:11:31 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:11:31 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:11:31 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'sala',  'action' => 'index',)
+Feb 09 12:11:31 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:11:31 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:11:31 symfony [info] {sfBasicSecurityFilter} Action "sala/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:11:31 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:11:31 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:11:31 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:11:31 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:11:31 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:11:31 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:11:31 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:11:31 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:11:31 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:11:31 symfony [info] {sfWebDebugLogger} Configuration 3.42 ms (12)
+Feb 09 12:11:31 symfony [info] {sfWebDebugLogger} Factories 61.33 ms (1)
+Feb 09 12:11:31 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 14.11 ms (1)
+Feb 09 12:11:31 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 25.07 ms (1)
+Feb 09 12:11:31 symfony [info] {sfWebResponse} Send content (66509 o)
+Feb 09 12:11:36 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:11:36 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:11:36 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:11:36 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Feb 09 12:11:36 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:11:36 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:11:36 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:11:36 symfony [err] {PropelException} Unable to open PDO connection [wrapped: SQLSTATE[08006] [7] FATAL:  password authentication failed for user "filven"
+FATAL:  password authentication failed for user "filven"]
+Feb 09 12:11:36 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Feb 09 12:11:36 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:11:36 symfony [info] {sfWebDebugLogger} Configuration 2.34 ms (8)
+Feb 09 12:11:36 symfony [info] {sfWebDebugLogger} Factories 50.31 ms (1)
+Feb 09 12:11:36 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 366.36 ms (1)
+Feb 09 12:12:14 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:12:14 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:12:14 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:12:14 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'sala',  'action' => 'index',)
+Feb 09 12:12:14 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:12:14 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:12:14 symfony [info] {sfBasicSecurityFilter} Action "sala/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:12:14 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:12:14 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:12:14 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:12:14 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:12:14 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:12:14 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:12:14 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:12:14 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:12:14 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:12:14 symfony [info] {sfWebDebugLogger} Configuration 339.68 ms (12)
+Feb 09 12:12:14 symfony [info] {sfWebDebugLogger} Factories 151.84 ms (1)
+Feb 09 12:12:14 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 13.46 ms (1)
+Feb 09 12:12:14 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 29.81 ms (1)
+Feb 09 12:12:14 symfony [info] {sfWebResponse} Send content (66590 o)
+Feb 09 12:12:15 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:12:15 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:12:15 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:12:15 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/images/favicon.ico" (/).
+Feb 09 12:12:15 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:12:15 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:12:15 symfony [info] {sfWebDebugLogger} Configuration 1.40 ms (5)
+Feb 09 12:12:15 symfony [info] {sfWebDebugLogger} Factories 45.57 ms (1)
+Feb 09 12:12:16 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:12:16 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:12:16 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:12:16 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'sala',  'action' => 'index',)
+Feb 09 12:12:16 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:12:16 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:12:16 symfony [info] {sfBasicSecurityFilter} Action "sala/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:12:16 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:12:16 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:12:16 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:12:16 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:12:16 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:12:16 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:12:16 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:12:16 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:12:16 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:12:16 symfony [info] {sfWebDebugLogger} Configuration 3.50 ms (12)
+Feb 09 12:12:16 symfony [info] {sfWebDebugLogger} Factories 46.25 ms (1)
+Feb 09 12:12:16 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 13.86 ms (1)
+Feb 09 12:12:16 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 22.78 ms (1)
+Feb 09 12:12:16 symfony [info] {sfWebResponse} Send content (66588 o)
+Feb 09 12:12:16 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:12:16 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:12:16 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:12:16 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/images/favicon.ico" (/).
+Feb 09 12:12:16 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:12:16 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:12:16 symfony [info] {sfWebDebugLogger} Configuration 1.41 ms (5)
+Feb 09 12:12:16 symfony [info] {sfWebDebugLogger} Factories 53.17 ms (1)
+Feb 09 12:12:17 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:12:17 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:12:17 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:12:17 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'sala',  'action' => 'index',)
+Feb 09 12:12:17 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:12:17 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:12:17 symfony [info] {sfBasicSecurityFilter} Action "sala/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:12:17 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:12:17 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:12:17 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:12:17 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:12:17 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:12:17 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:12:17 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:12:17 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:12:17 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:12:17 symfony [info] {sfWebDebugLogger} Configuration 3.35 ms (12)
+Feb 09 12:12:17 symfony [info] {sfWebDebugLogger} Factories 46.43 ms (1)
+Feb 09 12:12:17 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 13.17 ms (1)
+Feb 09 12:12:17 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 21.48 ms (1)
+Feb 09 12:12:17 symfony [info] {sfWebResponse} Send content (66588 o)
+Feb 09 12:12:17 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:12:17 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:12:17 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:12:17 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/images/favicon.ico" (/).
+Feb 09 12:12:17 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:12:17 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:12:17 symfony [info] {sfWebDebugLogger} Configuration 1.43 ms (5)
+Feb 09 12:12:17 symfony [info] {sfWebDebugLogger} Factories 44.97 ms (1)
+Feb 09 12:12:17 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:12:17 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:12:17 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:12:17 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'sala',  'action' => 'index',)
+Feb 09 12:12:17 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:12:17 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:12:17 symfony [info] {sfBasicSecurityFilter} Action "sala/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:12:17 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:12:17 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:12:17 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:12:17 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:12:17 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:12:17 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:12:17 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:12:17 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:12:17 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:12:17 symfony [info] {sfWebDebugLogger} Configuration 3.63 ms (12)
+Feb 09 12:12:17 symfony [info] {sfWebDebugLogger} Factories 70.13 ms (1)
+Feb 09 12:12:17 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 12.28 ms (1)
+Feb 09 12:12:17 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 23.98 ms (1)
+Feb 09 12:12:17 symfony [info] {sfWebResponse} Send content (66588 o)
+Feb 09 12:12:18 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:12:18 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:12:18 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:12:18 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/images/favicon.ico" (/).
+Feb 09 12:12:18 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:12:18 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:12:18 symfony [info] {sfWebDebugLogger} Configuration 2.41 ms (5)
+Feb 09 12:12:18 symfony [info] {sfWebDebugLogger} Factories 44.86 ms (1)
+Feb 09 12:12:18 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:12:18 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:12:18 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:12:18 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'sala',  'action' => 'index',)
+Feb 09 12:12:18 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:12:18 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:12:18 symfony [info] {sfBasicSecurityFilter} Action "sala/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:12:18 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:12:18 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:12:18 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:12:18 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:12:18 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:12:18 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:12:18 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:12:18 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:12:18 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:12:18 symfony [info] {sfWebDebugLogger} Configuration 3.39 ms (12)
+Feb 09 12:12:18 symfony [info] {sfWebDebugLogger} Factories 134.40 ms (1)
+Feb 09 12:12:18 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 13.67 ms (1)
+Feb 09 12:12:18 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 21.62 ms (1)
+Feb 09 12:12:18 symfony [info] {sfWebResponse} Send content (66588 o)
+Feb 09 12:12:18 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:12:18 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:12:18 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:12:18 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'sala',  'action' => 'index',)
+Feb 09 12:12:18 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:12:18 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:12:18 symfony [info] {sfBasicSecurityFilter} Action "sala/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:12:18 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:12:18 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:12:18 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:12:18 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:12:18 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:12:18 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:12:18 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:12:18 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:12:18 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:12:18 symfony [info] {sfWebDebugLogger} Configuration 3.36 ms (12)
+Feb 09 12:12:18 symfony [info] {sfWebDebugLogger} Factories 44.95 ms (1)
+Feb 09 12:12:18 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 13.37 ms (1)
+Feb 09 12:12:18 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 20.64 ms (1)
+Feb 09 12:12:18 symfony [info] {sfWebResponse} Send content (66588 o)
+Feb 09 12:12:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:12:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:12:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:12:19 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'sala',  'action' => 'index',)
+Feb 09 12:12:19 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:12:19 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:12:19 symfony [info] {sfBasicSecurityFilter} Action "sala/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:12:19 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:12:19 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:12:19 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:12:19 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:12:19 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:12:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:12:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:12:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:12:19 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:12:19 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:12:19 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:12:19 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:12:19 symfony [info] {sfWebDebugLogger} Configuration 3.46 ms (12)
+Feb 09 12:12:19 symfony [info] {sfWebDebugLogger} Factories 60.39 ms (1)
+Feb 09 12:12:19 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 15.29 ms (1)
+Feb 09 12:12:19 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 27.52 ms (1)
+Feb 09 12:12:19 symfony [info] {sfWebResponse} Send content (66588 o)
+Feb 09 12:12:19 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/images/favicon.ico" (/).
+Feb 09 12:12:19 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:12:19 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:12:19 symfony [info] {sfWebDebugLogger} Configuration 1.41 ms (5)
+Feb 09 12:12:19 symfony [info] {sfWebDebugLogger} Factories 159.87 ms (1)
+Feb 09 12:12:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:12:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:12:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:12:19 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/images/favicon.ico" (/).
+Feb 09 12:12:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:12:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:12:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:12:19 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'sala',  'action' => 'index',)
+Feb 09 12:12:19 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:12:19 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:12:19 symfony [info] {sfWebDebugLogger} Configuration 1.39 ms (5)
+Feb 09 12:12:19 symfony [info] {sfWebDebugLogger} Factories 46.69 ms (1)
+Feb 09 12:12:19 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:12:19 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:12:19 symfony [info] {sfBasicSecurityFilter} Action "sala/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:12:19 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:12:19 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:12:19 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:12:19 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:12:19 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:12:19 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:12:19 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:12:19 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:12:19 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:12:19 symfony [info] {sfWebDebugLogger} Configuration 15.97 ms (12)
+Feb 09 12:12:19 symfony [info] {sfWebDebugLogger} Factories 162.50 ms (1)
+Feb 09 12:12:19 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 13.40 ms (1)
+Feb 09 12:12:19 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 23.11 ms (1)
+Feb 09 12:12:19 symfony [info] {sfWebResponse} Send content (66589 o)
+Feb 09 12:12:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:12:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:12:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:12:19 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'sala',  'action' => 'index',)
+Feb 09 12:12:19 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:12:19 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:12:19 symfony [info] {sfBasicSecurityFilter} Action "sala/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:12:19 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:12:19 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:12:19 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:12:19 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:12:19 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:12:19 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:12:19 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:12:19 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:12:19 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:12:19 symfony [info] {sfWebDebugLogger} Configuration 3.77 ms (12)
+Feb 09 12:12:19 symfony [info] {sfWebDebugLogger} Factories 62.70 ms (1)
+Feb 09 12:12:19 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 13.95 ms (1)
+Feb 09 12:12:19 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 21.57 ms (1)
+Feb 09 12:12:19 symfony [info] {sfWebResponse} Send content (66588 o)
+Feb 09 12:12:20 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:12:20 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:12:20 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:12:20 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/images/favicon.ico" (/).
+Feb 09 12:12:20 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:12:20 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:12:20 symfony [info] {sfWebDebugLogger} Configuration 1.42 ms (5)
+Feb 09 12:12:20 symfony [info] {sfWebDebugLogger} Factories 45.16 ms (1)
+Feb 09 12:13:28 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:13:28 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:13:28 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:13:28 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'sala',  'action' => 'index',)
+Feb 09 12:13:28 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:13:28 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:13:28 symfony [info] {sfBasicSecurityFilter} Action "sala/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:13:28 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:13:28 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:13:28 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:13:28 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:13:28 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:13:28 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:13:28 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:13:28 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:13:28 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:13:28 symfony [info] {sfWebDebugLogger} Configuration 3.44 ms (12)
+Feb 09 12:13:28 symfony [info] {sfWebDebugLogger} Factories 45.18 ms (1)
+Feb 09 12:13:28 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 12.42 ms (1)
+Feb 09 12:13:28 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 19.25 ms (1)
+Feb 09 12:13:28 symfony [info] {sfWebResponse} Send content (66539 o)
+Feb 09 12:13:29 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:13:29 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:13:29 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:13:29 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/images/favicon.ico" (/).
+Feb 09 12:13:29 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:13:29 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:13:29 symfony [info] {sfWebDebugLogger} Configuration 1.41 ms (5)
+Feb 09 12:13:29 symfony [info] {sfWebDebugLogger} Factories 44.40 ms (1)
+Feb 09 12:13:34 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:13:34 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:13:34 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:13:34 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'sala',  'action' => 'index',)
+Feb 09 12:13:34 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:13:34 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:13:34 symfony [info] {sfBasicSecurityFilter} Action "sala/index" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:13:34 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:13:34 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:13:34 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:13:34 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:13:34 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:13:34 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:13:34 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:13:34 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:13:34 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:13:34 symfony [info] {sfWebDebugLogger} Configuration 3.36 ms (12)
+Feb 09 12:13:34 symfony [info] {sfWebDebugLogger} Factories 48.93 ms (1)
+Feb 09 12:13:34 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 13.21 ms (1)
+Feb 09 12:13:34 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 21.39 ms (1)
+Feb 09 12:13:34 symfony [info] {sfWebResponse} Send content (66588 o)
+Feb 09 12:14:50 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:14:50 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:14:50 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:14:50 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /encuesta/new with parameters array (  'module' => 'encuesta',  'action' => 'new',)
+Feb 09 12:14:50 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:14:50 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:14:50 symfony [info] {sfBasicSecurityFilter} Action "encuesta/new" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:14:50 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:14:50 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:14:50 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:14:50 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:14:50 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:14:50 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:14:50 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:14:50 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:14:50 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:14:50 symfony [info] {sfWebDebugLogger} Configuration 26.08 ms (13)
+Feb 09 12:14:50 symfony [info] {sfWebDebugLogger} Factories 47.49 ms (1)
+Feb 09 12:14:50 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 13.27 ms (1)
+Feb 09 12:14:50 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 20.48 ms (1)
+Feb 09 12:14:50 symfony [info] {sfWebResponse} Send content (66634 o)
+Feb 09 12:14:51 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:14:51 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:14:51 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:14:51 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /encuesta/images/favicon.ico with parameters array (  'module' => 'encuesta',  'action' => 'images',  'favicon.ico' => true,)
+Feb 09 12:14:51 symfony [info] {sfFrontWebController} Action "encuesta/images" does not exist
+Feb 09 12:14:51 symfony [err] {sfError404Exception} Action "encuesta/images" does not exist.
+Feb 09 12:14:51 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:14:51 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:14:51 symfony [info] {sfWebDebugLogger} Configuration 1.38 ms (5)
+Feb 09 12:14:51 symfony [info] {sfWebDebugLogger} Factories 45.45 ms (1)
+Feb 09 12:23:53 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:23:53 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:23:53 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:23:53 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /encuesta/new with parameters array (  'module' => 'encuesta',  'action' => 'new',)
+Feb 09 12:23:53 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:23:53 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:23:53 symfony [info] {sfBasicSecurityFilter} Action "encuesta/new" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:23:53 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:23:53 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:23:53 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:23:53 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:23:53 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:23:53 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:23:53 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:23:53 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:23:53 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:23:53 symfony [info] {sfWebDebugLogger} Configuration 6.99 ms (12)
+Feb 09 12:23:53 symfony [info] {sfWebDebugLogger} Factories 165.67 ms (1)
+Feb 09 12:23:53 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 16.41 ms (1)
+Feb 09 12:23:53 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 31.91 ms (1)
+Feb 09 12:23:53 symfony [info] {sfWebResponse} Send content (66632 o)
+Feb 09 12:23:54 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:23:54 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:23:54 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:23:54 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /encuesta/images/favicon.ico with parameters array (  'module' => 'encuesta',  'action' => 'images',  'favicon.ico' => true,)
+Feb 09 12:23:54 symfony [info] {sfFrontWebController} Action "encuesta/images" does not exist
+Feb 09 12:23:54 symfony [err] {sfError404Exception} Action "encuesta/images" does not exist.
+Feb 09 12:23:54 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:23:54 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:23:54 symfony [info] {sfWebDebugLogger} Configuration 1.36 ms (5)
+Feb 09 12:23:54 symfony [info] {sfWebDebugLogger} Factories 47.09 ms (1)
+Feb 09 12:24:07 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:24:07 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:24:07 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:24:07 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /sala/new with parameters array (  'module' => 'sala',  'action' => 'new',)
+Feb 09 12:24:07 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:24:07 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:24:07 symfony [info] {sfBasicSecurityFilter} Action "sala/new" requires authentication, forwarding to "sfGuardAuth/signin"
+Feb 09 12:24:07 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:24:07 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:24:07 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 09 12:24:07 symfony [info] {sfGuardAuthActions} Change layout to "login"
+Feb 09 12:24:07 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 09 12:24:07 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:24:07 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/login.php"
+Feb 09 12:24:07 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:24:07 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:24:07 symfony [info] {sfWebDebugLogger} Configuration 3.54 ms (12)
+Feb 09 12:24:07 symfony [info] {sfWebDebugLogger} Factories 48.96 ms (1)
+Feb 09 12:24:07 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 13.04 ms (1)
+Feb 09 12:24:07 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 21.16 ms (1)
+Feb 09 12:24:08 symfony [info] {sfWebResponse} Send content (66617 o)
+Feb 09 12:24:08 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:24:08 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:24:08 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:24:08 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /sala/images/favicon.ico with parameters array (  'module' => 'sala',  'action' => 'images',  'favicon.ico' => true,)
+Feb 09 12:24:08 symfony [info] {sfFrontWebController} Action "sala/images" does not exist
+Feb 09 12:24:08 symfony [err] {sfError404Exception} Action "sala/images" does not exist.
+Feb 09 12:24:08 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:24:08 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:24:08 symfony [info] {sfWebDebugLogger} Configuration 1.47 ms (5)
+Feb 09 12:24:08 symfony [info] {sfWebDebugLogger} Factories 48.99 ms (1)
+Feb 09 12:40:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:40:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:40:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:40:19 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'sala',  'action' => 'index',)
+Feb 09 12:40:19 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:40:19 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:40:19 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:40:19 symfony [info] {salaActions} Call "salaActions->executeIndex()"
+Feb 09 12:40:19 symfony [debug] {sfPropelLogger} time:  0.001 sec | slow:  NO | mem:    6.8 MB | mempeak:    6.8 MB | memdelta:      0.0 B | SET NAMES 'utf8'
+Feb 09 12:40:19 symfony [debug] {sfPropelLogger} time:  0.005 sec | slow:  NO | mem:    7.0 MB | mempeak:    7.0 MB | memdelta:      0.0 B | SELECT sala.ID, sala.NOMBRE_SALA, sala.DESCRIPCION_SALA FROM sala
+Feb 09 12:40:19 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sala/templates/indexSuccess.php"
+Feb 09 12:40:19 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/layout.php"
+Feb 09 12:40:19 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/layout.php"
+Feb 09 12:40:19 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:40:19 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:40:19 symfony [info] {sfWebDebugLogger} Configuration 318.23 ms (9)
+Feb 09 12:40:19 symfony [info] {sfWebDebugLogger} Factories 150.40 ms (1)
+Feb 09 12:40:19 symfony [info] {sfWebDebugLogger} Action "sala/index" 257.74 ms (1)
+Feb 09 12:40:19 symfony [info] {sfWebDebugLogger} View "Success" for "sala/index" 30.51 ms (1)
+Feb 09 12:40:19 symfony [info] {sfWebResponse} Send content (73830 o)
+Feb 09 12:40:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:40:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:40:20 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:40:20 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:40:20 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:40:20 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:40:20 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:40:20 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:40:20 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:40:20 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/css/style_menu.css" (/).
+Feb 09 12:40:20 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:40:20 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:40:20 symfony [info] {sfWebDebugLogger} Configuration 1.40 ms (5)
+Feb 09 12:40:20 symfony [info] {sfWebDebugLogger} Factories 93.77 ms (1)
+Feb 09 12:40:20 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/css/style_form.css" (/).
+Feb 09 12:40:20 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:40:20 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:40:20 symfony [info] {sfWebDebugLogger} Configuration 19.28 ms (5)
+Feb 09 12:40:20 symfony [info] {sfWebDebugLogger} Factories 159.90 ms (1)
+Feb 09 12:40:20 symfony [err] {sfError404Exception} Empty module and/or action after parsing the URL "/css/style_layout.css" (/).
+Feb 09 12:40:20 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:40:20 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:40:20 symfony [info] {sfWebDebugLogger} Configuration 10.96 ms (5)
+Feb 09 12:40:20 symfony [info] {sfWebDebugLogger} Factories 258.79 ms (1)
+Feb 09 12:40:21 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:40:21 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:40:21 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:40:21 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /encuesta/new with parameters array (  'module' => 'encuesta',  'action' => 'new',)
+Feb 09 12:40:21 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:40:21 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:40:21 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:40:21 symfony [info] {encuestaActions} Call "encuestaActions->executeNew()"
+Feb 09 12:40:22 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/encuesta/templates/newSuccess.php"
+Feb 09 12:40:22 symfony [info] {sfPartialView} Render "/var/www/sfprojects/filven/apps/frontend/modules/encuesta/templates/_form.php"
+Feb 09 12:40:22 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/layout.php"
+Feb 09 12:40:22 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/layout.php"
+Feb 09 12:40:22 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:40:22 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:40:22 symfony [info] {sfWebDebugLogger} Configuration 30.49 ms (10)
+Feb 09 12:40:22 symfony [info] {sfWebDebugLogger} Factories 44.98 ms (1)
+Feb 09 12:40:22 symfony [info] {sfWebDebugLogger} Action "encuesta/new" 71.01 ms (1)
+Feb 09 12:40:22 symfony [info] {sfWebDebugLogger} View "Success" for "encuesta/new" 82.14 ms (1)
+Feb 09 12:40:22 symfony [info] {sfWebDebugLogger} Partial "encuesta/_form" 38.86 ms (1)
+Feb 09 12:40:22 symfony [info] {sfWebResponse} Send content (72418 o)
+Feb 09 12:40:22 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:40:22 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:40:22 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:40:22 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:40:22 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /encuesta/css/style_menu.css with parameters array (  'module' => 'encuesta',  'action' => 'css',  'style_menu.css' => true,)
+Feb 09 12:40:22 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:40:22 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:40:22 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:40:22 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /encuesta/css/style_layout.css with parameters array (  'module' => 'encuesta',  'action' => 'css',  'style_layout.css' => true,)
+Feb 09 12:40:22 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:40:22 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:40:22 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /encuesta/css/style_form.css with parameters array (  'module' => 'encuesta',  'action' => 'css',  'style_form.css' => true,)
+Feb 09 12:40:22 symfony [info] {sfFrontWebController} Action "encuesta/css" does not exist
+Feb 09 12:40:22 symfony [err] {sfError404Exception} Action "encuesta/css" does not exist.
+Feb 09 12:40:22 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:40:22 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:40:22 symfony [info] {sfWebDebugLogger} Configuration 1.50 ms (5)
+Feb 09 12:40:22 symfony [info] {sfWebDebugLogger} Factories 85.09 ms (1)
+Feb 09 12:40:22 symfony [info] {sfFrontWebController} Action "encuesta/css" does not exist
+Feb 09 12:40:22 symfony [err] {sfError404Exception} Action "encuesta/css" does not exist.
+Feb 09 12:40:22 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:40:22 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:40:22 symfony [info] {sfWebDebugLogger} Configuration 1.61 ms (5)
+Feb 09 12:40:22 symfony [info] {sfWebDebugLogger} Factories 149.59 ms (1)
+Feb 09 12:40:22 symfony [info] {sfFrontWebController} Action "encuesta/css" does not exist
+Feb 09 12:40:22 symfony [err] {sfError404Exception} Action "encuesta/css" does not exist.
+Feb 09 12:40:22 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:40:22 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:40:22 symfony [info] {sfWebDebugLogger} Configuration 1.47 ms (5)
+Feb 09 12:40:22 symfony [info] {sfWebDebugLogger} Factories 258.06 ms (1)
+Feb 09 12:40:26 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:40:26 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:40:26 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:40:26 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /sala/new with parameters array (  'module' => 'sala',  'action' => 'new',)
+Feb 09 12:40:26 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 09 12:40:26 symfony [info] {sfFilterChain} Executing filter "sfBasicSecurityFilter"
+Feb 09 12:40:26 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 09 12:40:26 symfony [info] {salaActions} Call "salaActions->executeNew()"
+Feb 09 12:40:26 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sala/templates/newSuccess.php"
+Feb 09 12:40:26 symfony [info] {sfPartialView} Render "/var/www/sfprojects/filven/apps/frontend/modules/sala/templates/_form.php"
+Feb 09 12:40:26 symfony [info] {sfPHPView} Decorate content with "/var/www/sfprojects/filven/apps/frontend/templates/layout.php"
+Feb 09 12:40:26 symfony [info] {sfPHPView} Render "/var/www/sfprojects/filven/apps/frontend/templates/layout.php"
+Feb 09 12:40:26 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 09 12:40:26 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:40:26 symfony [info] {sfWebDebugLogger} Configuration 2.54 ms (9)
+Feb 09 12:40:26 symfony [info] {sfWebDebugLogger} Factories 44.00 ms (1)
+Feb 09 12:40:26 symfony [info] {sfWebDebugLogger} Action "sala/new" 29.91 ms (1)
+Feb 09 12:40:26 symfony [info] {sfWebDebugLogger} View "Success" for "sala/new" 29.64 ms (1)
+Feb 09 12:40:26 symfony [info] {sfWebDebugLogger} Partial "sala/_form" 7.53 ms (1)
+Feb 09 12:40:27 symfony [info] {sfWebResponse} Send content (66761 o)
+Feb 09 12:40:27 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:40:27 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:40:27 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:40:27 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /sala/css/style_layout.css with parameters array (  'module' => 'sala',  'action' => 'css',  'style_layout.css' => true,)
+Feb 09 12:40:27 symfony [info] {sfFrontWebController} Action "sala/css" does not exist
+Feb 09 12:40:27 symfony [err] {sfError404Exception} Action "sala/css" does not exist.
+Feb 09 12:40:27 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:40:27 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:40:27 symfony [info] {sfWebDebugLogger} Configuration 1.49 ms (5)
+Feb 09 12:40:27 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:40:27 symfony [info] {sfWebDebugLogger} Factories 61.66 ms (1)
+Feb 09 12:40:27 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:40:27 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:40:27 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /sala/css/style_menu.css with parameters array (  'module' => 'sala',  'action' => 'css',  'style_menu.css' => true,)
+Feb 09 12:40:27 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 09 12:40:27 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 09 12:40:27 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 09 12:40:27 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /sala/css/style_form.css with parameters array (  'module' => 'sala',  'action' => 'css',  'style_form.css' => true,)
+Feb 09 12:40:27 symfony [info] {sfFrontWebController} Action "sala/css" does not exist
+Feb 09 12:40:27 symfony [err] {sfError404Exception} Action "sala/css" does not exist.
+Feb 09 12:40:27 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:40:27 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:40:27 symfony [info] {sfWebDebugLogger} Configuration 1.39 ms (5)
+Feb 09 12:40:27 symfony [info] {sfWebDebugLogger} Factories 105.12 ms (1)
+Feb 09 12:40:27 symfony [info] {sfFrontWebController} Action "sala/css" does not exist
+Feb 09 12:40:27 symfony [err] {sfError404Exception} Action "sala/css" does not exist.
+Feb 09 12:40:27 symfony [info] {sfWebResponse} Send status "HTTP/1.1 404 Not Found"
+Feb 09 12:40:27 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 09 12:40:27 symfony [info] {sfWebDebugLogger} Configuration 1.44 ms (5)
+Feb 09 12:40:27 symfony [info] {sfWebDebugLogger} Factories 182.64 ms (1)

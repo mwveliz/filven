@@ -13,8 +13,8 @@ all:
     param:
       classname: PropelPDO
       dsn: 'pgsql:host=localhost;dbname=filven'
-      username: filven
-      password: nirvana
+      username: postgres
+      password: postgres
       encoding: utf8
       persistent: true
       pooling: true

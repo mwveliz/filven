@@ -22,3 +22,30 @@
     </tbody>
   </table>
 </form>
+
+
+<div class="container">
+
+<form id="formulario" method="post" action="">
+<h3>Contact Form</h3>
+<div class="field">
+	<label for="name">Name:</label>
+  	<input type="text" class="input" name="name" id="name" />
+	<p class="hint">Enter your name.</p>
+</div>
+
+<div class="field">
+	<label for="email">Email:</label>
+  	<input type="text" class="input" name="email" id="email" />
+	<p class="hint">Enter your email.</p>
+</div>
+
+<div class="field">
+	<label for="message">Message:</label>
+  	<textarea class="input textarea" name="message" id="message"></textarea>
+	<p class="hint">Write your message.</p>
+</div>
+
+
+<input type="submit" name="Submit"  class="button" value="Submit" />
+</form>
