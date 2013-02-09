@@ -1,75 +1,80 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-  <head>
-      <link rel="shortcut icon" href="/favicon.ico"/>
-      <title>Observatorio del Libro: FILVEN 2013</title>
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <title>Observatorio del Libro: FILVEN 2013</title>
+  <meta name="description" content="website description">
+  <meta name="keywords" content="website keywords, website keywords">
+  <link rel="stylesheet" href="css/style_menu.css" />
+  <link rel="stylesheet" type="text/css" href="css/style_layout.css" title="style">
+  <link rel="stylesheet" type="text/css" href="css/style_form.css" title="style">
     <?php include_http_metas() ?>
     <?php include_metas() ?>
     <?php include_title() ?>
     <?php include_stylesheets() ?>
     <?php include_javascripts() ?>
-    
-        
-        
-<center><nav>
-<ul class="sf-menu sf-navbar">
-        <li><a href="#" title="Actividad"> Actividad</a>
-        <ul>
-            <li> <?php echo link_to('Nueva Actividad', 'actividad/new' )?></li>
-            <li> <?php echo link_to('Listar Actividad', 'actividad/index' )?></li>
-            <li> <?php echo link_to('Tipos de Actividad', 'tipo_actividad/index' )?></li>
-        </ul>    
-    </li>
-       <li><a href="#" title="Salas"> Salas</a>
-        <ul>
-            <li> <?php echo link_to('Nueva Sala', 'sala/new' )?></li>
-            <li> <?php echo link_to('Listar Salas', 'sala/index' )?></li>
-        </ul>    
-    </li>
-    
-    
-    <li><a href="#" title="Encuestas"> Encuestas</a>
-        <ul>
-            <li> <?php echo link_to('Nueva Encuesta', 'encuesta/new' )?></li>
-            <li> <?php echo link_to('Listar Encuestas', 'encuesta/index' )?></li>
-        </ul>   
-     </li>
-    
-    
-    
-    <li><?php echo link_to('Visitantes', 'respuesta_encuesta_visitante' )?> </li>
-    
-    
-    <li><?php echo link_to('Informe', 'informe' )?> </li>
-    
-    
-    <li><?php echo link_to('Página', 'pagina' )?> </li>
 
-    
-    <li> <?php echo link_to('Usuarios', '@usuarios' )?></li>
-  
-    
-</ul>
-</nav>
-</center>      
-  </head>
-    
-    
-  <body>
-  <center>  <?php echo $sf_content ?> </center>
-  </body>
-</html>
 
-<script>
-    
-$(document).ready(function(){
-		$("ul.sf-menu").superfish({
-                        pathClass:  'current',
-			delay:       1000,                            // one second delay on mouseout
-			animation:   {opacity:'show',height:'show'},  // fade-in and slide-down animation
-			speed:       'fast',                          // faster animation speed
-			autoArrows:  false                  
-                        
-		});
-    
-</script>
+</head>
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="login_sup">
+          &nbsp;
+      </div>    
+      <div>
+        <table width="100%" bgcolor="white" style="padding-top:10px;">
+            <tr>
+                <td>
+                   &nbsp;
+                </td>
+                <td>
+                   <? echo image_tag('logo_cenal.jpg')?> 
+                </td>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+        </table>
+      </div>    
+      <div id="login_sup">
+          &nbsp;
+      </div> 
+      <div id="menubar">
+            <ul class="nav">
+                                <li><a href="#" title="Actividad">Actividad<span class="flecha">&#9660;</span></a>
+                                    <ul>
+                                        <li><span><?php echo link_to('Nueva Actividad', 'actividad/new' )?></span></li>
+                                        <li><span><?php echo link_to('Listar Actividad', 'actividad/index' )?></span></li>
+                                        <li><span><?php echo link_to('Tipos de Actividad', 'tipo_actividad/index' )?></span></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#" title="Salas">Salas<span class="flecha">&#9660;</span></a>
+                                    <ul>
+                                        <li><span><?php echo link_to('Nueva Sala', 'sala/new' )?></span></li>
+                                        <li><span><?php echo link_to('Listar Salas', 'sala/index' )?></span></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#" title="Encuestas">Encuestas<span class="flecha">&#9660;</span></a>
+                                    <ul>
+                                        <li><span><?php echo link_to('Nueva Encuesta', 'encuesta/new' )?></span></li>
+                                        <li><span><?php echo link_to('Listar Encuestas', 'encuesta/index' )?></span></li>
+                                    </ul>
+                                </li>        
+                                <li><span><?php echo link_to('Visitantes', 'respuesta_encuesta_visitante' )?></span></li>
+                                <li><span><?php echo link_to('Informe', 'informe' )?></span></li>
+                                <li><span><?php echo link_to('Página', 'pagina' )?></span></li>
+                                <li class="last"><span><?php echo link_to('Usuarios', '@usuarios' )?></span></li>
+            </ul>  
+      </div>
+    </div>
+    <div id="site_content">
+      <div id="content">
+         <center>  <?php echo $sf_content ?> </center>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+        &nbsp;
+    </div>
+  </div>
+
+
+</body></html>

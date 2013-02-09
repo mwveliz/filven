@@ -1,0 +1,52 @@
+* {
+font-family:sans-serif;
+list-style:none;
+text-decoration:none;
+margin:0;
+padding:0;
+}
+
+.nav > li {
+float:left;
+}
+
+.nav li a {
+background:#29415D;
+color:#FFF;
+display:block;
+padding:25px 23px;
+font-size: 14px;
+}
+
+.nav li .flecha{
+font-size: 9px;
+padding-left: 6px;
+display: none;
+}
+
+.nav li a:not(:last-child) .flecha {
+display: inline;
+}
+
+.nav li a:hover {
+background:#0fbfc6;
+}
+
+.nav li {
+position:relative;
+}
+
+.nav li ul {
+display:none;
+position:absolute;
+min-width:140px;
+}
+
+.nav li:hover > ul {
+display:block;
+}
+
+.nav li ul li ul {
+right:-140px;
+top:0;
+}
