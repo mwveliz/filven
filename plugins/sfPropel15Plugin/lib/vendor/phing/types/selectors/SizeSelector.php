@@ -178,7 +178,7 @@ class SizeSelector extends BaseExtendSelector {
         }
     }
 
-    /**
+    /"*
      * <p>Checks to make sure all settings are kosher. In this case, it
      * means that the size attribute has been set (to a positive value),
      * that the multiplier has a valid setting, and that the size limit
