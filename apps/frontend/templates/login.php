@@ -13,6 +13,6 @@
   <center>  <?php echo $sf_content ?> </center>
   <br>  
       <br>   
-          <br>   
+          
   </body>
 </html>
