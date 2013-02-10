@@ -9,8 +9,6 @@
     
     <?php include_stylesheets('styles.css') ?>
     <?php include_javascripts() ?>
-      
-    
   <body>
   <center>  <?php echo $sf_content ?> </center>
   <br>  
