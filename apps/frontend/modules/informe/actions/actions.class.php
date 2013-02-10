@@ -73,7 +73,7 @@ class informeActions extends sfActions
     {
       $Informe = $form->save();
 
-      $this->redirect('informe/edit?id='.$Informe->getId());
+      $this->redirect('informe/index');
     }
   }
 }

@@ -16,20 +16,31 @@
 	font-weight: bold; 
 	margin-right:10px; 
 	text-align: right; 
-	width: 120px; 
-	line-height: 25px; 
-	font-size: 16px; 
+	width: 140px; 
+	line-height: 15px; 
+	font-size: 15px;
+        clear:left;
 	}
 	
 	.input{
 	font-family: Arial, Verdana; 
 	font-size: 15px; 
-	padding: 5px; 
+	padding: 0px 5px 5px 5px; 
 	border: 1px solid #b9bdc1; 
 	width: 300px; 
-	color: #797979;	
+	color: #797979;
+        clear:left;
 	}
-	
+
+	.select{
+	font-family: Arial, Verdana; 
+	font-size: 15px; 
+	text-align: left;
+        float: left;
+        margin-left: 7px;
+        padding: 0px 5px 5px 5px; 
+	}        
+        
 	.input:focus{
 	background-color:#E7E8E7;	
 	}
@@ -89,4 +100,40 @@
 	background: #848FB2;
     cursor: pointer;
 	}
+        
+	.button_next{
+	float: right;
+	margin:10px 55px 10px 0;
+	font-weight: bold;
+	line-height: 1;
+	padding: 6px 10px;
+	cursor:pointer;   
+	color: #fff;
+	
+	text-align: center;
+	text-shadow: 0 -1px 1px #64799e;
+	
+	/* Background gradient */
+	background: #1F964C;
+	background: -moz-linear-gradient(top, #1F964C 0%, #1F964C 100%);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1F964C), to(#1F964C));
+	
+	/* Border style */
+  	border: 1px solid #17E061;  
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+  
+	/* Box shadow */
+	-moz-box-shadow: inset 0 1px 0 0 #17E061;
+	-webkit-box-shadow: inset 0 1px 0 0 #17E061;
+	box-shadow: inset 0 1px 0 0 #aec3e5;
+	
+	}
+	
+	.button_next:hover {
+	background: #17E061;
+    cursor: pointer;
+	}        
+        
 

@@ -1,3 +1,4 @@
+<br>
 <h1>Nueva Actividad</h1>
 
 <?php include_partial('form', array('form' => $form)) ?>

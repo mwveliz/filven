@@ -81,7 +81,7 @@ class encuestaActions extends sfActions
     {
       $Encuesta = $form->save();
 
-      $this->redirect('encuesta/edit?id='.$Encuesta->getId());
+      $this->redirect('encuesta/index');
     }
   }
 }

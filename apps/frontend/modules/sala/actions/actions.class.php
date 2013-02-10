@@ -73,7 +73,7 @@ class salaActions extends sfActions
     {
       $Sala = $form->save();
 
-      $this->redirect('sala/edit?id='.$Sala->getId());
+      $this->redirect('sala/index');
     }
   }
 }

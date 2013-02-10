@@ -73,7 +73,7 @@ class tipo_actividadActions extends sfActions
     {
       $TipoActividad = $form->save();
 
-      $this->redirect('tipo_actividad/edit?id='.$TipoActividad->getId());
+      $this->redirect('tipo_actividad/index');
     }
   }
 }

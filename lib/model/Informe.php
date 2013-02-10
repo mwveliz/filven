@@ -18,5 +18,7 @@
  * @package    propel.generator.lib.model
  */
 class Informe extends BaseInforme {
-
+    public function __toString() {
+        return $this->getTituloInforme() ;
+    }
 } // Informe

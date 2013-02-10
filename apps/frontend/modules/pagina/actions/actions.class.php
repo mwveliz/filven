@@ -73,7 +73,7 @@ class paginaActions extends sfActions
     {
       $Pagina = $form->save();
 
-      $this->redirect('pagina/edit?id='.$Pagina->getId());
+      $this->redirect('pagina/index');
     }
   }
 }

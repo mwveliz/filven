@@ -73,7 +73,7 @@ class sfGuardUserProfileActions extends sfActions
     {
       $sfGuardUserProfile = $form->save();
 
-      $this->redirect('sfGuardUserProfile/edit?id='.$sfGuardUserProfile->getId());
+      $this->redirect('sfGuardUserProfile/index');
     }
   }
 }
