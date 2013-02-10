@@ -155,3 +155,41 @@ table.th.tabla_show {
     width: 100%;
     text-align: right;
 }
+
+table.tablas {
+    font-family: Verdana;
+    font-weight: normal;
+    font-size: 14px;
+    padding-left: 50px;
+    width: 100%;
+}
+
+.tablas td {
+    font-family: Verdana;
+    font-weight: normal;
+    font-size: 14px;
+    margin: auto;
+    height:20px;
+    padding-left: 10px;
+    padding-right: 5px;
+    border : 1px solid  #979696;
+}
+
+.tablas tr:nth-child(even) {
+background-color: #d4d9de;
+}
+
+
+.tablas th {
+    font-family: Verdana;
+    font-weight: normal;
+    font-size: 14px;
+    margin: auto;
+    height:24px;
+    background-color: #29415D;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+

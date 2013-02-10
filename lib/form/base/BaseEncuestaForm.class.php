@@ -18,7 +18,7 @@ abstract class BaseEncuestaForm extends BaseFormPropel
       'nombre_encuesta'      => new sfWidgetFormInputText(),
       'descripcion_encuesta' => new sfWidgetFormInputText(),
       'tipo_encuesta'        => new sfWidgetFormInputText(),
-      'fecha_elaboracion'    => new sfWidgetFormDateTime(),
+      'fecha_elaboracion'    => new sfWidgetFormDate(),
     ));
 
     $this->setValidators(array(
@@ -26,7 +26,7 @@ abstract class BaseEncuestaForm extends BaseFormPropel
       'nombre_encuesta'      => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'descripcion_encuesta' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'tipo_encuesta'        => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'fecha_elaboracion'    => new sfValidatorDateTime(array('required' => false)),
+      'fecha_elaboracion'    => new sfValidatorDate(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('encuesta[%s]');

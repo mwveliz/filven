@@ -1,24 +1,37 @@
-<h1>Informes List</h1>
-
-<table>
+<br>
+<center><h1>Informes</h1></center>
+<br>
+<table class="tablas">
   <thead>
     <tr>
-      <th>Id</th>
-      <th>Titulo informe</th>
-      <th>Fecha informe</th>
+      <th>Título</th>
+      <th>Fecha</th>
       <th>Creado por</th>
+      <th>&nbsp;</th>
     </tr>
   </thead>
   <tbody>
     <?php foreach ($Informes as $Informe): ?>
     <tr>
-      <td><a href="<?php echo url_for('informe/show?id='.$Informe->getId()) ?>"><?php echo $Informe->getId() ?></a></td>
-      <td><?php echo $Informe->getTituloInforme() ?></td>
-      <td><?php echo $Informe->getFechaInforme() ?></td>
-      <td><?php echo $Informe->getCreadoPor() ?></td>
-    </tr>
+      <td width="60%"><?php echo $Informe->getTituloInforme() ?></td>
+       <?php
+        list($fecha, $hora) = explode(" ", $Informe->getFechaInforme());
+        list($anio,$mes,$dia) = explode("-",$fecha);
+        $anio = substr($anio,-2);
+        $formato_fecha= $dia . "-" . $mes . "-" . $anio; 
+      ?>     
+      <td><center><?php echo $formato_fecha ?></center></td>
+      <td><center><?php echo $Informe->getCreadoPor() ?></center></td>
+      <td width="15%"><center><?php echo link_to(image_tag('ver.png'),'informe/show?id='.$Informe->getId(),array('title' => 'Ver detalle'))?>
+          <?php echo link_to(image_tag('edit.png'),'informe/edit?id='.$Informe->getId(),array('title' => 'Editar'))?>
+          </center>
+      </td>
+   </tr>
     <?php endforeach; ?>
-  </tbody>
+  </tbody>   
 </table>
-
-  <a href="<?php echo url_for('informe/new') ?>">New</a>
+<br>
+<br>
+<p style="text-align: right; padding-right: 50px; margin-left: 50px; padding-top: 10px; border-top: 1px solid black;">
+<?php echo link_to(image_tag('add.png'),'informe/new',array('title' => 'Agregar nuevo'))?>&nbsp;&nbsp;
+</p>

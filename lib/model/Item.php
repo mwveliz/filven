@@ -18,5 +18,7 @@
  * @package    propel.generator.lib.model
  */
 class Item extends BaseItem {
-
+    public function __toString() {
+        return $this->getId() ;
+    }
 } // Item

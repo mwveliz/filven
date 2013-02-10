@@ -1,52 +1,49 @@
-<h1>Listado de Actividades</h1>
-<a href="<?php echo url_for('actividad/new') ?>">Agregar</a>
-<table>
+<br>
+<center><h1>Actividades</h1></center>
+<br>
+<table class="tablas">
   <thead>
     <tr>
-      
       <th>Actividad</th>
-      <th>Ponente</th>
-      <th>Turno</th>
-      <th>Ejecutada</th>
-      <th>Nro de participantes masc</th>
-      <th>Nro de participantes fem</th>
-      <th>Alcanzo el tiempo</th>
-      <th>Causas de incumplimiento</th>
-      <th>Municipio</th>
-      <th>Escuela</th>
-      <th>Refugio</th>
-      <th>Observaciones</th>
-      <th>Sala</th>
-      <th>Tipo de actividad</th>
       <th>Fecha</th>
-      <th>Ver</th>
-      <th>Editar</th>
+      <th>Sala</th>
+      <th>Tipo</th>
+      <th>Ponente</th>
+      <th>&nbsp;</th>
     </tr>
   </thead>
   <tbody>
     <?php foreach ($Actividads as $Actividad): ?>
     <tr>
-      
-      <td><?php echo $Actividad->getNombreActividad() ?></td>
-      <td><?php echo $Actividad->getPonente() ?></td>
-      <td><?php echo $Actividad->getTurno() ?></td>
-      <td><?php echo $Actividad->getEjecutada() ?></td>
-      <td><?php echo $Actividad->getCantidadParticipantesM() ?></td>
-      <td><?php echo $Actividad->getCantidadParticipantesF() ?></td>
-      <td><?php echo $Actividad->getAlcanzoTiempo() ?></td>
-      <td><?php echo $Actividad->getCausasIncumplimiento() ?></td>
-      <td><?php echo $Actividad->getIdMunicipio() ?></td>
-      <td><?php echo $Actividad->getEscuela() ?></td>
-      <td><?php echo $Actividad->getRefugio() ?></td>
-      <td><?php echo $Actividad->getObservaciones() ?></td>
-      <td><?php echo $Actividad->getIdSala() ?></td>
-      <td><?php echo $Actividad->getIdTipoActividad() ?></td>
-      <td><?php echo $Actividad->getFechaHora() ?></td>
-      <td><a href="<?php echo url_for('actividad/show?id='.$Actividad->getId()) ?>">Ver</a></td>
-      <td><a href="<?php echo url_for('actividad/edit?id='.$Actividad->getId()) ?>">Editar</a></td>
-    </tr>
+      <td width="35%"><?php echo $Actividad->getNombreActividad() ?></td>  
+       <?php
+        list($fecha, $hora) = explode(" ", $Actividad->getFechaHora());
+        list($anio,$mes,$dia) = explode("-",$fecha);
+        $anio = substr($anio,-2);
+        $formato_fecha= $dia . "-" . $mes . "-" . $anio; 
+      ?>       
+      <td width="12%"><center><?php echo $formato_fecha ?></center></td>
+         <?
+          $Sala = SalaQuery::create()->filterById($Actividad->getIdSala())->findOne();
+          if (count($Sala) > 0) {
+              $sala = $Sala->getNombreSala();
+          } else {
+              $sala = '--';
+          }
+        ?>
+      <td width="25%"><center><?php echo $sala ?></center></td>
+      <td width="15%"><center><?php echo $Actividad->getIdTipoActividad() ?></center></td>
+      <td width="15%"><center><?php echo $Actividad->getPonente() ?></center></td>
+      <td width="15%"><center><?php echo link_to(image_tag('ver.png'),'actividad/show?id='.$Actividad->getId(),array('title' => 'Ver detalle'))?>
+          <?php echo link_to(image_tag('edit.png'),'actividad/edit?id='.$Actividad->getId(),array('title' => 'Editar'))?>
+          </center>
+      </td>
+   </tr>
     <?php endforeach; ?>
-  </tbody>
+  </tbody>   
 </table>
-
-  
+<br>
+<br>
+<p style="text-align: right; padding-right: 50px; margin-left: 50px; padding-top: 10px; border-top: 1px solid black;">
+<?php echo link_to(image_tag('add.png'),'actividad/new',array('title' => 'Agregar nuevo'))?>&nbsp;&nbsp;
+</p>
