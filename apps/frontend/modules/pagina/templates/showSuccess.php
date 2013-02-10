@@ -1,50 +1,91 @@
-<table>
+<table class="tabla_show">
   <tbody>
     <tr>
-      <th>Id:</th>
-      <td><?php echo $Pagina->getId() ?></td>
+          <?
+          $Informe = InformeQuery::create()->filterById($Pagina->getIdInforme())->findOne();
+          if (count($Informe ) > 0) {
+              $informe = $Informe ->getTituloInforme();
+          } else {
+              $Informe  = '--';
+          }
+        ?>        
+      <th style="text-align:right; width:30%">Informe:</th>
+      <td style="padding-left: 10px; text-align: justify"><?php echo $informe  ?></td>
     </tr>
+     <tr>
+      <th style="text-align:right; width:30%; line-height: 6px">&nbsp;</th>
+      <td style="padding-left: 10px; line-height: 6px">&nbsp;</td>
+    </tr>  
     <tr>
-      <th>Id informe:</th>
-      <td><?php echo $Pagina->getIdInforme() ?></td>
+      <th style="text-align:right; width:30%">Título del informe:</th>
+      <td style="padding-left: 10px; text-align: justify"><?php echo $Pagina->getTituloInforme() ?></td>
     </tr>
+     <tr>
+      <th style="text-align:right; width:30%; line-height: 6px">&nbsp;</th>
+      <td style="padding-left: 10px; line-height: 6px">&nbsp;</td>
+    </tr> 
     <tr>
-      <th>Titulo informe:</th>
-      <td><?php echo $Pagina->getTituloInforme() ?></td>
+      <th style="text-align:right; width:30%">Ante cuadro:</th>
+      <td style="padding-left: 10px; text-align: justify"><?php echo $Pagina->getAnteCuadro() ?></td>
     </tr>
+     <tr>
+      <th style="text-align:right; width:30%; line-height: 6px">&nbsp;</th>
+      <td style="padding-left: 10px; line-height: 6px">&nbsp;</td>
+    </tr> 
     <tr>
-      <th>Ante cuadro:</th>
-      <td><?php echo $Pagina->getAnteCuadro() ?></td>
+      <th style="text-align:right; width:30%">Título cuadro:</th>
+      <td style="padding-left: 10px; text-align: justify"><?php echo $Pagina->getTituloCuadro() ?></td>
     </tr>
+     <tr>
+      <th style="text-align:right; width:30%; line-height: 6px">&nbsp;</th>
+      <td style="padding-left: 10px; line-height: 6px">&nbsp;</td>
+    </tr>    
+     <tr>
+      <th style="text-align:right; width:30%">Post cuadro:</th>
+      <td style="padding-left: 10px; text-align: justify"><?php echo $Pagina->getPostCuadro() ?></td>
+    </tr>
+     <tr>
+      <th style="text-align:right; width:30%; line-height: 6px">&nbsp;</th>
+      <td style="padding-left: 10px; line-height: 6px">&nbsp;</td>
+    </tr>    
     <tr>
-      <th>Titulo cuadro:</th>
-      <td><?php echo $Pagina->getTituloCuadro() ?></td>
+      <th style="text-align:right; width:30%">Texto posterior:</th>
+      <td style="padding-left: 10px; text-align: justify"><?php echo $Pagina->getTextoPosterior() ?></td>
     </tr>
+     <tr>
+      <th style="text-align:right; width:30%; line-height: 6px">&nbsp;</th>
+      <td style="padding-left: 10px; line-height: 6px">&nbsp;</td>
+    </tr>      
     <tr>
-      <th>Post cuadro:</th>
-      <td><?php echo $Pagina->getPostCuadro() ?></td>
+      <th style="text-align:right; width:30%">Ante gráfico:</th>
+      <td style="padding-left: 10px; text-align: justify"><?php echo $Pagina->getAnteGrafico() ?></td>
     </tr>
-    <tr>
-      <th>Texto posterior:</th>
-      <td><?php echo $Pagina->getTextoPosterior() ?></td>
+     <tr>
+      <th style="text-align:right; width:30%; line-height: 6px">&nbsp;</th>
+      <td style="padding-left: 10px; line-height: 6px">&nbsp;</td>
+    </tr>      
+     <tr>
+      <th style="text-align:right; width:30%">Post gráfico:</th>
+      <td style="padding-left: 10px; text-align: justify"><?php echo $Pagina->getPostGrafico() ?></td>
     </tr>
-    <tr>
-      <th>Ante grafico:</th>
-      <td><?php echo $Pagina->getAnteGrafico() ?></td>
+     <tr>
+      <th style="text-align:right; width:30%; line-height: 6px">&nbsp;</th>
+      <td style="padding-left: 10px; line-height: 6px">&nbsp;</td>
+    </tr>     
+      <tr>
+      <th style="text-align:right; width:30%">Tipo de gráfico:</th>
+      <td style="padding-left: 10px; text-align: justify"><?php echo $Pagina->getTipoGrafico() ?></td>
     </tr>
-    <tr>
-      <th>Post grafico:</th>
-      <td><?php echo $Pagina->getPostGrafico() ?></td>
-    </tr>
-    <tr>
-      <th>Tipo grafico:</th>
-      <td><?php echo $Pagina->getTipoGrafico() ?></td>
-    </tr>
-  </tbody>
+     <tr>
+      <th style="text-align:right; width:30%; line-height: 6px">&nbsp;</th>
+      <td style="padding-left: 10px; line-height: 6px">&nbsp;</td>
+    </tr>    
+   </tbody>
 </table>
-
-<hr />
-
-<a href="<?php echo url_for('pagina/edit?id='.$Pagina->getId()) ?>">Edit</a>
-&nbsp;
-<a href="<?php echo url_for('pagina/index') ?>">List</a>
+<br>
+<br>   
+<p style="text-align: right; padding-right: 50px; margin-left: 50px; padding-top: 10px; border-top: 1px solid black;">
+<?php echo link_to(image_tag('list.png'),'pagina/index',array('title' => 'Ver listado'))?>
+<?php echo link_to(image_tag('edit.png'),'pagina/edit?id='.$Pagina->getId(),array('title' => 'Editar'))?>
+</p>    
+    

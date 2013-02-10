@@ -68,7 +68,7 @@
     </div>
     <div id="site_content">
       <div id="content">
-         <center>  <?php echo $sf_content ?> </center>
+         <?php echo $sf_content ?>
     </div>
     <div id="content_footer"></div>
     <div id="footer">

@@ -17,7 +17,6 @@ $(function() {
 </script>
 
 
-
 <div class="container">
 <form id="formulario" action="<?php echo url_for('actividad/'.($form->getObject()->isNew() ? 'create' : 'update').(!$form->getObject()->isNew() ? '?id='.$form->getObject()->getId() : '')) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
 <?php if (!$form->getObject()->isNew()): ?>
@@ -104,3 +103,4 @@ $(function() {
 <input type="submit" name="Submit"  class="button" value="Enviar" />    
 </form>
 </div>
+
