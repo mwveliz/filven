@@ -12,7 +12,6 @@
   <body>
   <center>  <?php echo $sf_content ?> </center>
   <br>  
-      <br>   
-          
+      <br><br>       
   </body>
 </html>
