@@ -9,8 +9,8 @@
       <td><?php echo $OpcionRespuesta->getIdItem() ?></td>
     </tr>
     <tr>
-      <th>Respuesta:</th>
-      <td><?php echo $OpcionRespuesta->getRespuesta() ?></td>
+      <th>Opcion:</th>
+      <td><?php echo $OpcionRespuesta->getOpcion() ?></td>
     </tr>
   </tbody>
 </table>

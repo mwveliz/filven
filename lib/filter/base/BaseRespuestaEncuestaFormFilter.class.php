@@ -12,13 +12,25 @@ abstract class BaseRespuestaEncuestaFormFilter extends BaseFormFilterPropel
   public function setup()
   {
     $this->setWidgets(array(
-      'id_item'   => new sfWidgetFormPropelChoice(array('model' => 'Item', 'add_empty' => true)),
-      'respuesta' => new sfWidgetFormFilterInput(),
+      'numero_encuesta' => new sfWidgetFormFilterInput(),
+      'fecha'           => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
+      'observacion'     => new sfWidgetFormFilterInput(),
+      'nombre'          => new sfWidgetFormFilterInput(),
+      'apellido'        => new sfWidgetFormFilterInput(),
+      'telefono'        => new sfWidgetFormFilterInput(),
+      'email'           => new sfWidgetFormFilterInput(),
+      'id_encuesta'     => new sfWidgetFormPropelChoice(array('model' => 'Encuesta', 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
-      'id_item'   => new sfValidatorPropelChoice(array('required' => false, 'model' => 'Item', 'column' => 'id')),
-      'respuesta' => new sfValidatorPass(array('required' => false)),
+      'numero_encuesta' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'fecha'           => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
+      'observacion'     => new sfValidatorPass(array('required' => false)),
+      'nombre'          => new sfValidatorPass(array('required' => false)),
+      'apellido'        => new sfValidatorPass(array('required' => false)),
+      'telefono'        => new sfValidatorPass(array('required' => false)),
+      'email'           => new sfValidatorPass(array('required' => false)),
+      'id_encuesta'     => new sfValidatorPropelChoice(array('required' => false, 'model' => 'Encuesta', 'column' => 'id')),
     ));
 
     $this->widgetSchema->setNameFormat('respuesta_encuesta_filters[%s]');
@@ -36,9 +48,15 @@ abstract class BaseRespuestaEncuestaFormFilter extends BaseFormFilterPropel
   public function getFields()
   {
     return array(
-      'id'        => 'Number',
-      'id_item'   => 'ForeignKey',
-      'respuesta' => 'Text',
+      'id'              => 'Number',
+      'numero_encuesta' => 'Number',
+      'fecha'           => 'Date',
+      'observacion'     => 'Text',
+      'nombre'          => 'Text',
+      'apellido'        => 'Text',
+      'telefono'        => 'Text',
+      'email'           => 'Text',
+      'id_encuesta'     => 'ForeignKey',
     );
   }
 }

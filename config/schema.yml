@@ -27,6 +27,12 @@ propel:
     descripcion_encuesta: { phpName: DescripcionEncuesta, type: VARCHAR, size: '255', required: false }
     tipo_encuesta: { phpName: TipoEncuesta, type: VARCHAR, size: '255', required: false }
     fecha_elaboracion: { phpName: FechaElaboracion, type: DATE, required: false, defaultExpr: now() }
+  feria:
+    _attributes: { phpName: Feria }
+    id: { phpName: Id, type: BIGINT, primaryKey: true, autoIncrement: true, required: true }
+    descripcion: { phpName: Descripcion, type: VARCHAR, required: false }
+    fecha_inicio: { phpName: FechaInicio, type: DATE, required: false }
+    fecha_fin: { phpName: FechaFin, type: DATE, required: false }
   informe:
     _attributes: { phpName: Informe }
     id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
@@ -36,10 +42,11 @@ propel:
   item:
     _attributes: { phpName: Item }
     id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
-    texto: { phpName: Texto, type: VARCHAR, size: '255', required: false }
-    id_encuesta: { phpName: IdEncuesta, type: INTEGER, required: false, foreignTable: encuesta, foreignReference: id, onUpdate: CASCADE }
-    seleccion_simple: { phpName: SeleccionSimple, type: BOOLEAN, required: false, defaultValue: true }
-    identificador_item: { phpName: IdentificadorItem, type: INTEGER, required: false }
+    numeracion: { phpName: Numeracion, type: INTEGER, required: false }
+    texto: { phpName: Texto, type: VARCHAR, required: false }
+    tipo_item: { phpName: TipoItem, type: VARCHAR, required: false }
+    maximo: { phpName: Maximo, type: INTEGER, required: false }
+    id_encuesta: { phpName: IdEncuesta, type: BIGINT, required: false, foreignTable: encuesta, foreignReference: id }
   municipio:
     _attributes: { phpName: Municipio }
     id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
@@ -49,8 +56,7 @@ propel:
     _attributes: { phpName: OpcionRespuesta }
     id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
     id_item: { phpName: IdItem, type: INTEGER, required: false, foreignTable: item, foreignReference: id, onUpdate: CASCADE }
-    respuesta: { phpName: Respuesta, type: VARCHAR, size: '255', required: false }
-    seleccion_simple: { phpName: SeleccionSimple, type: BOOLEAN, required: false, defaultValue: true }
+    opcion: { phpName: Opcion, type: VARCHAR, size: '255', required: false }
   pagina:
     _attributes: { phpName: Pagina }
     id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
@@ -66,14 +72,27 @@ propel:
   respuesta_encuesta:
     _attributes: { phpName: RespuestaEncuesta }
     id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
-    id_item: { phpName: IdItem, type: INTEGER, required: false, foreignTable: item, foreignReference: id, onUpdate: CASCADE }
-    respuesta: { phpName: Respuesta, type: VARCHAR, size: '255', required: false }
+    numero_encuesta: { phpName: NumeroEncuesta, type: INTEGER, required: false }
+    fecha: { phpName: Fecha, type: DATE, required: false }
+    observacion: { phpName: Observacion, type: VARCHAR, required: false }
+    nombre: { phpName: Nombre, type: VARCHAR, required: false }
+    apellido: { phpName: Apellido, type: VARCHAR, required: false }
+    telefono: { phpName: Telefono, type: VARCHAR, required: false }
+    email: { phpName: Email, type: VARCHAR, required: false }
+    id_encuesta: { phpName: IdEncuesta, type: BIGINT, required: false, foreignTable: encuesta, foreignReference: id }
+  respuesta_item:
+    _attributes: { phpName: RespuestaItem }
+    id: { phpName: Id, type: BIGINT, primaryKey: true, autoIncrement: true, required: true }
+    id_respuesta_encuesta: { phpName: IdRespuestaEncuesta, type: BIGINT, required: false, foreignTable: respuesta_encuesta, foreignReference: id }
+    valor: { phpName: Valor, type: VARCHAR, required: false }
+    id_item: { phpName: IdItem, type: BIGINT, required: false, foreignTable: item, foreignReference: id }
+    tipo_item: { phpName: TipoItem, type: VARCHAR, required: false }
+    id_opcion: { phpName: IdOpcion, type: BIGINT, required: false, foreignTable: opcion_respuesta, foreignReference: id }
   sala:
     _attributes: { phpName: Sala }
     id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
     nombre_sala: { phpName: NombreSala, type: VARCHAR, size: '255', required: false }
     descripcion_sala: { phpName: DescripcionSala, type: VARCHAR, size: '255', required: false }
-
   sf_guard_user_profile:
     _attributes: { phpName: SfGuardUserProfile }
     id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
@@ -91,3 +110,4 @@ propel:
     id: { phpName: Id, type: BIGINT, primaryKey: true, autoIncrement: true, required: true }
     fecha: { phpName: Fecha, type: DATE, required: false }
     numero: { phpName: Numero, type: INTEGER, required: false }
+    id_feria: { phpName: IdFeria, type: BIGINT, required: false, foreignTable: feria, foreignReference: id }

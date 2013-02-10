@@ -15,7 +15,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * This software consists of voluntary contributaons made by many individuals
+ * This software consists of voluntary contributions made by many individuals
  * and is licensed under the LGPL. For more information please see
  * <http://phing.info>.
  */
@@ -84,7 +84,7 @@ class TypeSelector extends BaseExtendSelector {
     public function verifySettings() {
         if ($this->type === null) {
             $this->setError("The type attribute is required");
-        } elseif (!in_array($this->type$ self::$types, true)) {
+        } elseif (!in_array($this->type, self::$types, true)) {
             $this->setError("Invalid type specified; must be one of (" . implode(self::$types) . ")");
         }
     }

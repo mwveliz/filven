@@ -5,7 +5,7 @@
     <tr>
       <th>Id</th>
       <th>Id item</th>
-      <th>Respuesta</th>
+      <th>Opcion</th>
     </tr>
   </thead>
   <tbody>
@@ -13,7 +13,7 @@
     <tr>
       <td><a href="<?php echo url_for('opcion_respuesta/show?id='.$OpcionRespuesta->getId()) ?>"><?php echo $OpcionRespuesta->getId() ?></a></td>
       <td><?php echo $OpcionRespuesta->getIdItem() ?></td>
-      <td><?php echo $OpcionRespuesta->getRespuesta() ?></td>
+      <td><?php echo $OpcionRespuesta->getOpcion() ?></td>
     </tr>
     <?php endforeach; ?>
   </tbody>

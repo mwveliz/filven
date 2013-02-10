@@ -12,15 +12,13 @@ abstract class BaseOpcionRespuestaFormFilter extends BaseFormFilterPropel
   public function setup()
   {
     $this->setWidgets(array(
-      'id_item'          => new sfWidgetFormPropelChoice(array('model' => 'Item', 'add_empty' => true)),
-      'respuesta'        => new sfWidgetFormFilterInput(),
-      'seleccion_simple' => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
+      'id_item' => new sfWidgetFormPropelChoice(array('model' => 'Item', 'add_empty' => true)),
+      'opcion'  => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
-      'id_item'          => new sfValidatorPropelChoice(array('required' => false, 'model' => 'Item', 'column' => 'id')),
-      'respuesta'        => new sfValidatorPass(array('required' => false)),
-      'seleccion_simple' => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
+      'id_item' => new sfValidatorPropelChoice(array('required' => false, 'model' => 'Item', 'column' => 'id')),
+      'opcion'  => new sfValidatorPass(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('opcion_respuesta_filters[%s]');
@@ -38,10 +36,9 @@ abstract class BaseOpcionRespuestaFormFilter extends BaseFormFilterPropel
   public function getFields()
   {
     return array(
-      'id'               => 'Number',
-      'id_item'          => 'ForeignKey',
-      'respuesta'        => 'Text',
-      'seleccion_simple' => 'Boolean',
+      'id'      => 'Number',
+      'id_item' => 'ForeignKey',
+      'opcion'  => 'Text',
     );
   }
 }

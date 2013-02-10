@@ -25,15 +25,6 @@ class itemActions extends sfActions
     $this->form = new ItemForm();
   }
 
-  public function executeAgregarvarios(sfWebRequest $request)
-  {
-    $this->form = new ItemForm();
-    $this->id_encuesta=$request->getParameter('id_encuesta');
-    
-  }
-
-  
-  
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
@@ -45,26 +36,6 @@ class itemActions extends sfActions
     $this->setTemplate('new');
   }
 
-  public function executeCreatevarios(sfWebRequest $request)
-  {
-    $params=$request->getParameters();
-    die(var_dump($params));
-    //una vez leido todo procedo a llenar todas las tablas correspondientes a la encuesta
-    
-    
-    
-    
-  }
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
   public function executeEdit(sfWebRequest $request)
   {
     $Item = ItemQuery::create()->findPk($request->getParameter('id'));

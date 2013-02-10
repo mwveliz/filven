@@ -12,17 +12,19 @@ abstract class BaseItemFormFilter extends BaseFormFilterPropel
   public function setup()
   {
     $this->setWidgets(array(
-      'texto'              => new sfWidgetFormFilterInput(),
-      'id_encuesta'        => new sfWidgetFormPropelChoice(array('model' => 'Encuesta', 'add_empty' => true)),
-      'seleccion_simple'   => new sfWidgetFormChoice(array('choices' => array('' => 'yes or no', 1 => 'yes', 0 => 'no'))),
-      'identificador_item' => new sfWidgetFormFilterInput(),
+      'numeracion'  => new sfWidgetFormFilterInput(),
+      'texto'       => new sfWidgetFormFilterInput(),
+      'tipo_item'   => new sfWidgetFormFilterInput(),
+      'maximo'      => new sfWidgetFormFilterInput(),
+      'id_encuesta' => new sfWidgetFormPropelChoice(array('model' => 'Encuesta', 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
-      'texto'              => new sfValidatorPass(array('required' => false)),
-      'id_encuesta'        => new sfValidatorPropelChoice(array('required' => false, 'model' => 'Encuesta', 'column' => 'id')),
-      'seleccion_simple'   => new sfValidatorChoice(array('required' => false, 'choices' => array('', 1, 0))),
-      'identificador_item' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'numeracion'  => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'texto'       => new sfValidatorPass(array('required' => false)),
+      'tipo_item'   => new sfValidatorPass(array('required' => false)),
+      'maximo'      => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'id_encuesta' => new sfValidatorPropelChoice(array('required' => false, 'model' => 'Encuesta', 'column' => 'id')),
     ));
 
     $this->widgetSchema->setNameFormat('item_filters[%s]');
@@ -40,11 +42,12 @@ abstract class BaseItemFormFilter extends BaseFormFilterPropel
   public function getFields()
   {
     return array(
-      'id'                 => 'Number',
-      'texto'              => 'Text',
-      'id_encuesta'        => 'ForeignKey',
-      'seleccion_simple'   => 'Boolean',
-      'identificador_item' => 'Number',
+      'id'          => 'Number',
+      'numeracion'  => 'Number',
+      'texto'       => 'Text',
+      'tipo_item'   => 'Text',
+      'maximo'      => 'Number',
+      'id_encuesta' => 'ForeignKey',
     );
   }
 }

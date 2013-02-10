@@ -5,8 +5,20 @@
       <td><?php echo $Item->getId() ?></td>
     </tr>
     <tr>
+      <th>Numeracion:</th>
+      <td><?php echo $Item->getNumeracion() ?></td>
+    </tr>
+    <tr>
       <th>Texto:</th>
       <td><?php echo $Item->getTexto() ?></td>
+    </tr>
+    <tr>
+      <th>Tipo item:</th>
+      <td><?php echo $Item->getTipoItem() ?></td>
+    </tr>
+    <tr>
+      <th>Maximo:</th>
+      <td><?php echo $Item->getMaximo() ?></td>
     </tr>
     <tr>
       <th>Id encuesta:</th>
