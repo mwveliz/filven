@@ -18,8 +18,7 @@
       <td width="35%"><?php echo $Encuesta->getDescripcionEncuesta() ?></td>
       <td><center><?php echo $Encuesta->getTipoEncuesta() ?></center></td>
       <?php
-        list($fecha, $hora) = explode(" ", $Encuesta->getFechaElaboracion());
-        list($anio,$mes,$dia) = explode("-",$fecha);
+        list($anio,$mes,$dia) = explode("-",$Encuesta->getFechaElaboracion());
         $anio = substr($anio,-2);
         $formato_fecha= $dia . "-" . $mes . "-" . $anio; 
       ?>
@@ -33,6 +32,18 @@
     <?php endforeach; ?>
   </tbody>   
 </table>
+<center>
+<br>
+<br>
+<?php echo link_to('&laquo;', 'encuesta/index?page='.$Encuestas->getFirstPage(),'class=css_paginador') ?>
+  <?php echo link_to('&lt;', 'encuesta/index?page='.$Encuestas->getPreviousPage(),'class=css_paginador') ?>
+  <?php $links = $Encuestas->getLinks(); foreach ($links as $page): ?>
+    <?php echo ($page == $Encuestas->getPage()) ? $page : link_to($page, 'encuesta/index?page='.$page,'class=css_paginador') ?>
+    <?php if ($page != $Encuestas->getCurrentMaxLink()): ?> - <?php endif ?>
+  <?php endforeach ?>
+  <?php echo link_to('&gt;', 'encuesta/index?page='.$Encuestas->getNextPage(),'class=css_paginador') ?>
+  <?php echo link_to('&raquo;', 'encuesta/index?page='.$Encuestas->getLastPage(),'class=css_paginador') ?>
+</center>    
 <br>
 <br>
 <p style="text-align: right; padding-right: 50px; margin-left: 50px; padding-top: 10px; border-top: 1px solid black;">

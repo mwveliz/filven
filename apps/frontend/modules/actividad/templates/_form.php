@@ -24,7 +24,7 @@ $(function() {
 <?php endif; ?>
 <div class="field">
 	<label for="name">Fecha</label>
-  	 <?php echo $form['fecha_hora']->render(array('class'=>'fecha_hora')) ;?> <?php echo " " . $form['hora']?>
+  	 <?php echo $form['fecha_hora']->render(array('class'=>'fecha_hora')) ;?> 
 	<p class="hint">Introduzca la fecha de la actividad</p>
 </div>  
 <div class="field">

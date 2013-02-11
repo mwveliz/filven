@@ -42,6 +42,19 @@
     <?php endforeach; ?>
   </tbody>   
 </table>
+
+<center>
+<br>
+<br>
+<?php echo link_to('&laquo;', 'actividad/index?page='.$Actividads->getFirstPage(),'class=css_paginador') ?>
+  <?php echo link_to('&lt;', 'actividad/index?page='.$Actividads->getPreviousPage(),'class=css_paginador') ?>
+  <?php $links = $Actividads->getLinks(); foreach ($links as $page): ?>
+    <?php echo ($page == $Actividads->getPage()) ? $page : link_to($page, 'actividad/index?page='.$page,'class=css_paginador') ?>
+    <?php if ($page != $Actividads->getCurrentMaxLink()): ?> - <?php endif ?>
+  <?php endforeach ?>
+  <?php echo link_to('&gt;', 'actividad/index?page='.$Actividads->getNextPage(),'class=css_paginador') ?>
+  <?php echo link_to('&raquo;', 'actividad/index?page='.$Actividads->getLastPage(),'class=css_paginador') ?>
+</center>    
 <br>
 <br>
 <p style="text-align: right; padding-right: 50px; margin-left: 50px; padding-top: 10px; border-top: 1px solid black;">

@@ -11,7 +11,12 @@ class actividadActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->Actividads = ActividadQuery::create()->find();
+    $page = 1;
+    if ($request->getParameter('page')) {
+          $page = $request->getParameter('page');
+    }      
+      
+    $this->Actividads = ActividadQuery::create()->paginate($page,20);
   }
 
   public function executeShow(sfWebRequest $request)
@@ -71,14 +76,6 @@ class actividadActions extends sfActions
     $params=$request->getParameter($form->getName());
     
    
-   
- $params['fecha_hora']['day']= '20';
- $params['fecha_hora']= $params['fecha_hora'];
- 
-$params['fecha_hora']=(string) $params['fecha_hora']['year'].'-'. $params['fecha_hora']['month'] .'-'.$params['fecha_hora']['day'] . ' '.
-        $params['hora']['hour'].':'. $params['hora']['minute'];
-
-    
    $form->bind($params, $request->getFiles($form->getName()));
     
     

@@ -58,8 +58,13 @@
                                         <li><span><?php echo link_to('Nueva Encuesta', 'encuesta/new' )?></span></li>
                                         <li><span><?php echo link_to('Listar Encuestas', 'encuesta/index' )?></span></li>
                                     </ul>
-                                </li>        
-                                <li><span><?php echo link_to('Visitantes', 'respuesta_encuesta_visitante' )?></span></li>
+                                </li>
+                                <li><a href="#" title="Visitantes">Visitantes<span class="flecha">&#9660;</span></a>
+                                    <ul>
+                                        <li><span><?php echo link_to('Registrar Visitantes', 'visitante/new' )?></span></li>
+                                        <li><span><?php echo link_to('Listar Resultados', 'visitante/index' )?></span></li>
+                                    </ul>
+                                </li>                                
                                 <li><span><?php echo link_to('Informe', 'informe' )?></span></li>
                                 <li><span><?php echo link_to('Página', 'pagina' )?></span></li>
                                 <li class="last"><span><?php echo link_to('Usuarios', '@usuarios' )?></span></li>

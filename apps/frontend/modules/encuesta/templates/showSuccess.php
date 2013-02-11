@@ -1,3 +1,5 @@
+<br>
+<h1 style="padding-left: 50px;">Encuesta</h1>
 <table class="tabla_show">
   <tbody>
     <tr>
@@ -26,8 +28,7 @@
     </tr>  
     <tr>
       <?php
-        list($fecha, $hora) = explode(" ", $Encuesta->getFechaElaboracion());
-        list($anio,$mes,$dia) = explode("-",$fecha);
+        list($anio,$mes,$dia) = explode("-",$Encuesta->getFechaElaboracion());
         $anio = substr($anio,-2);
         $formato_fecha= $dia . "-" . $mes . "-" . $anio; 
       ?>          

@@ -11,7 +11,12 @@ class salaActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->Salas = SalaQuery::create()->find();
+    $page = 1;
+    if ($request->getParameter('page')) {
+          $page = $request->getParameter('page');
+    }      
+      
+    $this->Salas = SalaQuery::create()->paginate($page,20);
   }
 
   public function executeShow(sfWebRequest $request)
