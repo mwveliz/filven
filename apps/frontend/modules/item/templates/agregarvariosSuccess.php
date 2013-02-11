@@ -1,15 +1,18 @@
 <?php use_stylesheets_for_form($form) ?>
 <?php use_javascripts_for_form($form) ?>
+<?php
+//actualizo el id_item por si hay alguna falla
+$numeracion=0;
+$id_encuesta=$sf_params->get('id_encuesta');
+$I=  ItemQuery::create()->filterByIdEncuesta($id_encuesta)->orderById('desc')->findOne();
+if (count($I)>0) $numeracion=$I->getNumeracion()+1;
 
-
-
-
-
+?>
 <form action="<?php echo url_for('item/createvarios?id_encuesta='.$id_encuesta) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
 <?php if (!$form->getObject()->isNew()): ?>
 <input type="hidden" name="sf_method" value="put" />
 <?php endif; ?>
-  <table class="tabla_usuario">
+  <table class="tablas">
     <tfoot>
         <tr style="display:none" id="tr_mas">
             <td id="mas"> <a href="#"> <?php echo image_tag('agregar.png')?> </a></td>
@@ -33,92 +36,214 @@
     </tfoot>
     <tbody>
         <tr>
-    <th><label for="item_identificador_item">Identificador item</label></th>
-    <td><input type="text" name="identificador_item[]"  id="item_identificador_item" /><input type="hidden" name="item[id]" id="item_id" />
+    <th><label for="item_identificador_item">Numeración item</label></th>
+    <td><input type="text" name="numeracion"  id="numeracion" value="<?php echo $numeracion?>"/></input>
       </tr>
       <tr>  
       <th><label for="item_texto">Texto</label></th>
-        <td><input type="textarea" name="item_texto[]" id="item_texto" /></td>
+        <td><input type="textarea" name="texto" id="texto" /></td>
         </tr>
     <tr>
-        <th><label for="item_completacion">De Completación</label></th>
-        <td><input id="1" class="input_switch"  type="checkbox" name="item_completacion[]" checked="checked" id="item_completacion" /></td>
+        <th><label for="tipo_item">Tipo Item</label></th>
+        <td><select id="tipo_item" class="tipo_item"  type="checkbox" name="tipo_item" />
+            <option id="A" value="A"> Tipo A (Completación) </option>
+            <option id="B" value="B"> Tipo B (Selección Simple)</option>
+            <option id="C" value="C"> Tipo C (Selección Simple con Completación)</option>
+            <option id="D" value="D"> Tipo D (Selección Múltiple)</option>
+            <option id="E" value="E"> Tipo E (Completación Multiple)</option>
+            <option id="F" value="F"> Tipo F (Selección Múltiple con Completación)</option>
+            <option id="G" value="G"> Tipo G (Seleccion Multiple Segundo Nivel)</option>
+            <option id="H" value="H"> Tipo H (Completación Multiple Segundo Nivel)</option>
+        </select>
+        </td>
     </tr>
     
-    <tr class="tr_ocultable" style="display:none">
-        <td id="1" >Simple: <input class="switch_opcion_respuesta" type="checkbox" name="item_seleccion_simple[]" checked="checked" id="item_seleccion_simple" />
-            </td>
-    </tr>           
-    <tr class="tr_ocultable" style="display:none">
-        <td id="1" >Multivalor: <input class="switch_valor_opcion" type="checkbox" name="item_seleccion_simple[]"  id="item_seleccion_simple" />
-            </td>
-    </tr>           
+    
+    <tr class="tr_ocultable" tipo="B" style="display:none" id="1">
+        <td id="1" >
+            <input type="radio" name="opcion[]" id="B" checked>
+                <input type="text" id="opcion" class="B" />
+                </input>
+        </td>
+        <td id="mas">
+            <a href="#">+</a>
+        </td>    
+    </tr>   
+    
+  
+     <tr class="tr_ocultable" tipo="C" style="display:none" id="1">
+        <td id="1" >
+            <input type="radio" name="opcion[]" id="C" checked>
+                <input type="text" id="1"/>
+                </input>
+        </td>
+        <td id="mas">
+            <a href="#">+</a>
+        </td>    
+         
+    </tr>  
     
     
+    <tr class="tr_ocultable" tipo="D" style="display:none" id="1">
+        <td id="1" >
+            <input type="checkbox" name="opcion[]" id="D" checked="checked">
+                    <input type="text" id="1"/>
+                </input>
+        </td>
+        <td id="mas">
+            <a href="#">+</a>
+        </td>    
+    </tr>      
+    <tr class="tr_ocultable" tipo="E" style="display:none" id="1">
+        <td id="1" >
+            <input type="checkbox" name="opcion[]" id="E" checked="checked">
+                <input type="text" id="1"/>_____________
+                </input>
+        </td>
+        <td id="mas">
+            <a href="#">+</a>
+        </td>    
+    </tr>      
     
-    <tr id="1" class="tr_ocultable" style="display:none">
-          <td colspan="2">
-          <br><input id="opcion" name="opcion[]" type="radio"> Opción: <input type="text" name="opcion_respuesta"/> 
-          <br>Valor: <input id="valor" name="valor[]" type="text" name="valor_opcion"/></td>
-     </tr>     
+    <tr class="tr_ocultable" tipo="F" style="display:none" id="1">
+        <td id="1" >
+            <input type="checkbox" name="opcion[]" id="F" checked="checked">
+                <input type="text" id="1"/>
+                </input>
+        </td>
+        <td id="mas">
+            <a href="#">+</a>
+        </td>  
+    </tr>      
+    
+    <tr class="tr_ocultable" tipo="G" style="display:none" id="1">
+        <td id="max_escala">
+            Escala Max: <select id="max_escala">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>
+        </td>
         
+        <td id="1" colspan="2" >
+            <input type="checkbox" name="opcion[]" id="G" checked="checked" id="1">
+               <input type="text" id="1"/>
+               </input>
+        </td>
+        <td id="mas">
+            <a href="#">+</a>
+        </td>
+        
+    </tr>      
+    <tr class="tr_ocultable" tipo="H" style="display:none">
+         <td id="max_sub">
+            Numero de sub items: <select id="max_sub">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                        </select>
+        </td>
+        <td id="1" colspan="2" >
+            <input type="checkbox" name="opcion[]" id="H" checked="checked" id="1">
+               <input type="text" id="1"/>
+               </input>
+        </td>
+        <td id="mas">
+            <a href="#">+</a>
+        </td>
+     </tr>      
     </tbody>
   </table>
 </form>
 
 
 <script>
+    function getidencuesta() {
+    var searchString = window.document.URL.toString(); 
+      params = searchString.split("/");
+      longitud=params.length;
+      id_encuesta=(params[longitud-1]);
+      id_encuesta=id_encuesta.replace('#', "");
+
+      return id_encuesta
+    }
+    
     
 $(document).ready(function(){
     
 
 
-  $('#mas').click(function(){
-      $('tr:last').clone().appendTo('table.tabla_usuario');
-      var indice=$('tr:last').index() -3;
-      $('tr:last').attr('id', indice);
-      
+  $(document).on("click","td#mas", function(){
+        $(this).parent().clone().appendTo('table.tablas');
+        /*var indice=$('tr.tr_ocultable:last').index()-9;
+        indice++;*/
+        $(this).remove();
+        /*$('tr.tr_ocultable:last').attr('id',indice);
+        */
+        $('td#max_escala').not('td#max_escala:first').remove();
+        $('td#max_sub').not('td#max_sub:first').remove();
   });
   
 
-$(document).on("click", "input.input_switch", function(){
-     var indice=$(this).parent().next('td').attr('id'); 
+    $(document).on("click", "select.tipo_item", function(){
+     var valor=$(this).val(); 
      
-     //$(this).parent().parent().next('tr').toggle();
-     $('tr.tr_ocultable').toggle();
-     $('#tr_mas').toggle();
+     //segun el valor escogido activo una u otra interfaz
+     $('tr.tr_ocultable').css('display','none');
+     $('tr[tipo="'+valor+'"]').toggle();
+     
+     
      
 });
-
-
-$(document).on("click", "input.switch_opcion_respuesta", function(){
-    if ($(this).is(':checked')) {
-    $('input#opcion').attr("type","radio");
-    }else{
-    $('input#opcion').attr("type","checkbox");
-    }
-    
-    
-});
-$(document).on("click", "input.switch_valor_opcion", function(){
-    if ($(this).is(':checked')) {
-    $('input#valor').attr("type","radio");
-    $('input#valor').after('<span id="valor_span"> <input type="text"/>+ <br></span>');
-    }else{
-   $('span#valor_span').remove();
-   $('input#valor').attr("type","text");
-    }
-});
-
-
-$(document).on("click", "span#valor_span", function(){
-    $(this).after('<span id="valor_span"><input type="text"/>+ <br></span>');
-
-})
 
 
 //ajax Botones
-$('input#siguiente_submit').click(function (){
+$('input#siguiente_submit').click(function (e){
+    e.preventDefault();
+    var numeracion=$('input#numeracion').val();
+    var texto=$('input#texto').val();
+    var opcion=new Array;
+    var i=0;
+    var valor='';
+    
+    var tipo_item=$('select#tipo_item').val();
+    var max_escala=$('select#max_escala').val();
+    var max_sub=$('select#max_sub').val();
+    var id_encuesta=getidencuesta(); 
+    
+    $('input[class="'+tipo_item+'"]').each(function(){
+       valor=$(this).val() ;
+       opcion[i]=valor;
+       i++;
+    });
+    
+    
+    
+    $.ajax({ type: "POST",
+	    	url: "<?php echo url_for('item/createvarios'); ?>",
+                data: "numeracion=" + numeracion + "&id_encuesta="+id_encuesta
+                +"&texto=" + texto+"&tipo_item="+ tipo_item+"&opcion="+JSON.stringify(opcion),
+
+	    	success: function(message){
+                    numeracion++;
+                  $('input#numeracion').val("");
+                  $('input#numeracion').val(numeracion);
+                  $('input#texto').val("");
+                  $('select#tipo_item').val('A');
+                  $('select#tipo_item').trigger('click');
+                  
+                  
+                 }
+	    });
     
 });
 

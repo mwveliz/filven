@@ -25,6 +25,15 @@ class itemActions extends sfActions
     $this->form = new ItemForm();
   }
 
+  
+    public function executeAgregarvarios(sfWebRequest $request)
+  {
+    $this->form = new ItemForm();
+    $this->id_encuesta=$request->getParameter('id_encuesta');
+    
+    
+  }
+  
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
@@ -76,4 +85,43 @@ class itemActions extends sfActions
       $this->redirect('item/edit?id='.$Item->getId());
     }
   }
+
+  
+  public function executeCreatevarios(sfWebRequest $request){
+    $numeracion=$request->getParameter('numeracion');
+    $id_encuesta=$request->getParameter('id_encuesta');
+    
+    $texto=$request->getParameter('texto');
+    $tipo_item=$request->getParameter('tipo_item');
+    $opcion=$request->getParameter('opcion');
+    //$valores= explode('","',$opcion);
+    $valores=json_decode($opcion);
+   
+    
+    
+    $Item=new Item();
+    $Item->setIdEncuesta($id_encuesta);
+    $Item->setNumeracion($numeracion);
+    $Item->setTexto($texto);
+    $Item->setTipoItem($tipo_item);
+    $Item->save();
+    $id_item=$Item->getId();
+    
+    
+    
+    
+    foreach ($valores as $valor){
+     $valor=trim($valor,'"');
+     $valor=trim($valor,'"');
+     $OpcionRespuesta= new OpcionRespuesta();
+     $OpcionRespuesta->setIdItem($id_item);
+     $OpcionRespuesta->setOpcion($valor);
+     $OpcionRespuesta->save();
+    }
+    
+    return $this->renderText('ok');
+  }
+
+  
+  
 }
