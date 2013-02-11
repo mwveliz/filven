@@ -23,6 +23,8 @@ class encuestaActions extends sfActions
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new EncuestaForm();
+    
+    
   }
 
   public function executeCreate(sfWebRequest $request)
@@ -31,17 +33,21 @@ class encuestaActions extends sfActions
 
     $form = new EncuestaForm();
 
-//    $this->processForm($request, $this->form);
-     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-    if ($form->isValid())
-    {
-      $Encuesta = $form->save();
-
+    $params=$request->getParameter($form->getName());
+    
+    $params['fecha_elaboracion']['day']='1';//trampa
+    $fecha=$params['fecha_elaboracion']['year'].'/'.$params['fecha_elaboracion']['month'].'/'.$params['fecha_elaboracion']['day'];
+    $Encuesta = new Encuesta();
+    $Encuesta->setNombreEncuesta($params['nombre_encuesta']) ;
+    $Encuesta->setTipoEncuesta($params['tipo_encuesta']) ;
+    $Encuesta->setDescripcionEncuesta($params['descripcion_encuesta']);
+    $Encuesta->setFechaElaboracion($fecha);
+    $Encuesta->save();
+    
       $this->redirect('item/agregarvarios?id_encuesta='.$Encuesta->getId());
-    }
     
+      
     
-    $this->setTemplate('new');
   }
 
   public function executeEdit(sfWebRequest $request)
