@@ -44,11 +44,31 @@ CREATE TABLE "encuesta"
 	"nombre_encuesta" VARCHAR(255),
 	"descripcion_encuesta" VARCHAR(255),
 	"tipo_encuesta" VARCHAR(255),
-	"fecha_elaboracion" TIMESTAMP default now(),
+	"fecha_elaboracion" DATE default now(),
 	PRIMARY KEY ("id")
 );
 
 COMMENT ON TABLE "encuesta" IS '';
+
+
+SET search_path TO public;
+-----------------------------------------------------------------------------
+-- feria
+-----------------------------------------------------------------------------
+
+DROP TABLE "feria" CASCADE;
+
+
+CREATE TABLE "feria"
+(
+	"id" bigserial  NOT NULL,
+	"descripcion" VARCHAR(255),
+	"fecha_inicio" DATE,
+	"fecha_fin" DATE,
+	PRIMARY KEY ("id")
+);
+
+COMMENT ON TABLE "feria" IS '';
 
 
 SET search_path TO public;
@@ -82,10 +102,11 @@ DROP TABLE "item" CASCADE;
 CREATE TABLE "item"
 (
 	"id" serial  NOT NULL,
+	"numeracion" INTEGER,
 	"texto" VARCHAR(255),
-	"id_encuesta" INTEGER,
-	"seleccion_simple" BOOLEAN default 't',
-	"identificador_item" INTEGER,
+	"tipo_item" VARCHAR(255),
+	"maximo" INTEGER,
+	"id_encuesta" INT8,
 	PRIMARY KEY ("id")
 );
 
@@ -123,8 +144,7 @@ CREATE TABLE "opcion_respuesta"
 (
 	"id" serial  NOT NULL,
 	"id_item" INTEGER,
-	"respuesta" VARCHAR(255),
-	"seleccion_simple" BOOLEAN default 't',
+	"opcion" VARCHAR(255),
 	PRIMARY KEY ("id")
 );
 
@@ -159,40 +179,49 @@ COMMENT ON TABLE "pagina" IS '';
 
 SET search_path TO public;
 -----------------------------------------------------------------------------
--- respuesta_encuesta_expositor
+-- respuesta_encuesta
 -----------------------------------------------------------------------------
 
-DROP TABLE "respuesta_encuesta_expositor" CASCADE;
+DROP TABLE "respuesta_encuesta" CASCADE;
 
 
-CREATE TABLE "respuesta_encuesta_expositor"
+CREATE TABLE "respuesta_encuesta"
 (
 	"id" serial  NOT NULL,
-	"id_item" INTEGER,
-	"respuesta" VARCHAR(255),
+	"numero_encuesta" INTEGER,
+	"fecha" DATE,
+	"observacion" VARCHAR(255),
+	"nombre" VARCHAR(255),
+	"apellido" VARCHAR(255),
+	"telefono" VARCHAR(255),
+	"email" VARCHAR(255),
+	"id_encuesta" INT8,
 	PRIMARY KEY ("id")
 );
 
-COMMENT ON TABLE "respuesta_encuesta_expositor" IS '';
+COMMENT ON TABLE "respuesta_encuesta" IS '';
 
 
 SET search_path TO public;
 -----------------------------------------------------------------------------
--- respuesta_encuesta_visitante
+-- respuesta_item
 -----------------------------------------------------------------------------
 
-DROP TABLE "respuesta_encuesta_visitante" CASCADE;
+DROP TABLE "respuesta_item" CASCADE;
 
 
-CREATE TABLE "respuesta_encuesta_visitante"
+CREATE TABLE "respuesta_item"
 (
-	"id" serial  NOT NULL,
-	"id_item" INTEGER,
-	"respuesta" VARCHAR(255),
+	"id" bigserial  NOT NULL,
+	"id_respuesta_encuesta" INT8,
+	"valor" VARCHAR(255),
+	"id_item" INT8,
+	"tipo_item" VARCHAR(255),
+	"id_opcion" INT8,
 	PRIMARY KEY ("id")
 );
 
-COMMENT ON TABLE "respuesta_encuesta_visitante" IS '';
+COMMENT ON TABLE "respuesta_item" IS '';
 
 
 SET search_path TO public;
@@ -256,22 +285,22 @@ COMMENT ON TABLE "tipo_actividad" IS '';
 
 SET search_path TO public;
 -----------------------------------------------------------------------------
--- valor_opcion
+-- visitante
 -----------------------------------------------------------------------------
 
-DROP TABLE "valor_opcion" CASCADE;
+DROP TABLE "visitante" CASCADE;
 
 
-CREATE TABLE "valor_opcion"
+CREATE TABLE "visitante"
 (
-	"id" serial  NOT NULL,
-	"id_opcion" INTEGER,
-	"valor" VARCHAR(255),
-	"id_opcion_respuesta" INTEGER,
+	"id" bigserial  NOT NULL,
+	"fecha" DATE,
+	"numero" INTEGER,
+	"id_feria" INT8,
 	PRIMARY KEY ("id")
 );
 
-COMMENT ON TABLE "valor_opcion" IS '';
+COMMENT ON TABLE "visitante" IS '';
 
 
 SET search_path TO public;
@@ -279,16 +308,20 @@ ALTER TABLE "actividad" ADD CONSTRAINT "actividad_FK_1" FOREIGN KEY ("id_sala") 
 
 ALTER TABLE "actividad" ADD CONSTRAINT "actividad_FK_2" FOREIGN KEY ("id_tipo_actividad") REFERENCES "tipo_actividad" ("id") ON UPDATE CASCADE;
 
-ALTER TABLE "item" ADD CONSTRAINT "item_FK_1" FOREIGN KEY ("id_encuesta") REFERENCES "encuesta" ("id") ON UPDATE CASCADE;
+ALTER TABLE "item" ADD CONSTRAINT "item_FK_1" FOREIGN KEY ("id_encuesta") REFERENCES "encuesta" ("id");
 
 ALTER TABLE "opcion_respuesta" ADD CONSTRAINT "opcion_respuesta_FK_1" FOREIGN KEY ("id_item") REFERENCES "item" ("id") ON UPDATE CASCADE;
 
 ALTER TABLE "pagina" ADD CONSTRAINT "pagina_FK_1" FOREIGN KEY ("id_informe") REFERENCES "informe" ("id") ON UPDATE CASCADE;
 
-ALTER TABLE "respuesta_encuesta_expositor" ADD CONSTRAINT "respuesta_encuesta_exposito_FK_1" FOREIGN KEY ("id_item") REFERENCES "item" ("id") ON UPDATE CASCADE;
+ALTER TABLE "respuesta_encuesta" ADD CONSTRAINT "respuesta_encuesta_FK_1" FOREIGN KEY ("id_encuesta") REFERENCES "encuesta" ("id");
 
-ALTER TABLE "respuesta_encuesta_visitante" ADD CONSTRAINT "respuesta_encuesta_visitant_FK_1" FOREIGN KEY ("id_item") REFERENCES "item" ("id") ON UPDATE CASCADE;
+ALTER TABLE "respuesta_item" ADD CONSTRAINT "respuesta_item_FK_1" FOREIGN KEY ("id_respuesta_encuesta") REFERENCES "respuesta_encuesta" ("id");
+
+ALTER TABLE "respuesta_item" ADD CONSTRAINT "respuesta_item_FK_2" FOREIGN KEY ("id_item") REFERENCES "item" ("id");
+
+ALTER TABLE "respuesta_item" ADD CONSTRAINT "respuesta_item_FK_3" FOREIGN KEY ("id_opcion") REFERENCES "opcion_respuesta" ("id");
 
 ALTER TABLE "sf_guard_user_profile" ADD CONSTRAINT "sf_guard_user_profile_FK_1" FOREIGN KEY ("user_id") REFERENCES "sf_guard_user" ("id") ON DELETE CASCADE;
 
-ALTER TABLE "valor_opcion" ADD CONSTRAINT "valor_opcion_FK_1" FOREIGN KEY ("id_opcion_respuesta") REFERENCES "opcion_respuesta" ("id") ON UPDATE CASCADE;
+ALTER TABLE "visitante" ADD CONSTRAINT "visitante_FK_1" FOREIGN KEY ("id_feria") REFERENCES "feria" ("id");
