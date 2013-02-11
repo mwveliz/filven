@@ -97,8 +97,6 @@ class itemActions extends sfActions
     //$valores= explode('","',$opcion);
     $valores=json_decode($opcion);
    
-    
-    
     $Item=new Item();
     $Item->setIdEncuesta($id_encuesta);
     $Item->setNumeracion($numeracion);
@@ -109,18 +107,17 @@ class itemActions extends sfActions
     $id_item=$Item->getId();
     
     
-    
-    
     foreach ($valores as $valor){
      $valor=trim($valor,'"');
      $valor=trim($valor,'"');
      $OpcionRespuesta= new OpcionRespuesta();
      $OpcionRespuesta->setIdItem($id_item);
      $OpcionRespuesta->setOpcion($valor);
-   
-     
-     $OpcionRespuesta->save();
+    $OpcionRespuesta->save();
     }
+   
+    
+    
     
     return $this->renderText('ok');
   }

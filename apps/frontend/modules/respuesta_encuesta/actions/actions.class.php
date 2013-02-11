@@ -25,6 +25,15 @@ class respuesta_encuestaActions extends sfActions
     $this->form = new RespuestaEncuestaForm();
   }
 
+  
+  public function executeCargarencuesta(sfWebRequest $request)
+  {
+      
+    $id_encuesta=$request->getParameter('id_encuesta');
+    $this->Items= ItemQuery::create()->filterByIdEncuesta($id_encuesta);
+  }
+
+  
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
