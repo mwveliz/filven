@@ -18,8 +18,7 @@
       <td width="35%"><?php echo $Encuesta->getDescripcionEncuesta() ?></td>
       <td><center><?php echo $Encuesta->getTipoEncuesta() ?></center></td>
       <?php
-        list($fecha, $hora) = explode(" ", $Encuesta->getFechaElaboracion());
-        list($anio,$mes,$dia) = explode("-",$fecha);
+        list($anio,$mes,$dia) = explode("-",$Encuesta->getFechaElaboracion());
         $anio = substr($anio,-2);
         $formato_fecha= $dia . "-" . $mes . "-" . $anio; 
       ?>

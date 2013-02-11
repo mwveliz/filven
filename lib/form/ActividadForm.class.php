@@ -15,7 +15,7 @@ class ActividadForm extends BaseActividadForm
       $choices= array(1=>'Mañana' , 0=> 'Tarde' );
       $choicesbool3=array( NULL => '---', 1=>'Sí' , 0 => 'No' ,  );
       $choicesbool2=array( NULL => '---', 1=>'Sí' , 0 => 'No' ,  );
-      
+      /*
       $this->widgetSchema['fecha_hora']=  new sfWidgetFormJQueryDate(array(
       'image'=>'/images/calendar.png', 'culture' => 'es', 
       'date_widget' => new sfWidgetFormDate(array('format' => '%day% / %month% / %year% ')),
@@ -30,7 +30,7 @@ class ActividadForm extends BaseActividadForm
     ));
 
  $this->validatorSchema['hora'] = new sfValidatorPass();
-      
+      */
          $this->widgetSchema['id_tipo_actividad'] =new sfWidgetFormPropelChoice(array(
             'model' => 'TipoActividad',
             ));

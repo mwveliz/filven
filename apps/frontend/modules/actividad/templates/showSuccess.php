@@ -1,3 +1,5 @@
+<br>
+<h1 style="padding-left: 50px;">Actividad</h1>
 <table class="tabla_show">
   <tbody>  
     <tr>

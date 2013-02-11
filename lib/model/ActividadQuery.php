@@ -19,4 +19,15 @@
  */
 class ActividadQuery extends BaseActividadQuery {
 
+    static public function proximasactividadessala($id_sala, $fecha){
+        
+        $Actividades = ActividadQuery::create()
+                          ->condition('cond1', 'Actividad.FechaHora >= ?', $fecha)
+                          ->condition('cond2', 'Actividad.IdSala = ?', $id_sala)
+                          ->where(array('cond1', 'cond2'), 'and')
+                          ->orderByFechaHora('asc')
+                          ->find();   
+        
+        return $Actividades;
+    }
 } // ActividadQuery

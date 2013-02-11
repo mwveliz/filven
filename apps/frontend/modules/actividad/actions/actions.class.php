@@ -71,14 +71,6 @@ class actividadActions extends sfActions
     $params=$request->getParameter($form->getName());
     
    
-   
- $params['fecha_hora']['day']= '20';
- $params['fecha_hora']= $params['fecha_hora'];
- 
-$params['fecha_hora']=(string) $params['fecha_hora']['year'].'-'. $params['fecha_hora']['month'] .'-'.$params['fecha_hora']['day'] . ' '.
-        $params['hora']['hour'].':'. $params['hora']['minute'];
-
-    
    $form->bind($params, $request->getFiles($form->getName()));
     
     

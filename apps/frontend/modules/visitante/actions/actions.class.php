@@ -73,7 +73,7 @@ class visitanteActions extends sfActions
     {
       $Visitante = $form->save();
 
-      $this->redirect('visitante/edit?id='.$Visitante->getId());
+      $this->redirect('visitante/index');
     }
   }
 }
