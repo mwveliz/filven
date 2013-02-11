@@ -264,3 +264,10 @@ ul#menu li a:hover, ul#menu li.selected a, ul#menu li.selected a:hover
     background: #29425E url(footer.png) repeat-x;
     height: 7px;
 }
+
+.css_paginador {
+    font-size:12px;
+    font-family:Verdana;
+    color: #000000;
+    font-size: 18px;
+}

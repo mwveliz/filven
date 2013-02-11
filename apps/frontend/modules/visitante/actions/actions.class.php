@@ -11,7 +11,12 @@ class visitanteActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->Visitantes = VisitanteQuery::create()->find();
+    $page = 1;
+    if ($request->getParameter('page')) {
+          $page = $request->getParameter('page');
+    }  
+    
+    $this->Visitantes = VisitanteQuery::create()->paginate($page,20);
   }
 
   public function executeShow(sfWebRequest $request)

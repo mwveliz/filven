@@ -11,7 +11,12 @@ class sfGuardUserProfileActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->sfGuardUserProfiles = sfGuardUserProfileQuery::create()->find();
+    $page = 1;
+    if ($request->getParameter('page')) {
+          $page = $request->getParameter('page');
+    }  
+    
+    $this->sfGuardUserProfiles = sfGuardUserProfileQuery::create()->paginate($page,20);
   }
 
   public function executeShow(sfWebRequest $request)

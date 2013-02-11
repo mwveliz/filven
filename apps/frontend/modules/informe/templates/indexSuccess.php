@@ -30,6 +30,18 @@
     <?php endforeach; ?>
   </tbody>   
 </table>
+<center>
+<br>
+<br>
+<?php echo link_to('&laquo;', 'informe/index?page='.$Informes ->getFirstPage(),'class=css_paginador') ?>
+  <?php echo link_to('&lt;', 'informe/index?page='.$Informes ->getPreviousPage(),'class=css_paginador') ?>
+  <?php $links = $Informes ->getLinks(); foreach ($links as $page): ?>
+    <?php echo ($page == $Informes ->getPage()) ? $page : link_to($page, 'informe/index?page='.$page,'class=css_paginador') ?>
+    <?php if ($page != $Informes ->getCurrentMaxLink()): ?> - <?php endif ?>
+  <?php endforeach ?>
+  <?php echo link_to('&gt;', 'informe/index?page='.$Informes ->getNextPage(),'class=css_paginador') ?>
+  <?php echo link_to('&raquo;', 'informe/index?page='.$Informes ->getLastPage(),'class=css_paginador') ?>
+</center>    
 <br>
 <br>
 <p style="text-align: right; padding-right: 50px; margin-left: 50px; padding-top: 10px; border-top: 1px solid black;">

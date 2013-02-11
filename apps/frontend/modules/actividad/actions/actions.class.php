@@ -11,7 +11,12 @@ class actividadActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->Actividads = ActividadQuery::create()->find();
+    $page = 1;
+    if ($request->getParameter('page')) {
+          $page = $request->getParameter('page');
+    }      
+      
+    $this->Actividads = ActividadQuery::create()->paginate($page,20);
   }
 
   public function executeShow(sfWebRequest $request)
