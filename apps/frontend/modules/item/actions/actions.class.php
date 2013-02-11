@@ -90,7 +90,7 @@ class itemActions extends sfActions
   public function executeCreatevarios(sfWebRequest $request){
     $numeracion=$request->getParameter('numeracion');
     $id_encuesta=$request->getParameter('id_encuesta');
-    
+    $max=$request->getParameter('max');
     $texto=$request->getParameter('texto');
     $tipo_item=$request->getParameter('tipo_item');
     $opcion=$request->getParameter('opcion');
@@ -104,6 +104,7 @@ class itemActions extends sfActions
     $Item->setNumeracion($numeracion);
     $Item->setTexto($texto);
     $Item->setTipoItem($tipo_item);
+    $Item->setMaximo($max);
     $Item->save();
     $id_item=$Item->getId();
     
@@ -116,6 +117,8 @@ class itemActions extends sfActions
      $OpcionRespuesta= new OpcionRespuesta();
      $OpcionRespuesta->setIdItem($id_item);
      $OpcionRespuesta->setOpcion($valor);
+   
+     
      $OpcionRespuesta->save();
     }
     
