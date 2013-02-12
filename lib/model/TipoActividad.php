@@ -21,7 +21,7 @@ class TipoActividad extends BaseTipoActividad {
 
     public function __toString() {
         
-        return $this->getDescripcionTipo() ;
+        return $this->getNombreTipo() ;
     }
 
     

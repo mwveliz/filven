@@ -3,17 +3,63 @@
 
 
 <script>
-   
-$(function() {
+jQuery(document).ready(function() {   
+     $(document).on("click","select#estados", function(){
+        var estado = $(this).children(":selected").val();
+        $.ajax({
+                  type: "POST",
+                  url: "<?php   echo url_for('actividad/MostrarMunicipios')?>",
+                  data: "estado=" + estado, 
+                  success:function(message){
+                            var JSONobject = JSON.parse(message);
+                             select_municipio = '<select class="select" id="municipios" name="municipios">'
+                             $.each(JSONobject, function(index, value) {
+                                  select_municipio += '<option id="'+index+'">'+ JSONobject[index]['municipio'];+'</option>'
+                             });
+                             select_municipio += '</select>';
+                             $('#span_municipio').empty();
+                             $('#span_municipio').append(select_municipio);
+                  }
+       });
+    });
     
-    $('select.fecha_hora').change(function(){
-        alert('www');
-        $('select#actividad_fecha_hora_day').attr('enabled', true) ;
-    });    
+     if ($('#input_actividad').val() > 0) {
+        var url = window.location.pathname;
+        var id_actividad = url.split("id/")
+        $.ajax({
+                  type: "POST",
+                  url: "<?php   echo url_for('actividad/MostrarEstados')?>",
+                  data: "id_actividad=" + id_actividad[1], 
+                  success:function(message){
+                            var JSONobject = JSON.parse(message);
+                             $.each(JSONobject, function(index, value) {
+                                select_municipio = JSONobject[index]['select_municipio'];
+                                select_estado = JSONobject[index]['select_estado'];
+                             }); 
+                             $('#span_estados').empty();
+                             $('#span_estados').append(select_estado);                            
+                             $('#span_municipio').empty();
+                             $('#span_municipio').append(select_municipio);
+
+                  }
+       }); 
+     } else {
+            $.ajax({
+                  type: "POST",
+                  url: "<?php   echo url_for('actividad/MostrarEstadosInicial')?>",
+                  data: "id_municipio= 1", 
+                  success:function(message){
+                            var JSONobject = JSON.parse(message);
+                             $.each(JSONobject, function(index, value) {
+                                select_estado = JSONobject[index]['select_estado'];
+                             }); 
+                             $('#span_estados').empty();
+                             $('#span_estados').append(select_estado);                            
+                  }
+         });         
+     } 
     
-    
-});
-     
+});     
 </script>
 
 
@@ -74,13 +120,18 @@ $(function() {
 </div> 
 <div class="field">
 	<label for="name">Causas de incumplimiento</label>
-        <?php echo $form['cantidad_participantes_m']->render(array('class' => 'input','id' => 'cantidad_participantes_m')) ?>
+        <?php echo $form['causas_incumplimiento']->render(array('class' => 'input','id' => 'cantidad_participantes_m')) ?>
 	<p class="hint">Indique las causas del incumplimiento</p>
 </div> 
 <br>
 <div class="field">
+	<label for="name">Estado</label>  
+        <span class="select" id="span_estados"><select class="select" id="estados" name="estados" disabled="disabled"><option id="1">DTTO. CAPITAL</option></select></span>
+	<p class="hint">Indique el estado en donde se realizó la actividad</p>
+</div> 
+<div class="field">
 	<label for="name">Municipio</label>
-        <span class="select"><?php echo $form['id_municipio']->render(array('class' => 'select')) ;?></span>
+        <span class="select"><span id="span_municipio"><select class="select" id="municipios" name="municipios"><option id="1">LIBERTADOR</option></select></span></span>
 	<p class="hint">Indique el municipio en donde se realizó la actividad</p>
 </div> 
 <div class="field">
@@ -104,3 +155,4 @@ $(function() {
 </form>
 </div>
 
+<input style="visibility:hidden;" id="input_actividad" value="<? echo $sf_params->get('id'); ?>">

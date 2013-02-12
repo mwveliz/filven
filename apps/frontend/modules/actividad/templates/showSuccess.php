@@ -100,7 +100,18 @@
       <tr>
       <th style="text-align:right; width:30%; line-height: 6px">&nbsp;</th>
       <td style="padding-left: 10px; line-height: 6px">&nbsp;</td>
-    </tr>     
+    </tr> 
+    <tr>
+        <?
+          if (count($Municipio) > 0) {
+              $estado = $Municipio->getEstado();
+          } else {
+              $estado = '--';
+          }
+        ?>
+      <th style="text-align:right; width:30%">Estado:</th>
+      <td style="padding-left: 10px; text-align: justify"><?php echo $estado ?></td>
+    </tr>    
     <tr>
       <? 
         if ($Actividad->getEscuela()) {
@@ -145,7 +156,22 @@
       <tr>
       <th style="text-align:right; width:30%; line-height: 6px">&nbsp;</th>
       <td style="padding-left: 10px; line-height: 6px">&nbsp;</td>
-    </tr>         
+    </tr>   
+    <tr>
+         <?
+          $TipoActividad = TipoActividadQuery::create()->filterById($Actividad->getIdTipoActividad())->findOne();
+          if (count($TipoActividad) > 0) {
+              $tipo = $TipoActividad->getNombreTipo();
+          } else {
+              $tipo = '--';
+          }
+        ?>       
+      <th style="text-align:right; width:30%">Tipo de actividad:</th>
+      <td style="padding-left: 10px; text-align: justify"><?php echo $tipo ?></td>
+      <tr>
+      <th style="text-align:right; width:30%; line-height: 6px">&nbsp;</th>
+      <td style="padding-left: 10px; line-height: 6px">&nbsp;</td>
+    </tr>     
     <tr>
       <?php
         list($fecha, $hora) = explode(" ", $Actividad->getFechaHora());
