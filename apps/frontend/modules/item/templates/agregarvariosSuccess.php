@@ -1,3 +1,6 @@
+<br>
+<center><h1>Agregar items a la encuesta</h1></center>
+<br>
 <?php use_stylesheets_for_form($form) ?>
 <?php use_javascripts_for_form($form) ?>
 <?php

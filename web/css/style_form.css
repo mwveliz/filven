@@ -145,19 +145,19 @@ table.tabla_show {
 
 
 table.tr.tabla_show {
-    font-family: Arial, Verdana;
+    font-family: sans-serif;
     width: 100%;
     text-align: justify;
 }
 
 table.th.tabla_show {
-    font-family: Arial, Verdana;
+    font-family: sans-serif;
     width: 100%;
     text-align: right;
 }
 
 table.tablas {
-    font-family: Verdana;
+    font-family: sans-serif;
     font-weight: normal;
     font-size: 14px;
     padding-left: 50px;
@@ -165,7 +165,7 @@ table.tablas {
 }
 
 .tablas td {
-    font-family: Verdana;
+    font-family: sans-serif;
     font-weight: normal;
     font-size: 14px;
     margin: auto;
@@ -181,7 +181,7 @@ background-color: #d4d9de;
 
 
 .tablas th {
-    font-family: Verdana;
+    font-family: sans-serif;
     font-weight: normal;
     font-size: 14px;
     margin: auto;
@@ -193,7 +193,7 @@ background-color: #d4d9de;
 }
 
 table.show_encuesta {
-    font-family: Verdana;
+    font-family: sans-serif;
     font-weight: normal;
     font-size: 14px;
     padding-left: 20px;

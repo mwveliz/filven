@@ -8,14 +8,32 @@
 <?php endif; ?>
 <div class="field">
 	<label for="name">Fecha</label>
-  	 <?php echo $form['fecha'] ?>
-	<p class="hint">Seleccione la fecha deseada</p>
+  	 <?php echo $form['fecha'] ?>&nbsp;&nbsp;<?php echo $form['hora'] ?>
+	<p class="hint">Seleccione la fecha y hora deseada</p>
 </div>  
 <div class="field">
 	<label for="name">Número de visitantes</label>
   	 <?php echo $form['numero']->render(array('class' => 'input','id' => 'numero')) ?>
 	<p class="hint">Introduzca el número de visitantes</p>
-</div>        
+</div> 
+<br>
+<div class="field">
+	<label for="name">Tipo de conteo</label>
+        <span class="select"><?php echo $form['tipo_conteo']->render(array('class' => 'select')) ;?></span>
+	<p class="hint">Indique el tipo de conteo</p>
+</div> 
+<br>
+<div class="field">
+	<label for="name">Sala</label>
+        <span class="select"><?php echo $form['id_sala']->render(array('class' => 'select')) ;?></span>
+	<p class="hint">Indique la sala</p>
+</div>
+<br>
+<div class="field">
+	<label for="name">Acceso</label>
+        <span class="select"><?php echo $form['id_acceso']->render(array('class' => 'select')) ;?></span>
+	<p class="hint">Indique el acceso</p>
+</div> 
         <?php echo $form['id'] ?>
         <? echo $form['_csrf_token']?>
 <input type="submit" name="Submit"  class="button" value="Enviar" />    

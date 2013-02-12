@@ -5,26 +5,35 @@
   <thead>
     <tr>
       <th>Fecha</th>
-      <th>Número</th>
+      <th>Total</th>
       <th>&nbsp;</th>
     </tr>
   </thead>
   <tbody>
-    <?php foreach ($Visitantes as $Visitante): ?>
+    <?php foreach($Visitantes as $Visitante) { ?>
     <tr>
       <?php
-        list($anio,$mes,$dia) = explode("-",$Visitante->getFecha());
+        list($anio,$mes,$dia) = explode("-",$Visitante);
         $anio = substr($anio,-2);
         $formato_fecha= $dia . "-" . $mes . "-" . $anio; 
       ?>         
       <td><center><?php echo $formato_fecha ?></center></td>
-      <td><?php echo $Visitante->getNumero() ?></td>
-      <td width="15%"><center><?php echo link_to(image_tag('ver.png'),'visitante/show?id='.$Visitante->getId(),array('title' => 'Ver detalle'))?>
-          <?php echo link_to(image_tag('edit.png'),'visitante/edit?id='.$Visitante->getId(),array('title' => 'Editar'))?>
-          </center>
+      <td>
+         <center>
+          <? $Numeros =  VisitanteQuery::create()->filterByFecha($Visitante)->find();
+             $total = 0;
+             foreach($Numeros as $Numero) {
+                 $total += $Numero->getNumero();
+             }
+             echo number_format($total);
+          ?>
+         </center>
+      </td>
+      <td width="15%">
+          <center><?php echo link_to(image_tag('ver.png'),'visitante/show?fecha='.$Visitante,array('title' => 'Ver detalle'))?></center>
       </td>
    </tr>
-    <?php endforeach; ?>
+    <?php } ?>
   </tbody>   
 </table>
 

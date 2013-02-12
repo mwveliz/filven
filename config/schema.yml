@@ -2,6 +2,10 @@ propel:
   _attributes:
     package: lib.model
     defaultIdMethod: native
+  acceso:
+    _attributes: { phpName: Acceso }
+    id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
+    nombre: { phpName: Nombre, type: VARCHAR, required: false }
   actividad:
     _attributes: { phpName: Actividad }
     id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
@@ -111,3 +115,7 @@ propel:
     fecha: { phpName: Fecha, type: DATE, required: false }
     numero: { phpName: Numero, type: INTEGER, required: false }
     id_feria: { phpName: IdFeria, type: BIGINT, required: false, foreignTable: feria, foreignReference: id }
+    tipo_conteo: { phpName: TipoConteo, type: VARCHAR, required: false }
+    id_sala: { phpName: IdSala, type: BIGINT, required: false, foreignTable: sala, foreignReference: id }
+    id_acceso: { phpName: IdAcceso, type: BIGINT, required: false, foreignTable: acceso, foreignReference: id }
+    hora: { phpName: Hora, type: TIME, required: false }

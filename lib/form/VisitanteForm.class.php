@@ -11,5 +11,7 @@ class VisitanteForm extends BaseVisitanteForm
 {
   public function configure()
   {
+      $conteo = array( 1=>'Sticker' , 0 => 'Manual');
+      $this->widgetSchema['tipo_conteo']   =  new sfWidgetFormChoice(array('choices' => $conteo));
   }
 }

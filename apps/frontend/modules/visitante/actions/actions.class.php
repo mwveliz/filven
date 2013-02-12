@@ -16,13 +16,17 @@ class visitanteActions extends sfActions
           $page = $request->getParameter('page');
     }  
     
-    $this->Visitantes = VisitanteQuery::create()->paginate($page,20);
+    $this->Visitantes = VisitanteQuery::create()
+                        ->select('Fecha')
+                        ->setDistinct('Fecha')
+                        ->paginate($page,20);
+    
   }
 
   public function executeShow(sfWebRequest $request)
   {
-    $this->Visitante = VisitantePeer::retrieveByPk($request->getParameter('id'));
-    $this->forward404Unless($this->Visitante);
+    $this->Visitantes = VisitanteQuery::create()->filterByFecha($request->getParameter('fecha'))->find();
+    $this->forward404Unless($this->Visitantes);
   }
 
   public function executeNew(sfWebRequest $request)
@@ -81,4 +85,11 @@ class visitanteActions extends sfActions
       $this->redirect('visitante/index');
     }
   }
+  
+  public function executeDetalle(sfWebRequest $request)
+  {
+    $this->Visitante = VisitanteQuery::create()->filterById($request->getParameter('id'))->findOne();
+    $this->forward404Unless($this->Visitante);
+  }  
+  
 }
