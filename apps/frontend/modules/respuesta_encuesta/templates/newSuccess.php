@@ -1,16 +1,41 @@
-
+<h1> LLenado de Encuesta</h1>
 <table>
-   <tr><td> Nombre:</td>
-<td><input type="text" name="Nombre"/></td>
-</tr>
-<tr><td> Apellido:</td>
-<td><input type="text" name="Apellido"/></td>
-</tr>
-<tr><td> Fecha:</td>
-<td><input type="date" name="Fecha"/></td>
-</tr>
-<tr><td> Hora:</td>
-<td><input type="time" name="Fecha"/></td>
+    <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        
+    </tr>
+    
+    
+   <tr>
+       
+        <td></td>
+        <td></td><td colspan="1"> Nombre:</td>
+        <td><input type="text" name="Nombre"/></td>
+        <td colspan="1"> Apellido:</td>
+        <td colspan="1">
+        <input type="text" name="Apellido"/>
+        </td>
+        <td></td>
+        <td></td>
+  </tr>      
+  <tr>
+      <td></td>
+        <td></td>
+      <td colspan="1"> Fecha:</td>
+        <td colspan="1">
+        <input type="date" name="Fecha"/>
+        <td colspan="1"> Hora:</td>
+        <td colspan="1">
+        <input type="time" name="Fecha"/>
+        </td>
+        <td></td>
+        <td></td>
+
 </tr>
 
 
@@ -27,19 +52,28 @@
       if ($tipo_item=='A'){
           echo "   <input type='text' name='". $id_item. "' id='". $id_item." '/>";
       }
+      
+      if ($tipo_item=='G') {
+          $max_escala=$Item->getMaximo();
+          for ($i=1; $i<=$max_escala; $i++) {
+                echo $i."</td><td>";
+                }
+                echo "NS/NC";
+      }
+
+      if ($tipo_item=='H') $max_sub=$Item->getMaximo();   
+      
           
       $i=0;
       
       
       ?>
-   <td></tr>
+   </td></tr>
     <tr><td>
     <?php foreach ($OpcionRespuestas as $OpcionRespuesta): ?>
     <?php $i++;
     $id_opcion=$OpcionRespuesta->getId();
-    
-    ?>   
-    <?php switch($tipo_item) {
+    switch($tipo_item) {
        case "B"://seleccion simple
            echo "<input type='radio' name='".$id_item."[]'  id='".$id_item."'/> ". $OpcionRespuesta->getOpcion();
         break;
@@ -63,7 +97,21 @@
                echo "<input type='text' name='".$id_item."'  id='".$id_item."'/> ";
            }
         break;
-        
+        case "G"://seleccion multiple con valores
+            echo $OpcionRespuesta->getOpcion()."</td><td>";
+              for ($i=1; $i<=$max_escala; $i++) {
+                echo "<input type='radio' name='".$id_item."[]'  id='".$id_item."'/> </td><td>";
+                }
+                echo "<input type='radio' name='".$id_item."[]'  id='".$id_item."'/></td></tr><tr><td> ";
+      
+            
+        break;
+        case "H"://seleccion multiple con valores
+            for ($i; $i<$max_sub; $i++) {
+                echo "</td><td> ".$OpcionRespuesta->getOpcion(). "<input type='text'/>";
+            
+                }
+        break;  
     
         
         
