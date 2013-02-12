@@ -25,7 +25,7 @@
       <td width="15%"><center><?php echo $formato_fecha ?></center></td>
       <td width="20%"><center><?php echo link_to(image_tag('ver.png'),'encuesta/show?id='.$Encuesta->getId(),array('title' => 'Ver detalle'))?>
           <?php echo link_to(image_tag('edit.png'),'encuesta/edit?id='.$Encuesta->getId(),array('title' => 'Editar'))?>
-          <?php echo link_to(image_tag('cargar.png'),'respuesta_encuesta/cargarencuestaSuccess/id_encuesta/'.$Encuesta->getId() ,array('title' => 'Cargar respuestas de la encuesta'))?>
+          <?php echo link_to(image_tag('cargar.png'),'respuesta_encuesta/new?id_encuesta='.$Encuesta->getId(),  array('title' => 'Cargar respuestas de la encuesta'))?>
           </center>
       </td>
    </tr>
