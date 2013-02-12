@@ -192,4 +192,39 @@ background-color: #d4d9de;
     text-align: center;
 }
 
+table.show_encuesta {
+    font-family: Verdana;
+    font-weight: normal;
+    font-size: 14px;
+    padding-left: 20px;
+    padding-top: 20px;
+    width: 100%;
+}
 
+	.input_show_min{
+	font-family: Arial, Verdana; 
+	font-size: 15px; 
+	border: 1px solid #b9bdc1; 
+	width: 75px; 
+	color: #797979;
+        clear:left;
+	}
+        
+	.input_show_med{
+	font-family: Arial, Verdana; 
+	font-size: 15px; 
+	border: 1px solid #b9bdc1; 
+	width: 400px; 
+	color: #797979;
+        clear:left;
+	} 
+        
+        .textareashow{
+	font-family: Arial, Verdana; 
+	font-size: 15px; 
+	border: 1px solid #b9bdc1; 
+	width: 450px; 
+	color: #797979;
+        clear:left;
+        height: 120px;
+	}

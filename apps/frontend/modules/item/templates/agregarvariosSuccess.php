@@ -218,7 +218,7 @@ $('input#siguiente_submit').click(function (e){
     var i=0;
     var valor='';
     var tipo_item=$('select#tipo_item').val();
-    
+    alert(tipo_item);
     
     var max_escala=$('select#max_escala').val();
     var max_sub=$('select#max_sub').val();
@@ -234,8 +234,7 @@ $('input#siguiente_submit').click(function (e){
        i++;
     });
     
-   
-   
+    
     
     $.ajax({ type: "POST",
 	    	url: "<?php echo url_for('item/createvarios'); ?>",
