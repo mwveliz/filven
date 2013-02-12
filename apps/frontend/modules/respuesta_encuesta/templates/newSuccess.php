@@ -100,9 +100,9 @@
         case "G"://seleccion multiple con valores
             echo $OpcionRespuesta->getOpcion()."</td><td>";
               for ($i=1; $i<=$max_escala; $i++) {
-                echo "<input type='radio' name='".$id_item."[]'  id='".$id_item."'/> </td><td>";
+                echo "<input type='radio' name='".$id_opcion."[]'  id='". $id_opcion."'/> </td><td>";
                 }
-                echo "<input type='radio' name='".$id_item."[]'  id='".$id_item."'/></td></tr><tr><td> ";
+                echo "<input type='radio' name='".$id_opcion."[]'  id='".$id_opcion."'/></td></tr><tr><td> ";
       
             
         break;
