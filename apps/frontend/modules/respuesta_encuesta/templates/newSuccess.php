@@ -48,7 +48,7 @@
       $cantidad_opciones=count($OpcionRespuestas);
       $tipo_item=$Item->getTipoItem();
       $id_item=$Item->getId();
-      echo $Item->getNumeracion() .'. ' . $Item->getTexto();
+      echo $Item->getNumeracion() .'. ' . $Item->getTexto().'</td><td>' ;
       if ($tipo_item=='A'){
           echo "   <input type='text' name='". $id_item. "' id='". $id_item." '/>";
       }
