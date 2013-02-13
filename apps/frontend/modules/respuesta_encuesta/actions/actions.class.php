@@ -24,9 +24,6 @@ class respuesta_encuestaActions extends sfActions
   {
     $this->id_encuesta=$request->getParameter('id_encuesta');
     $this->Items= ItemQuery::create()->filterByIdEncuesta($this->id_encuesta)->find();
-    $this->form= new RespuestaEncuestaForm();
-    
-    
     
     }
 
@@ -151,7 +148,7 @@ class respuesta_encuestaActions extends sfActions
           break;
         }
      }//fin foreach items
-    $this->redirect('respuesta_encuesta/new?id='.$id_encuesta);
+    $this->redirect('respuesta_encuesta/new?id_encuesta='.$id_encuesta);
     
   }
 
