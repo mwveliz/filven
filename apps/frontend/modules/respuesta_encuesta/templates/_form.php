@@ -1,7 +1,6 @@
 <? $nueva=true;?>
-<form action="<?php echo url_for('respuesta_encuesta/'.($nueva ? 'create' : 'update').(!$nueva ? '?id='.$id_encuesta: '')) ?>" method="post">
-<input type="hidden" value="<?echo $sf_params->get('id_encuesta')?>" name="id_encuesta">
-
+<form action="<?php echo url_for('respuesta_encuesta/create?id_encuesta='.$id_encuesta) ?> " method="post">
+<input type="hidden" value="<?echo $id_encuesta?>" name="id_encuesta">
 <table>
     <tr>
         <th></th>

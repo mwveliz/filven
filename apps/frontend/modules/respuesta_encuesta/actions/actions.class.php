@@ -22,9 +22,9 @@ class respuesta_encuestaActions extends sfActions
 
   public function executeNew(sfWebRequest $request)
   {
-    $id_encuesta=$request->getParameter('id_encuesta');
-    $this->Items= ItemQuery::create()->filterByIdEncuesta($id_encuesta)->find();
-    
+    $this->id_encuesta=$request->getParameter('id_encuesta');
+    $this->Items= ItemQuery::create()->filterByIdEncuesta($this->id_encuesta)->find();
+    $this->form= new RespuestaEncuestaForm();
     
     
     
@@ -35,12 +35,10 @@ class respuesta_encuestaActions extends sfActions
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
-
+    
     //debo chequear si esoty creado o editando la encuesta antes de emepzar <<-- ṔENDIENTE
     //LO MISMO QUE EN AGREGARITEM
-    $REncuesta = new RespuestaEncuesta();
-
-     $id_encuesta=  $_POST['id_encuesta']; //fk a encuesta
+     $id_encuesta= intval($request->getParameter('id_encuesta')); //fk a encuesta
      $numero_encuesta=  $_POST['numero_encuesta']; //numeracion de la hoja
      $nombre=  $_POST['nombre']; 
      $apellido=  $_POST['apellido']; 
@@ -48,9 +46,9 @@ class respuesta_encuestaActions extends sfActions
      $observacion=  $_POST['observacion']; 
      $telefono=  $_POST['telefono']; 
      $email=  $_POST['email']; 
- 
-     // die(var_dump($_POST));  
-     $REncuesta->setIdEncuesta($id_encuesta);
+    
+     $REncuesta = new RespuestaEncuesta();
+     $REncuesta->setIdEncuesta(intval($id_encuesta));
      $REncuesta->setNumeroEncuesta($numero_encuesta);
      $REncuesta->setNombre($nombre);
      $REncuesta->setApellido($apellido);
@@ -66,8 +64,6 @@ class respuesta_encuestaActions extends sfActions
      foreach ($Items as $Item){
         $id_item=$Item->getId();
         $tipo_item=$Item->getTipoItem();
-
-   
         switch($tipo_item){
             case "A": //caso entrada por completacion
                 $RItem = new RespuestaItem();
@@ -155,9 +151,6 @@ class respuesta_encuestaActions extends sfActions
           break;
         }
      }//fin foreach items
-     
-     
-    $this->setTemplate('new');
     $this->redirect('respuesta_encuesta/new?id='.$id_encuesta);
     
   }
