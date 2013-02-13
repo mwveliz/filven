@@ -22,16 +22,16 @@ if (count($I)>0) $numeracion=$I->getNumeracion()+1;
           </tr>  
       <tr>
         <td>
-            <input id="anterior_submit" type="submit" value="Anterior Item" />
+            <input class="button" id="anterior_submit" type="submit" value="Anterior" />
         </td>
         
         <td>
-            <input id="fin_submit" type="submit" value="Finalizar Encuesta" />
+            <center><input class="button_finalizar" id="fin_submit" type="submit" value="Finalizar" /><center>
         </td>
         
         
         <td>
-            <input id="siguiente_submit" type="submit" value="Siguente Item" />
+            <input class="button" id="siguiente_submit" type="submit" value="Siguente Item" />
         </td>
         
       </tr>

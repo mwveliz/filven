@@ -35,9 +35,10 @@ class actividadActions extends sfActions
     $this->forward404Unless($request->isMethod(sfRequest::POST));
 
     $this->form = new ActividadForm();
-
-    $fecha = $_POST['actividad']['fecha_hora'];
-
+    
+    $fecha = $_POST['actividad']['fecha'];
+    $hora = $_POST['actividad']['hora'];
+    
     $nombre_actividad = $_POST["actividad"]['nombre_actividad'];
     $ponente = $_POST["actividad"]['ponente'];
     $turno = $_POST["actividad"]['turno'];
@@ -57,8 +58,9 @@ class actividadActions extends sfActions
     if ($fecha['day'] < 10) $fecha['day'] = '0'.$fecha['day'];
     if ($fecha['hour'] < 10) $fecha['hour'] = '0'.$fecha['hour'];
     if ($fecha['minute'] < 10) $fecha['minute'] = '0'.$fecha['minute'];    
-    $string_fecha = $fecha['year'].'-'.$fecha['month'].'-'.$fecha['day'].' '.$fecha['hour'].':'.$fecha['minute'];
-    $fecha_hora = $string_fecha;   
+    $string_fecha = $fecha['year'].'-'.$fecha['month'].'-'.$fecha['day'];
+    $hora = $hora['hour'].':'.$hora['minute'];
+    $fecha = $string_fecha;   
     
     $Actividad = new Actividad();
     $Actividad->setNombreActividad($nombre_actividad);
@@ -75,7 +77,8 @@ class actividadActions extends sfActions
     $Actividad->setObservaciones($observaciones);
     $Actividad->setIdSala($id_sala);
     $Actividad->setIdTipoActividad($id_tipo_actividad);
-    $Actividad->setFechaHora($fecha_hora);
+    $Actividad->setFecha($fecha);
+    $Actividad->setHora($hora);
     $Actividad->save();
 
 
@@ -96,8 +99,9 @@ class actividadActions extends sfActions
     $this->forward404Unless($Actividad, sprintf('Object Actividad does not exist (%s).', $request->getParameter('id')));
     $this->form = new ActividadForm($Actividad);
 
-    $fecha = $_POST['actividad']['fecha_hora'];
-
+    $fecha = $_POST['actividad']['fecha'];
+    $hora = $_POST['actividad']['hora'];    
+    
     $nombre_actividad = $_POST["actividad"]['nombre_actividad'];
     $ponente = $_POST["actividad"]['ponente'];
     $turno = $_POST["actividad"]['turno'];
@@ -117,8 +121,9 @@ class actividadActions extends sfActions
     if ($fecha['day'] < 10) $fecha['day'] = '0'.$fecha['day'];
     if ($fecha['hour'] < 10) $fecha['hour'] = '0'.$fecha['hour'];
     if ($fecha['minute'] < 10) $fecha['minute'] = '0'.$fecha['minute'];    
-    $string_fecha = $fecha['year'].'-'.$fecha['month'].'-'.$fecha['day'].' '.$fecha['hour'].':'.$fecha['minute'];
-    $fecha_hora = $string_fecha;   
+    $string_fecha = $fecha['year'].'-'.$fecha['month'].'-'.$fecha['day'];
+    $hora = $hora['hour'].':'.$hora['minute'];
+    $fecha = $string_fecha;  
     
     $Actividad->setNombreActividad($nombre_actividad);
     $Actividad->setPonente($ponente);
@@ -134,7 +139,8 @@ class actividadActions extends sfActions
     $Actividad->setObservaciones($observaciones);
     $Actividad->setIdSala($id_sala);
     $Actividad->setIdTipoActividad($id_tipo_actividad);
-    $Actividad->setFechaHora($fecha_hora);
+    $Actividad->setFecha($fecha);
+    $Actividad->setHora($hora);
     $Actividad->save();
 
     $this->redirect('actividad/index'); 

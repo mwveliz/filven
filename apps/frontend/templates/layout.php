@@ -51,6 +51,7 @@
                                     <ul>
                                         <li><span><?php echo link_to('Nueva Sala', 'sala/new' )?></span></li>
                                         <li><span><?php echo link_to('Listar Salas', 'sala/index' )?></span></li>
+                                        <li><span><?php echo link_to('Totales Generales', 'sala/totalgeneral' )?></span></li>
                                     </ul>
                                 </li>
                                 <li><a href="#" title="Encuestas">Encuestas<span class="flecha">&#9660;</span></a>

@@ -89,21 +89,6 @@
         <?
           $Municipio = MunicipioQuery::create()->filterById($Actividad->getIdMunicipio())->findOne();
           if (count($Municipio) > 0) {
-              $municipio = $Municipio->getMunicipio();
-          } else {
-              $municipio = '--';
-          }
-        ?>
-      <th style="text-align:right; width:30%">Municipio:</th>
-      <td style="padding-left: 10px; text-align: justify"><?php echo $municipio ?></td>
-    </tr>
-      <tr>
-      <th style="text-align:right; width:30%; line-height: 6px">&nbsp;</th>
-      <td style="padding-left: 10px; line-height: 6px">&nbsp;</td>
-    </tr> 
-    <tr>
-        <?
-          if (count($Municipio) > 0) {
               $estado = $Municipio->getEstado();
           } else {
               $estado = '--';
@@ -111,7 +96,26 @@
         ?>
       <th style="text-align:right; width:30%">Estado:</th>
       <td style="padding-left: 10px; text-align: justify"><?php echo $estado ?></td>
-    </tr>    
+    </tr>
+    <tr>
+      <th style="text-align:right; width:30%; line-height: 6px">&nbsp;</th>
+      <td style="padding-left: 10px; line-height: 6px">&nbsp;</td>
+    </tr> 
+    <tr>
+        <?
+          if (count($Municipio) > 0) {
+              $municipio = $Municipio->getMunicipio();
+          } else {
+              $municipio = '--';
+          }          
+        ?>
+      <th style="text-align:right; width:30%">Municipio:</th>
+      <td style="padding-left: 10px; text-align: justify"><?php echo $municipio ?></td>
+    </tr> 
+    <tr>
+      <th style="text-align:right; width:30%; line-height: 6px">&nbsp;</th>
+      <td style="padding-left: 10px; line-height: 6px">&nbsp;</td>
+    </tr>     
     <tr>
       <? 
         if ($Actividad->getEscuela()) {
@@ -174,8 +178,7 @@
     </tr>     
     <tr>
       <?php
-        list($fecha, $hora) = explode(" ", $Actividad->getFechaHora());
-        list($anio,$mes,$dia) = explode("-",$fecha);
+        list($anio,$mes,$dia) = explode("-",$Actividad->getFecha());
         $anio = substr($anio,-2);
         $formato_fecha= $dia . "-" . $mes . "-" . $anio; 
       ?>  

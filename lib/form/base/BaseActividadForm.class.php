@@ -29,7 +29,8 @@ abstract class BaseActividadForm extends BaseFormPropel
       'observaciones'            => new sfWidgetFormInputText(),
       'id_sala'                  => new sfWidgetFormPropelChoice(array('model' => 'Sala', 'add_empty' => true)),
       'id_tipo_actividad'        => new sfWidgetFormPropelChoice(array('model' => 'TipoActividad', 'add_empty' => true)),
-      'fecha_hora'               => new sfWidgetFormDateTime(),
+      'fecha'                    => new sfWidgetFormDate(),
+      'hora'                     => new sfWidgetFormTime(),
     ));
 
     $this->setValidators(array(
@@ -48,7 +49,8 @@ abstract class BaseActividadForm extends BaseFormPropel
       'observaciones'            => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'id_sala'                  => new sfValidatorPropelChoice(array('model' => 'Sala', 'column' => 'id', 'required' => false)),
       'id_tipo_actividad'        => new sfValidatorPropelChoice(array('model' => 'TipoActividad', 'column' => 'id', 'required' => false)),
-      'fecha_hora'               => new sfValidatorDateTime(array('required' => false)),
+      'fecha'                    => new sfValidatorDate(array('required' => false)),
+      'hora'                     => new sfValidatorTime(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('actividad[%s]');

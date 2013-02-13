@@ -70,8 +70,8 @@ jQuery(document).ready(function() {
 <?php endif; ?>
 <div class="field">
 	<label for="name">Fecha</label>
-  	 <?php echo $form['fecha_hora']->render(array('class'=>'fecha_hora')) ;?> 
-	<p class="hint">Introduzca la fecha de la actividad</p>
+  	<?php echo $form['fecha'] ?>&nbsp;&nbsp;<?php echo $form['hora'] ?> 
+	<p class="hint">Introduzca la fecha y hora de la actividad</p>
 </div>  
 <div class="field">
 	<label for="name">Tipo</label>

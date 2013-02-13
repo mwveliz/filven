@@ -26,7 +26,8 @@ abstract class BaseActividadFormFilter extends BaseFormFilterPropel
       'observaciones'            => new sfWidgetFormFilterInput(),
       'id_sala'                  => new sfWidgetFormPropelChoice(array('model' => 'Sala', 'add_empty' => true)),
       'id_tipo_actividad'        => new sfWidgetFormPropelChoice(array('model' => 'TipoActividad', 'add_empty' => true)),
-      'fecha_hora'               => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
+      'fecha'                    => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
+      'hora'                     => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
     ));
 
     $this->setValidators(array(
@@ -44,7 +45,8 @@ abstract class BaseActividadFormFilter extends BaseFormFilterPropel
       'observaciones'            => new sfValidatorPass(array('required' => false)),
       'id_sala'                  => new sfValidatorPropelChoice(array('required' => false, 'model' => 'Sala', 'column' => 'id')),
       'id_tipo_actividad'        => new sfValidatorPropelChoice(array('required' => false, 'model' => 'TipoActividad', 'column' => 'id')),
-      'fecha_hora'               => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
+      'fecha'                    => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
+      'hora'                     => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
     ));
 
     $this->widgetSchema->setNameFormat('actividad_filters[%s]');
@@ -77,7 +79,8 @@ abstract class BaseActividadFormFilter extends BaseFormFilterPropel
       'observaciones'            => 'Text',
       'id_sala'                  => 'ForeignKey',
       'id_tipo_actividad'        => 'ForeignKey',
-      'fecha_hora'               => 'Date',
+      'fecha'                    => 'Date',
+      'hora'                     => 'Date',
     );
   }
 }

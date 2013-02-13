@@ -41,6 +41,13 @@
         padding: 0px 5px 5px 5px; 
 	}        
         
+ 	.tipo_item{
+	font-family: Arial, Verdana; 
+	font-size: 15px; 
+	text-align: left;
+        float: left;
+        padding: 0px 5px 5px 5px; 
+	}        
 	.input:focus{
 	background-color:#E7E8E7;	
 	}
@@ -136,6 +143,41 @@
     cursor: pointer;
 	}        
         
+	.button_finalizar{
+	float: center;
+	margin:10px 55px 10px 0;
+	font-weight: bold;
+	line-height: 1;
+	padding: 6px 10px;
+	cursor:pointer;   
+	color: #fff;
+	
+	text-align: center;
+	text-shadow: 0 -1px 1px #64799e;
+	
+	/* Background gradient */
+	background: #1F964C;
+	background: -moz-linear-gradient(top, #1F964C 0%, #1F964C 100%);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1F964C), to(#1F964C));
+	
+	/* Border style */
+  	border: 1px solid #17E061;  
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+  
+	/* Box shadow */
+	-moz-box-shadow: inset 0 1px 0 0 #17E061;
+	-webkit-box-shadow: inset 0 1px 0 0 #17E061;
+	box-shadow: inset 0 1px 0 0 #aec3e5;
+	
+	}
+	
+	.button_finalizar:hover {
+	background: #17E061;
+    cursor: pointer;
+	}     
+        
 table.tabla_show {
     width: 100%;
     font-size:16px;
@@ -191,6 +233,36 @@ background-color: #d4d9de;
     font-weight: bold;
     text-align: center;
 }
+
+table.tablas_item {
+    font-family: sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    padding-left: 120px;
+}
+
+.tablas_item td {
+    font-family: sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    margin: auto;
+    height:20px;
+    padding-left: 10px;
+    padding-right: 5px;
+
+}
+
+.tablas_item th {
+    font-family: sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    margin: auto;
+    height:24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
 
 table.show_encuesta {
     font-family: sans-serif;

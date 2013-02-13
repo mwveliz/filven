@@ -16,7 +16,7 @@ class salaActions extends sfActions
           $page = $request->getParameter('page');
     }      
       
-    $this->Salas = SalaQuery::create()->paginate($page,20);
+    $this->Salas = SalaQuery::create()->orderById('asc')->paginate($page,20);
   }
 
   public function executeShow(sfWebRequest $request)
@@ -81,4 +81,23 @@ class salaActions extends sfActions
       $this->redirect('sala/index');
     }
   }
+
+  public function executeTotalgeneral(sfWebRequest $request)
+  {
+    $this->Salas = SalaQuery::create()->orderById('asc')->find();
+  }
+  
+   public function executeTotalindividual(sfWebRequest $request)
+  {
+    $id = $request->getParameter('id');
+   
+    $this->Actividades = ActividadQuery::create()
+                        ->filterByIdSala($id)
+                        ->select('Fecha')
+                        ->setDistinct('Fecha')
+                        ->orderByFecha('asc')
+                        ->find();
+  } 
+  
+  
 }

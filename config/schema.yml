@@ -23,7 +23,8 @@ propel:
     observaciones: { phpName: Observaciones, type: VARCHAR, size: '255', required: false }
     id_sala: { phpName: IdSala, type: INTEGER, required: false, foreignTable: sala, foreignReference: id, onUpdate: CASCADE }
     id_tipo_actividad: { phpName: IdTipoActividad, type: INTEGER, required: false, foreignTable: tipo_actividad, foreignReference: id, onUpdate: CASCADE }
-    fecha_hora: { phpName: FechaHora, type: TIMESTAMP, required: false }
+    fecha: { phpName: Fecha, type: DATE, required: false }
+    hora: { phpName: Hora, type: TIME, required: false }
   encuesta:
     _attributes: { phpName: Encuesta }
     id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }

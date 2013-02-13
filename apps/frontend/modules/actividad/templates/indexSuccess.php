@@ -17,8 +17,7 @@
     <tr>
       <td width="35%"><?php echo $Actividad->getNombreActividad() ?></td>  
        <?php
-        list($fecha, $hora) = explode(" ", $Actividad->getFechaHora());
-        list($anio,$mes,$dia) = explode("-",$fecha);
+        list($anio,$mes,$dia) = explode("-",$Actividad->getFecha());
         $anio = substr($anio,-2);
         $formato_fecha= $dia . "-" . $mes . "-" . $anio; 
       ?>       
@@ -32,7 +31,14 @@
           }
         ?>
       <td width="25%"><center><?php echo $sala ?></center></td>
-      <td width="15%"><center><?php echo $Actividad->getIdTipoActividad() ?></center></td>
+      <? $TipoActividad = TipoActividadQuery::create()->filterById($Actividad->getIdTipoActividad())->findOne();
+          if (count($TipoActividad) > 0) {
+              $tipo_actividad = $TipoActividad->getNombreTipo();
+          } else {
+              $tipo_actividad = '--';
+          }       
+      ?>
+      <td width="15%"><center><?php echo $tipo_actividad ?></center></td>
       <td width="15%"><center><?php echo $Actividad->getPonente() ?></center></td>
       <td width="15%"><center><?php echo link_to(image_tag('ver.png'),'actividad/show?id='.$Actividad->getId(),array('title' => 'Ver detalle'))?>
           <?php echo link_to(image_tag('edit.png'),'actividad/edit?id='.$Actividad->getId(),array('title' => 'Editar'))?>
