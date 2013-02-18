@@ -31,6 +31,7 @@
                 </td>
                 <td>
                     &nbsp;
+                    <p style="padding-right: 50px; text-align: right;"><b><a id="cerrar_sesion" href="<?php echo url_for('/logout') ?>">Cerrar Sesión</a></p>
                 </td>
             </tr>
         </table>

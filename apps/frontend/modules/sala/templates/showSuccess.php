@@ -38,8 +38,7 @@
         <tr>
           <td width="35%"><?php echo $Actividad->getNombreActividad() ?></td>  
            <?php
-            list($fecha, $hora) = explode(" ", $Actividad->getFechaHora());
-            list($anio,$mes,$dia) = explode("-",$fecha);
+            list($anio,$mes,$dia) = explode("-",$Actividad->getFecha());
             $anio = substr($anio,-2);
             $formato_fecha= $dia . "-" . $mes . "-" . $anio; 
           ?>       
@@ -75,5 +74,7 @@
 <p style="text-align: right; padding-right: 50px; margin-left: 50px; padding-top: 10px; border-top: 1px solid black;">
 <?php echo link_to(image_tag('list.png'),'sala/index',array('title' => 'Ver listado'))?>
 <?php echo link_to(image_tag('edit.png'),'sala/edit?id='.$Sala->getId(),array('title' => 'Editar'))?>
+<?php echo link_to(image_tag('delete.png'), 'sala/delete?id='.$Sala->getId(), array('method' => 'delete', 'confirm' => 'Seguro desea eleminar?')) ?>
+    
 </p>
 

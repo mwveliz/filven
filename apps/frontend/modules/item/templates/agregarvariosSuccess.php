@@ -1,6 +1,5 @@
 <br>
 <center><h1>Agregar items a la encuesta</h1></center>
-<br>
 <?php use_stylesheets_for_form($form) ?>
 <?php use_javascripts_for_form($form) ?>
 <?php
@@ -15,7 +14,8 @@ if (count($I)>0) $numeracion=$I->getNumeracion()+1;
 <?php if (!$form->getObject()->isNew()): ?>
 <input type="hidden" name="sf_method" value="put" />
 <?php endif; ?>
-  <table class="tablas">
+  <center>
+  <table class="tabla_item">
     <tfoot>
         <tr style="display:none" id="tr_mas">
             <td id="mas"> <a href="#"> <?php echo image_tag('agregar.png')?> </a></td>
@@ -38,16 +38,16 @@ if (count($I)>0) $numeracion=$I->getNumeracion()+1;
       
     </tfoot>
     <tbody>
-        <tr>
-    <th><label for="item_identificador_item">Numeración item</label></th>
-    <td><input type="text" name="numeracion"  id="numeracion" value="<?php echo $numeracion?>"/></input>
-      </tr>
-      <tr>  
-      <th><label for="item_texto">Texto</label></th>
-        <td><input type="textarea" name="texto" id="texto" /></td>
-        </tr>
     <tr>
-        <th><label for="tipo_item">Tipo Item</label></th>
+        <th><label for="item_identificador_item">Numeración item</label><p>&nbsp;</p></th>
+        <td><input type="text" name="numeracion"  id="numeracion" class="input" value="<?php echo $numeracion?>"/></input><p>&nbsp;</p></td>
+    </tr>
+    <tr>  
+        <th><label for="item_texto">Texto</label><p>&nbsp;</p></th>
+        <td><input name="texto" id="texto" class="input"/></textarea><p>&nbsp;</p></td>
+    </tr>
+    <tr>
+        <th><label for="tipo_item">Tipo Item</label><p>&nbsp;</p></th>
         <td><select id="tipo_item" class="tipo_item"  type="checkbox" name="tipo_item" />
             <option id="A" value="A"> Tipo A (Completación) </option>
             <option id="B" value="B"> Tipo B (Selección Simple)</option>
@@ -58,64 +58,60 @@ if (count($I)>0) $numeracion=$I->getNumeracion()+1;
             <option id="G" value="G"> Tipo G (Seleccion Multiple Segundo Nivel)</option>
             <option id="H" value="H"> Tipo H (Completación Multiple Segundo Nivel)</option>
         </select>
+        <p>&nbsp;</p>    
         </td>
     </tr>
     
     
     <tr class="tr_ocultable" tipo="B" style="display:none" id="1">
-        <td id="1" >
-            <input type="radio" name="opcion[]" id="B" checked>
-                <input type="text" id="opcion" class="B" />
-                </input>
+        <td id="1" colspan="2">
+              <input type="radio" name="opcion[]" id="B" checked>&nbsp;&nbsp;
+              <input type="text" id="opcion" class="B" style="padding: 0px 5px 5px 5px; border: 1px solid #b9bdc1; width: 300px;"/>
         </td>
-        <td id="mas">
-            <a href="#">+</a>
+        <td id="mas" colspan="2">
+            <a href="#"><? echo image_tag('blue_add.png') ?></a>
         </td>    
     </tr>   
     
   
      <tr class="tr_ocultable" tipo="C" style="display:none" id="1">
-        <td id="1" >
-            <input type="radio" name="opcion[]" id="C" checked>
-                <input type="text" id="opcion" class="C"/>
-                </input>
+        <td id="1" colspan="2">
+            <input type="radio" name="opcion[]" id="C" checked>&nbsp;&nbsp;
+            <input type="text" id="opcion" class="C" style="padding: 0px 5px 5px 5px; border: 1px solid #b9bdc1; width: 300px;"/>
         </td>
         <td id="mas">
-            <a href="#">+</a>
+            <a href="#"><? echo image_tag('blue_add.png') ?></a>
         </td>    
          
     </tr>  
     
     
     <tr class="tr_ocultable" tipo="D" style="display:none" id="1">
-        <td id="1" >
-            <input type="checkbox" name="opcion[]" id="D" checked="checked">
-                    <input type="text" id="opcion" class="D"/>
-                </input>
+        <td id="1" colspan="2">
+            <input type="checkbox" name="opcion[]" id="D" checked="checked">&nbsp;&nbsp;
+            <input type="text" id="opcion" class="D" style="padding: 0px 5px 5px 5px; border: 1px solid #b9bdc1; width: 300px;"/>
         </td>
         <td id="mas">
-            <a href="#">+</a>
+            <a href="#"><? echo image_tag('blue_add.png') ?></a>
         </td>    
     </tr>      
     <tr class="tr_ocultable" tipo="E" style="display:none" id="1">
-        <td id="1" >
-            <input type="checkbox" name="opcion[]" id="E" checked="checked">
-                <input type="text" id="opcion" class="E"/>_____________
-                </input>
+        <td id="1" colspan="2">
+            <input type="checkbox" name="opcion[]" id="E" checked="checked">&nbsp;&nbsp;
+            <input type="text" id="opcion" class="E" style="padding: 0px 5px 5px 5px; border: 1px solid #b9bdc1; width: 250px;"/>&nbsp;&nbsp;________________
         </td>
         <td id="mas">
-            <a href="#">+</a>
+            <a href="#"><? echo image_tag('blue_add.png') ?></a>
         </td>    
     </tr>      
     
     <tr class="tr_ocultable" tipo="F" style="display:none" id="1">
-        <td id="1" >
-            <input type="checkbox" name="opcion[]" id="F" checked="checked">
-                <input type="text" id="opcion" class="F"/>
-                </input>
+        <td id="1" colspan="2">
+            <input type="checkbox" name="opcion[]" id="F" checked="checked">&nbsp;&nbsp;
+            <input type="text" id="opcion" class="F" style="padding: 0px 5px 5px 5px; border: 1px solid #b9bdc1; width: 300px;"/>
         </td>
         <td id="mas">
-            <a href="#">+</a>
+            <a href="#"><? echo image_tag('blue_add.png') ?></a>
         </td>  
     </tr>      
     
@@ -130,19 +126,18 @@ if (count($I)>0) $numeracion=$I->getNumeracion()+1;
                         </select>
         </td>
         
-        <td id="1" colspan="2" >
-            <input type="checkbox" name="opcion[]" id="G" checked="checked" id="1">
-               <input type="text" id="opcion" class="G"/>
-               </input>
+        <td id="1" >
+            <input type="checkbox" name="opcion[]" id="G" checked="checked" id="1">&nbsp;&nbsp;
+            <input type="text" id="opcion" class="G" style="padding: 0px 5px 5px 5px; border: 1px solid #b9bdc1; width: 250px;"/>
         </td>
         <td id="mas">
-            <a href="#">+</a>
+            <a href="#"><? echo image_tag('blue_add.png') ?></a>
         </td>
         
     </tr>      
     <tr class="tr_ocultable" tipo="H" style="display:none" id="1">
          <td id="max_sub">
-            Numero de sub items: <select id="max_sub">
+            N° sub items: <select id="max_sub">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -155,17 +150,17 @@ if (count($I)>0) $numeracion=$I->getNumeracion()+1;
                             <option>10</option>
                         </select>
         </td>
-        <td id="1" colspan="2" >
-            <input type="checkbox" name="opcion[]" id="H" checked="checked" id="1">
-               <input type="text" id="opcion" class="H"/>
-               </input>
+        <td id="1">
+            <input type="checkbox" name="opcion[]" id="H" checked="checked" id="1">&nbsp;&nbsp;
+            <input type="text" id="opcion" class="H" style="padding: 0px 5px 5px 5px; border: 1px solid #b9bdc1; width: 250px;"/>
         </td>
         <td id="mas">
-            <a href="#">+</a>
+            <a href="#">&nbsp;<? echo image_tag('blue_add.png') ?></a>
         </td>
      </tr>      
     </tbody>
   </table>
+</center>    
 </form>
 
 
@@ -186,7 +181,7 @@ $(document).ready(function(){
 
 
   $(document).on("click","td#mas", function(){
-        $(this).parent().clone().appendTo('table.tablas');
+        $(this).parent().clone().appendTo('table.tabla_item');
         $('tr:last').attr("param","clonado" );
         $('input#opcion:last').val("");
         /*var indice=$('tr.tr_ocultable:last').index()-9;

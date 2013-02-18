@@ -1,4 +1,4 @@
-<br>
+ <br>
 <center><h1>Total por sala</h1></center>
 <br>
 <table class="tablas">

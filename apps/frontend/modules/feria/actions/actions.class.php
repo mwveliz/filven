@@ -11,7 +11,12 @@ class feriaActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->Ferias = FeriaQuery::create()->find();
+    $page = 1;
+    if ($request->getParameter('page')) {
+          $page = $request->getParameter('page');
+    }
+    
+    $this->Ferias = FeriaQuery::create()->orderByDescripcion()->paginate($page,20);
   }
 
   public function executeShow(sfWebRequest $request)
@@ -33,7 +38,7 @@ class feriaActions extends sfActions
 
     $this->processForm($request, $this->form);
 
-    $this->setTemplate('new');
+    $this->redirect('feria/index');
   }
 
   public function executeEdit(sfWebRequest $request)
@@ -52,7 +57,7 @@ class feriaActions extends sfActions
 
     $this->processForm($request, $this->form);
 
-    $this->setTemplate('edit');
+    $this->redirect('feria/index');
   }
 
   public function executeDelete(sfWebRequest $request)
@@ -73,7 +78,7 @@ class feriaActions extends sfActions
     {
       $Feria = $form->save();
 
-      $this->redirect('feria/edit?id='.$Feria->getId());
+      $this->redirect('feria/index');
     }
   }
 }
