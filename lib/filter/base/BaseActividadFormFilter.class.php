@@ -28,6 +28,8 @@ abstract class BaseActividadFormFilter extends BaseFormFilterPropel
       'id_tipo_actividad'        => new sfWidgetFormPropelChoice(array('model' => 'TipoActividad', 'add_empty' => true)),
       'fecha'                    => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'hora'                     => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
+      'id_ponente'               => new sfWidgetFormFilterInput(),
+      'facilitador'              => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
@@ -47,6 +49,8 @@ abstract class BaseActividadFormFilter extends BaseFormFilterPropel
       'id_tipo_actividad'        => new sfValidatorPropelChoice(array('required' => false, 'model' => 'TipoActividad', 'column' => 'id')),
       'fecha'                    => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
       'hora'                     => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
+      'id_ponente'               => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'facilitador'              => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
     ));
 
     $this->widgetSchema->setNameFormat('actividad_filters[%s]');
@@ -81,6 +85,8 @@ abstract class BaseActividadFormFilter extends BaseFormFilterPropel
       'id_tipo_actividad'        => 'ForeignKey',
       'fecha'                    => 'Date',
       'hora'                     => 'Date',
+      'id_ponente'               => 'Number',
+      'facilitador'              => 'Number',
     );
   }
 }

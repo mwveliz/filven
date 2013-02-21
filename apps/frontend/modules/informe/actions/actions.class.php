@@ -81,4 +81,20 @@ class informeActions extends sfActions
       $this->redirect('informe/index');
     }
   }
+  
+  public function executeEncuestas(sfWebRequest $request)
+  {
+    $page = 1;
+    if ($request->getParameter('page')) {
+          $page = $request->getParameter('page');
+    }
+    
+    $this->Encuestas = EncuestaQuery::create()->paginate($page,20);
+  }  
+  
+   public function executeEstadisticas(sfWebRequest $request)
+  {
+    $this->Encuesta = EncuestaQuery::create()->filterById($request->getParameter('id'));
+  } 
+  
 }

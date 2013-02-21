@@ -3,7 +3,22 @@
 
 
 <script>
-jQuery(document).ready(function() {   
+jQuery(document).ready(function() {
+    
+    id = $("select#actividad_id_sala").children(":selected").val();
+    if (id == 8) {
+        $('div#div_refugio').css("visibility", "visible"); 
+        $('div#div_escuela').css("visibility", "visible"); 
+    } else {
+        $('div#div_refugio').css("visibility", "hidden"); 
+        $('div#div_escuela').css("visibility", "hidden");
+    }
+    if (id == 9) {
+        $('div#div_facilitadores').css("visibility", "visible") 
+    } else {
+        $('div#div_facilitadores').css("visibility", "hidden");
+    }    
+    
      $(document).on("click","select#estados", function(){
         var estado = $(this).children(":selected").val();
         $.ajax({
@@ -58,7 +73,23 @@ jQuery(document).ready(function() {
                   }
          });         
      } 
-    
+
+$(document).on("click","select#actividad_id_sala", function(){
+    id = $(this).children(":selected").val();
+    if (id == 8) {
+        $('div#div_refugio').css("visibility", "visible") 
+        $('div#div_escuela').css("visibility", "visible") 
+    } else {
+        $('div#div_refugio').css("visibility", "hidden") ; 
+        $('div#div_escuela').css("visibility", "hidden");
+    }
+    if (id == 9) {
+        $('div#div_facilitadores').css("visibility", "visible") 
+    } else {
+        $('div#div_facilitadores').css("visibility", "hidden");
+    }    
+});
+
 });     
 </script>
 
@@ -134,16 +165,28 @@ jQuery(document).ready(function() {
         <span class="select"><span id="span_municipio"><select class="select" id="municipios" name="municipios"><option id="1">LIBERTADOR</option></select></span></span>
 	<p class="hint">Indique el municipio en donde se realizó la actividad</p>
 </div> 
-<div class="field">
+<div class="field" id="div_escuela" style="visibility: hidden" >
 	<label for="name">Escuela</label>
         <span class="select"><?php echo $form['escuela']->render(array('class' => 'select')) ;?></span>
 	<p class="hint">Indique si la actividad se realizó en una escuela</p>
 </div> 
-<div class="field">
+<div class="field" id="div_refugio" style="visibility: hidden">
 	<label for="name">Refugio</label>
         <span class="select"><?php echo $form['refugio']->render(array('class' => 'select')) ;?></span>
 	<p class="hint">Indique si la actividad se realizó en un refugio</p>
+</div>
+<!--
+<div class="field">
+	<label for="name">Ponente</label>
+  	<span class="select"><?php echo $form['id_ponente']->render(array('class' => 'select')) ?></span>
+	<p class="hint">Seleccione el ponente</p>
 </div> 
+-->
+<div class="field" id="div_facilitadores">
+	<label for="name">N° Facilitadores</label>
+  	<?php echo $form['facilitador']->render(array('class' => 'input', 'id' => 'facilitador')) ?>
+	<p class="hint">Incluya el número de facilitadores</p>
+</div>  
 <div class="field">
 	<label for="name">Observaciones</label>
   	 <?php echo $form['observaciones']->render(array('class' => 'input textarea','id' => 'observaciones')) ?>

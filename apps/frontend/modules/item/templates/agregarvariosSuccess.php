@@ -18,11 +18,11 @@ if (count($I)>0) $numeracion=$I->getNumeracion()+1;
   <table class="tabla_item">
     <tfoot>
         <tr style="display:none" id="tr_mas">
-            <td id="mas"> <a href="#"> <?php echo image_tag('agregar.png')?> </a></td>
+            <td id="mas"> <a href="#" > <?php echo image_tag('agregar.png')?> </a></td>
           </tr>  
       <tr>
         <td>
-            <input class="button" id="anterior_submit" type="submit" value="Anterior" />
+            <!--<input class="button" id="anterior_submit" type="submit" value="Anterior" /> -->
         </td>
         
         <td>
@@ -44,7 +44,7 @@ if (count($I)>0) $numeracion=$I->getNumeracion()+1;
     </tr>
     <tr>  
         <th><label for="item_texto">Texto</label><p>&nbsp;</p></th>
-        <td><input name="texto" id="texto" class="input"/></textarea><p>&nbsp;</p></td>
+        <td><textarea name="texto" id="texto" class="input textarea"/></textarea><p>&nbsp;</p></td>
     </tr>
     <tr>
         <th><label for="tipo_item">Tipo Item</label><p>&nbsp;</p></th>
@@ -69,7 +69,7 @@ if (count($I)>0) $numeracion=$I->getNumeracion()+1;
               <input type="text" id="opcion" class="B" style="padding: 0px 5px 5px 5px; border: 1px solid #b9bdc1; width: 300px;"/>
         </td>
         <td id="mas" colspan="2">
-            <a href="#"><? echo image_tag('blue_add.png') ?></a>
+            <a href="#" onclick='return false;'><? echo image_tag('blue_add.png') ?></a>
         </td>    
     </tr>   
     
@@ -80,7 +80,7 @@ if (count($I)>0) $numeracion=$I->getNumeracion()+1;
             <input type="text" id="opcion" class="C" style="padding: 0px 5px 5px 5px; border: 1px solid #b9bdc1; width: 300px;"/>
         </td>
         <td id="mas">
-            <a href="#"><? echo image_tag('blue_add.png') ?></a>
+            <a href="#" onclick='return false;'><? echo image_tag('blue_add.png') ?></a>
         </td>    
          
     </tr>  
@@ -92,7 +92,7 @@ if (count($I)>0) $numeracion=$I->getNumeracion()+1;
             <input type="text" id="opcion" class="D" style="padding: 0px 5px 5px 5px; border: 1px solid #b9bdc1; width: 300px;"/>
         </td>
         <td id="mas">
-            <a href="#"><? echo image_tag('blue_add.png') ?></a>
+            <a href="#" onclick='return false;'><? echo image_tag('blue_add.png') ?></a>
         </td>    
     </tr>      
     <tr class="tr_ocultable" tipo="E" style="display:none" id="1">
@@ -101,7 +101,7 @@ if (count($I)>0) $numeracion=$I->getNumeracion()+1;
             <input type="text" id="opcion" class="E" style="padding: 0px 5px 5px 5px; border: 1px solid #b9bdc1; width: 250px;"/>&nbsp;&nbsp;________________
         </td>
         <td id="mas">
-            <a href="#"><? echo image_tag('blue_add.png') ?></a>
+            <a href="#" onclick='return false;'><? echo image_tag('blue_add.png') ?></a>
         </td>    
     </tr>      
     
@@ -111,7 +111,7 @@ if (count($I)>0) $numeracion=$I->getNumeracion()+1;
             <input type="text" id="opcion" class="F" style="padding: 0px 5px 5px 5px; border: 1px solid #b9bdc1; width: 300px;"/>
         </td>
         <td id="mas">
-            <a href="#"><? echo image_tag('blue_add.png') ?></a>
+            <a href="#" onclick='return false;'><? echo image_tag('blue_add.png') ?></a>
         </td>  
     </tr>      
     
@@ -131,7 +131,7 @@ if (count($I)>0) $numeracion=$I->getNumeracion()+1;
             <input type="text" id="opcion" class="G" style="padding: 0px 5px 5px 5px; border: 1px solid #b9bdc1; width: 250px;"/>
         </td>
         <td id="mas">
-            <a href="#"><? echo image_tag('blue_add.png') ?></a>
+            <a href="#" onclick='return false;'><? echo image_tag('blue_add.png') ?></a>
         </td>
         
     </tr>      
@@ -155,7 +155,7 @@ if (count($I)>0) $numeracion=$I->getNumeracion()+1;
             <input type="text" id="opcion" class="H" style="padding: 0px 5px 5px 5px; border: 1px solid #b9bdc1; width: 250px;"/>
         </td>
         <td id="mas">
-            <a href="#">&nbsp;<? echo image_tag('blue_add.png') ?></a>
+            <a href="#" onclick='return false;'>&nbsp;<? echo image_tag('blue_add.png') ?></a>
         </td>
      </tr>      
     </tbody>
@@ -191,6 +191,7 @@ $(document).ready(function(){
         */
         $('td#max_escala').not('td#max_escala:first').remove();
         $('td#max_sub').not('td#max_sub:first').remove();
+      //  $('td#max_sub').not('td#max_sub:first').css('display:none');
   });
   
 
@@ -211,7 +212,7 @@ $(document).ready(function(){
 $('input#siguiente_submit').click(function (e){
     e.preventDefault();
     var numeracion=$('input#numeracion').val();
-    var texto=$('input#texto').val();
+    var texto=$('textarea#texto').val();
     var opcion=new Array;
     var i=0;
     var valor='';
@@ -247,7 +248,7 @@ $('input#siguiente_submit').click(function (e){
                     numeracion++;
                   $('input#numeracion').val("");
                   $('input#numeracion').val(numeracion);
-                  $('input#texto').val("");
+                  $('textarea#texto').val("");
                   $('select#tipo_item').val('A').trigger('change');
                   $('select#tipo_item').trigger('click');
                   

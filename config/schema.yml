@@ -25,6 +25,8 @@ propel:
     id_tipo_actividad: { phpName: IdTipoActividad, type: INTEGER, required: false, foreignTable: tipo_actividad, foreignReference: id, onUpdate: CASCADE }
     fecha: { phpName: Fecha, type: DATE, required: false }
     hora: { phpName: Hora, type: TIME, required: false }
+    id_ponente: { phpName: IdPonente, type: INTEGER, required: false }
+    facilitador: { phpName: Facilitador, type: INTEGER, required: false }
   encuesta:
     _attributes: { phpName: Encuesta }
     id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
@@ -74,6 +76,12 @@ propel:
     ante_grafico: { phpName: AnteGrafico, type: VARCHAR, size: '255', required: false }
     post_grafico: { phpName: PostGrafico, type: VARCHAR, size: '255', required: false }
     tipo_grafico: { phpName: TipoGrafico, type: INTEGER, required: false }
+  ponente:
+    _attributes: { phpName: Ponente }
+    nombre: { phpName: Nombre, type: VARCHAR, required: false }
+    nacionalidad: { phpName: Nacionalidad, type: VARCHAR, required: false }
+    especialidad: { phpName: Especialidad, type: VARCHAR, required: false }
+    id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
   respuesta_encuesta:
     _attributes: { phpName: RespuestaEncuesta }
     id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }

@@ -198,3 +198,73 @@ if (count($Sala) > 0) {
   </tr>   
 </table>  
 <? } ?>
+<? if ($caso == 3) { ?>
+<table class="tablas">
+  <tr>
+    <th rowspan="2">Día</th>
+    <th width="30%">Número de Actividades Literarias por día</th>
+    <th>N° de facilitadores/ Presentadores</th>
+    <th>N° total de participantes</th>
+  </tr>
+  <tr>
+  <?
+    $total_columna_actividades = 0;;
+    $total_columna_facilitadores = 0;
+    $total_columna_participantes = 0;
+  ?>      
+  <? foreach($Actividades as $Actividad) {
+        list($anio,$mes,$dia) = explode("-",$Actividad);
+        $anio = substr($anio,-2);
+        $formato_fecha = $dia . "-" . $mes . "-" . $anio; 
+        $NumeroActividades = ActividadQuery::create()->filterByFecha($Actividad)->where('Actividad.IdSala ='.$id)->count();
+        $NumeroFacilitadores = ActividadQuery::create()->filterByFecha($Actividad)->where('Actividad.IdSala ='.$id)->find();
+        $count_facilitadores_fila = 0;
+        foreach ($NumeroFacilitadores as $Facilitadores) {
+            $count_facilitadores_fila += $Facilitadores->getFacilitador();
+        }
+        $NumeroParticipantes = ActividadQuery::create()->filterByFecha($Actividad)->where('Actividad.IdSala ='.$id)->find();
+        $count_participantes_fila = 0;
+        foreach ($NumeroParticipantes as $Participante) {
+            $count_participantes_fila += $Participante->getCantidadParticipantesF();
+            $count_participantes_fila += $Participante->getCantidadParticipantesM();
+        }        
+        $total_columna_actividades += $NumeroActividades;
+        $total_columna_facilitadores += $count_facilitadores_fila;
+        $total_columna_participantes += $count_participantes_fila;
+  ?>
+  <tr>
+      <td>
+          <center><? echo $formato_fecha  ?></center>
+      </td>
+       <td>
+          <center><? echo $NumeroActividades  ?></center>
+      </td>
+       <td>
+          <center><? echo $count_facilitadores_fila  ?></center>
+      </td>
+       <td>
+          <center><? echo $count_participantes_fila  ?></center>
+      </td>     
+  </tr>
+<?  } ?>
+  <tr>
+      <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;">
+          <center><b>Totales</b></center>
+      </td>
+       <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;">
+          <center><? echo $total_columna_actividades  ?></center>
+      </td>
+       <td  rowspan="2" style="background-color: #0c131b; color:white; border : 1px solid  #979696;">
+          <center><? echo $total_columna_facilitadores  ?></center>
+      </td>
+       <td rowspan="2" style="background-color: #0c131b; color:white; border : 1px solid  #979696;">
+          <center><? echo $total_columna_participantes  ?></center>
+      </td>     
+  </tr>
+  <tr>
+      <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;" colspan="2">
+          <center><b>Total General Participantes</b></center>
+      </td>   
+  </tr>   
+</table>  
+<? } ?>

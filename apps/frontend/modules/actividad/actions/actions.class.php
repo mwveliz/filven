@@ -53,7 +53,9 @@ class actividadActions extends sfActions
     $refugio = $_POST["actividad"]['refugio'];
     $observaciones = $_POST["actividad"]['observaciones'];   
     $id_sala = $_POST["actividad"]['id_sala'];  
-    $id_tipo_actividad = $_POST["actividad"]['id_tipo_actividad'];  
+    $id_tipo_actividad = $_POST["actividad"]['id_tipo_actividad'];
+    $id_ponente = $_POST["actividad"]['id_ponente'];
+    $facilitador = $_POST["actividad"]['facilitador'];
     if ($fecha['month'] < 10) $fecha['month'] = '0'.$fecha['month'];
     if ($fecha['day'] < 10) $fecha['day'] = '0'.$fecha['day'];
     if ($fecha['hour'] < 10) $fecha['hour'] = '0'.$fecha['hour'];
@@ -79,6 +81,8 @@ class actividadActions extends sfActions
     $Actividad->setIdTipoActividad($id_tipo_actividad);
     $Actividad->setFecha($fecha);
     $Actividad->setHora($hora);
+    $Actividad->setIdPonente($id_ponente);
+    $Actividad->setFacilitador($facilitador);
     $Actividad->save();
 
 
@@ -117,6 +121,8 @@ class actividadActions extends sfActions
     $observaciones = $_POST["actividad"]['observaciones'];   
     $id_sala = $_POST["actividad"]['id_sala'];  
     $id_tipo_actividad = $_POST["actividad"]['id_tipo_actividad'];  
+    $id_ponente = $_POST["actividad"]['id_ponente'];
+    $facilitador = $_POST["actividad"]['facilitador'];    
     if ($fecha['month'] < 10) $fecha['month'] = '0'.$fecha['month'];
     if ($fecha['day'] < 10) $fecha['day'] = '0'.$fecha['day'];
     if ($fecha['hour'] < 10) $fecha['hour'] = '0'.$fecha['hour'];
@@ -141,6 +147,8 @@ class actividadActions extends sfActions
     $Actividad->setIdTipoActividad($id_tipo_actividad);
     $Actividad->setFecha($fecha);
     $Actividad->setHora($hora);
+    $Actividad->setIdPonente($id_ponente);
+    $Actividad->setFacilitador($facilitador);    
     $Actividad->save();
 
     $this->redirect('actividad/index'); 

@@ -185,7 +185,6 @@ table.tabla_show {
     padding-top: 50px;
 }
 
-
 table.tr.tabla_show {
     font-family: sans-serif;
     width: 100%;
@@ -286,7 +285,7 @@ table.show_encuesta {
 	font-family: Arial, Verdana; 
 	font-size: 15px; 
 	border: 1px solid #b9bdc1; 
-	width: 400px; 
+	width: 200px; 
 	color: #797979;
         clear:left;
 	} 
@@ -300,3 +299,10 @@ table.show_encuesta {
         clear:left;
         height: 120px;
 	}
+        
+table.tabla_item {
+    width: 100%;
+    font-size:16px;
+    padding-left: 150px;
+    padding-top: 50px;
+}       
