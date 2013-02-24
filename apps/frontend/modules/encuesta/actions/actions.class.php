@@ -16,7 +16,7 @@ class encuestaActions extends sfActions
           $page = $request->getParameter('page');
     }
     
-    $this->Encuestas = EncuestaQuery::create()->paginate($page,20);
+    $this->Encuestas = EncuestaQuery::create()->orderById('desc')->paginate($page,20);
   }
 
   public function executeShow(sfWebRequest $request)

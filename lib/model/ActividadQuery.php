@@ -19,7 +19,7 @@
  */
 class ActividadQuery extends BaseActividadQuery {
 
-    static public function proximasactividadessala($id_sala, $fecha){
+ static public function proximasactividadessala($id_sala, $fecha){
         
         $Actividades = ActividadQuery::create()
                           ->condition('cond1', 'Actividad.Fecha >= ?', $fecha)
@@ -29,5 +29,157 @@ class ActividadQuery extends BaseActividadQuery {
                           ->find();   
         
         return $Actividades;
+  }
+  
+  static public function cantidaddeactividadesyasistencia(){
+      
+     $html = '<center><h1>Cantidad de actividades y asistencia</h1></center>
+                <table class="tablas">
+                  <tr>
+                    <th width="30%">Ediciones Feriales</th>
+                    <th width="40%">Nº Total de actividades</th>
+                    <th width="30%">Nº Total de público asistente en las actividades</th>
+                  </tr> ';
+    
+    $Ferias = FeriaQuery::create()->orderById('asc')->find();
+    $TotalActividades = 0;
+    $TotalParticipantes = 0;    
+    
+    foreach($Ferias as $Feria) {
+        $id_feria = $Feria->getId();
+        $CantidadActividades = ActividadQuery::create()->filterByIdFeria($id_feria)->count();
+        $TotalActividades += $CantidadActividades;
+        $Actividades = ActividadQuery::create()->filterByIdFeria($id_feria)->find();
+        $CantidadParticipantes = 0;
+        foreach ($Actividades as $Actividad) {
+            $cantidad_hombre = $Actividad->getCantidadParticipantesM();
+            $cantidad_mujer = $Actividad->getCantidadParticipantesF();
+            $CantidadParticipantes += $cantidad_hombre;
+            $CantidadParticipantes += $cantidad_mujer;
+        }
+        $TotalParticipantes += $CantidadParticipantes;
+        
+            $html .= '  <tr>
+                    <td width="30%"><center>'. $Feria->getDescripcion() .'</center></td>
+                    <td width="40%"><center>'.$CantidadActividades.'</center></td>
+                    <td width="30%"><center>'. $CantidadParticipantes.'</center></td>
+                  </tr>'; 
+        
     }
+    
+      
+    $html .= '<tr>
+                    <td width="30%" style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>Total</b></center></td>
+                    <td width="40%" style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>'.$TotalActividades .'</b></center></td>
+                    <td width="30%" style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>'.$TotalParticipantes.'</b></center></td>
+                  </tr>   
+                </table> 
+                <br>
+                <br>';  
+      
+      
+      return $html;
+        
+  }   
+  
+  static public function numerodeparticipantesalasdistintasactividadesprogramadas(){
+      
+     $html = '<center><h1>Número de participantes a las distintas actividades programadas</h1></center>
+                <table class="tablas">
+                  <tr>
+                    <th width="30%">Ediciones Feriales</th>
+                    <th width="40%">Cantidad de Participantes asistente en las actividades  (público general)</th>
+                    <th width="30%">Cantidad de niños/as asistente en las actividades (Pabellón Infantil)</th>
+                  </tr> ';
+    
+    $Ferias = FeriaQuery::create()->orderById('asc')->find();
+    $TotalParticipantesA = 0;
+    $TotalParticipantesN = 0;
+    
+    foreach($Ferias as $Feria) {
+        $id_feria = $Feria->getId();
+        $Actividades = ActividadQuery::create()->filterByIdFeria($id_feria)->find();
+        $CantidadParticipantesA = 0;
+        $CantidadParticipantesN = 0;
+        foreach ($Actividades as $Actividad) {
+            // es pabellon infantil
+            if ($Actividad->getIdSala() == 8) {
+                $cantidad_nino = $Actividad->getCantidadParticipantesM();
+                $cantidad_nina = $Actividad->getCantidadParticipantesF();
+                $CantidadParticipantesN += $cantidad_nino;
+                $CantidadParticipantesN += $cantidad_nina;               
+            } else {
+                $cantidad_hombre = $Actividad->getCantidadParticipantesM();
+                $cantidad_mujer = $Actividad->getCantidadParticipantesF();
+                $CantidadParticipantesA += $cantidad_hombre;
+                $CantidadParticipantesA += $cantidad_mujer;
+            }
+        }
+        $TotalParticipantesN += $CantidadParticipantesN;
+        $TotalParticipantesA += $CantidadParticipantesA;
+        
+            $html .= '  <tr>
+                    <td width="30%"><center>'. $Feria->getDescripcion() .'</center></td>
+                    <td width="40%"><center>'.$CantidadParticipantesA.'</center></td>
+                    <td width="30%"><center>'. $CantidadParticipantesN.'</center></td>
+                  </tr>'; 
+        
+    }
+    
+      
+    $html .= '<tr>
+                    <td width="30%" style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>Total</b></center></td>
+                    <td width="40%" style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>'.$TotalParticipantesA .'</b></center></td>
+                    <td width="30%" style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>'.$TotalParticipantesN.'</b></center></td>
+                  </tr>   
+                </table> 
+                <br>
+                <br>';  
+      
+      
+      return $html;
+        
+  }
+  
+  
+  static public function publicoinfantilatendido(){
+       
+    $Ferias = FeriaQuery::create()->orderById('asc')->find();
+    $html = '<center><h1>Público Infantil atendido</h1></center>';
+    
+    foreach($Ferias as $Feria) {
+        $html .= '<span class="pabellon"><center><b style="color: #0c131b;">'.$Feria->getDescripcion().'</b><br>';
+        $id_feria = $Feria->getId();
+        $Fechas = ActividadQuery::create()
+                        ->select('Fecha')
+                        ->setDistinct('Fecha')
+                        ->filterByIdFeria($id_feria)
+                        ->find();
+        $TotalParticipantesN = 0;
+        foreach($Fechas as $Fecha) {
+            $Actividades = ActividadQuery::create()->filterByFecha($Fecha)->find();
+            $CantidadParticipantesN = 0;
+            foreach ($Actividades as $Actividad) {
+                // es pabellon infantil
+                if ($Actividad->getIdSala() == 8) {
+                    $cantidad_nino = $Actividad->getCantidadParticipantesM();
+                    $cantidad_nina = $Actividad->getCantidadParticipantesF();
+                    $CantidadParticipantesN += $cantidad_nino;
+                    $CantidadParticipantesN += $cantidad_nina;
+                    $TotalParticipantesN += $CantidadParticipantesN;
+                } 
+            }
+            list($anio,$mes,$dia) = explode("-",$Fecha);
+            $anio = substr($anio,-2);
+            $formato_fecha= $dia . "-" . $mes . "-" . $anio;             
+            $html.= '<b>'.$formato_fecha.'</b> '.$CantidadParticipantesN.'<br><br>';    
+        }
+        
+        $html .= '<b>Total</b> '.$TotalParticipantesN.'<br></center></span>';
+    }
+    
+    
+    return $html;
+  }  
+  
 } // ActividadQuery

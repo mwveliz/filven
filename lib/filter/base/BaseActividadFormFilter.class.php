@@ -30,6 +30,7 @@ abstract class BaseActividadFormFilter extends BaseFormFilterPropel
       'hora'                     => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'id_ponente'               => new sfWidgetFormFilterInput(),
       'facilitador'              => new sfWidgetFormFilterInput(),
+      'id_feria'                 => new sfWidgetFormPropelChoice(array('model' => 'Feria', 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
@@ -51,6 +52,7 @@ abstract class BaseActividadFormFilter extends BaseFormFilterPropel
       'hora'                     => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
       'id_ponente'               => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'facilitador'              => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'id_feria'                 => new sfValidatorPropelChoice(array('required' => false, 'model' => 'Feria', 'column' => 'id')),
     ));
 
     $this->widgetSchema->setNameFormat('actividad_filters[%s]');
@@ -87,6 +89,7 @@ abstract class BaseActividadFormFilter extends BaseFormFilterPropel
       'hora'                     => 'Date',
       'id_ponente'               => 'Number',
       'facilitador'              => 'Number',
+      'id_feria'                 => 'ForeignKey',
     );
   }
 }

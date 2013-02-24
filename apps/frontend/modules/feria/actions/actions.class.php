@@ -16,7 +16,7 @@ class feriaActions extends sfActions
           $page = $request->getParameter('page');
     }
     
-    $this->Ferias = FeriaQuery::create()->orderByDescripcion()->paginate($page,20);
+    $this->Ferias = FeriaQuery::create()->orderByFechaInicio('desc')->paginate($page,20);
   }
 
   public function executeShow(sfWebRequest $request)

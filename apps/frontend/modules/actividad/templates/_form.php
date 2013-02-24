@@ -103,16 +103,21 @@ $(document).on("click","select#actividad_id_sala", function(){
 	<label for="name">Fecha</label>
   	<?php echo $form['fecha'] ?>&nbsp;&nbsp;<?php echo $form['hora'] ?> 
 	<p class="hint">Introduzca la fecha y hora de la actividad</p>
-</div>  
+</div>
+<div class="field">
+	<label for="name">Feria</label>
+         <span class="select"><?php echo $form['id_feria']->render(array('class' => 'select')) ;?></span>
+	<p class="hint">Selecciona la feria</p>
+</div>
 <div class="field">
 	<label for="name">Tipo</label>
          <span class="select"><?php echo $form['id_tipo_actividad']->render(array('class' => 'select')) ;?></span>
-	<p class="hint">Introduzca el tipo de actividad</p>
+	<p class="hint">Selecciona el tipo de actividad</p>
 </div>
 <div class="field">
 	<label for="name">Sala</label>
   	 <span class="select"><?php echo $form['id_sala']->render(array('class' => 'select')) ;?></span>
-	<p class="hint">Introduzca la sala en la que se realizará la actividad</p>
+	<p class="hint">Selecciona la sala en la que se realizará la actividad</p>
 </div>
 <div class="field">
 	<label for="name">Actividad</label>

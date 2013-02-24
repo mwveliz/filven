@@ -27,6 +27,7 @@ propel:
     hora: { phpName: Hora, type: TIME, required: false }
     id_ponente: { phpName: IdPonente, type: INTEGER, required: false }
     facilitador: { phpName: Facilitador, type: INTEGER, required: false }
+    id_feria: { phpName: IdFeria, type: INTEGER, required: false, foreignTable: feria, foreignReference: id }
   encuesta:
     _attributes: { phpName: Encuesta }
     id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }

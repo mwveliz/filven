@@ -16,7 +16,7 @@ class tipo_actividadActions extends sfActions
           $page = $request->getParameter('page');
     }  
     
-    $this->TipoActividads = TipoActividadQuery::create()->paginate($page,20);
+    $this->TipoActividads = TipoActividadQuery::create()->orderById('desc')->paginate($page,20);
   }
 
   public function executeShow(sfWebRequest $request)

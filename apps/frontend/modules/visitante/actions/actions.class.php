@@ -11,6 +11,8 @@ class visitanteActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
+    $id_feria = $request->getParameter('id');
+    
     $page = 1;
     if ($request->getParameter('page')) {
           $page = $request->getParameter('page');
@@ -19,13 +21,26 @@ class visitanteActions extends sfActions
     $this->Visitantes = VisitanteQuery::create()
                         ->select('Fecha')
                         ->setDistinct('Fecha')
+                        ->filterByIdFeria($id_feria)
+                        ->orderByFecha('asc')
                         ->paginate($page,20);
     
   }
+  
+  public function executeAnual(sfWebRequest $request)
+  {
+    $page = 1;
+    if ($request->getParameter('page')) {
+          $page = $request->getParameter('page');
+    }  
+    
+    $this->Visitantes = FeriaQuery::create()->orderById('desc')->paginate($page,20);
+    
+  }  
 
   public function executeShow(sfWebRequest $request)
   {
-    $this->Visitantes = VisitanteQuery::create()->filterByFecha($request->getParameter('fecha'))->find();
+    $this->Visitantes = VisitanteQuery::create()->filterByFecha($request->getParameter('fecha'))->orderByFecha('asc')->find();
     $this->forward404Unless($this->Visitantes);
   }
 
@@ -72,7 +87,7 @@ class visitanteActions extends sfActions
     $this->forward404Unless($Visitante, sprintf('Object Visitante does not exist (%s).', $request->getParameter('id')));
     $Visitante->delete();
 
-    $this->redirect('visitante/index');
+    $this->redirect('visitante/anual');
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)
@@ -82,7 +97,7 @@ class visitanteActions extends sfActions
     {
       $Visitante = $form->save();
 
-      $this->redirect('visitante/index');
+      $this->redirect('visitante/anual');
     }
   }
   

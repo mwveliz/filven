@@ -18,5 +18,7 @@
  * @package    propel.generator.lib.model
  */
 class Feria extends BaseFeria {
-
+   public function __toString() {
+      return $this->getDescripcion();
+   }
 } // Feria

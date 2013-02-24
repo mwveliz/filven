@@ -16,7 +16,7 @@ class actividadActions extends sfActions
           $page = $request->getParameter('page');
     }      
       
-    $this->Actividads = ActividadQuery::create()->paginate($page,20);
+    $this->Actividads = ActividadQuery::create()->orderByFecha('desc')->paginate($page,20);
   }
 
   public function executeShow(sfWebRequest $request)
@@ -56,6 +56,7 @@ class actividadActions extends sfActions
     $id_tipo_actividad = $_POST["actividad"]['id_tipo_actividad'];
     $id_ponente = $_POST["actividad"]['id_ponente'];
     $facilitador = $_POST["actividad"]['facilitador'];
+    $id_feria = $_POST["actividad"]['id_feria'];
     if ($fecha['month'] < 10) $fecha['month'] = '0'.$fecha['month'];
     if ($fecha['day'] < 10) $fecha['day'] = '0'.$fecha['day'];
     if ($fecha['hour'] < 10) $fecha['hour'] = '0'.$fecha['hour'];
@@ -83,6 +84,7 @@ class actividadActions extends sfActions
     $Actividad->setHora($hora);
     $Actividad->setIdPonente($id_ponente);
     $Actividad->setFacilitador($facilitador);
+    $Actividad->setIdFeria($id_feria);
     $Actividad->save();
 
 
@@ -122,7 +124,8 @@ class actividadActions extends sfActions
     $id_sala = $_POST["actividad"]['id_sala'];  
     $id_tipo_actividad = $_POST["actividad"]['id_tipo_actividad'];  
     $id_ponente = $_POST["actividad"]['id_ponente'];
-    $facilitador = $_POST["actividad"]['facilitador'];    
+    $facilitador = $_POST["actividad"]['facilitador'];
+    $id_feria = $_POST["actividad"]['id_feria'];
     if ($fecha['month'] < 10) $fecha['month'] = '0'.$fecha['month'];
     if ($fecha['day'] < 10) $fecha['day'] = '0'.$fecha['day'];
     if ($fecha['hour'] < 10) $fecha['hour'] = '0'.$fecha['hour'];
@@ -148,7 +151,8 @@ class actividadActions extends sfActions
     $Actividad->setFecha($fecha);
     $Actividad->setHora($hora);
     $Actividad->setIdPonente($id_ponente);
-    $Actividad->setFacilitador($facilitador);    
+    $Actividad->setFacilitador($facilitador);
+    $Actividad->setIdFeria($id_feria);
     $Actividad->save();
 
     $this->redirect('actividad/index'); 
@@ -260,4 +264,11 @@ class actividadActions extends sfActions
     $to2 = json_encode($to);
     return $this->renderText($to2);
   }
+  
+  public function executeTotalactividad(sfWebRequest $request)
+  {       
+    $this->Actividads = ActividadQuery::create()->find();
+  }
+  
+  
 }

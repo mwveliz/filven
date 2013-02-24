@@ -16,7 +16,7 @@ class informeActions extends sfActions
           $page = $request->getParameter('page');
     }
     
-    $this->Informes = InformeQuery::create()->paginate($page,20);
+    $this->Informes = InformeQuery::create()->orderByFechaInforme('desc')->paginate($page,20);
   }
 
   public function executeShow(sfWebRequest $request)

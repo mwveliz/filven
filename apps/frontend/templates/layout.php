@@ -53,6 +53,7 @@
                                         <li><span><?php echo link_to('Nueva Actividad', 'actividad/new' )?></span></li>
                                         <li><span><?php echo link_to('Listar Actividad', 'actividad/index' )?></span></li>
                                         <li><span><?php echo link_to('Tipos de Actividad', 'tipo_actividad/index' )?></span></li>
+                                        <li><span><?php echo link_to('Totales por Actividad', 'actividad/totalactividad' )?></span></li>
                                     </ul>
                                 </li>
                                 <li><a href="#" title="Salas">Salas<span class="flecha">&#9660;</span></a>
@@ -72,7 +73,7 @@
                                 <li><a href="#" title="Visitantes">Visitantes<span class="flecha">&#9660;</span></a>
                                     <ul>
                                         <li><span><?php echo link_to('Registrar Visitantes', 'visitante/new' )?></span></li>
-                                        <li><span><?php echo link_to('Listar Resultados', 'visitante/index' )?></span></li>
+                                        <li><span><?php echo link_to('Listar Resultados', 'visitante/anual' )?></span></li>
                                     </ul>
                                 </li>   
                                 <!--

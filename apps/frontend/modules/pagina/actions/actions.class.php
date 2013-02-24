@@ -16,7 +16,7 @@ class paginaActions extends sfActions
           $page = $request->getParameter('page');
     }
     
-    $this->Paginas = PaginaQuery::create()->paginate($page,20);
+    $this->Paginas = PaginaQuery::create()->orderById('desc')->paginate($page,20);
   }
 
   public function executeShow(sfWebRequest $request)

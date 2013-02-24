@@ -30,6 +30,12 @@
 </div>
 <br>
 <div class="field">
+	<label for="name">Feria</label>
+        <span class="select"><?php echo $form['id_feria']->render(array('class' => 'select')) ;?></span>
+	<p class="hint">Indique la feria</p>
+</div>
+<br>
+<div class="field">
 	<label for="name">Acceso</label>
         <span class="select"><?php echo $form['id_acceso']->render(array('class' => 'select')) ;?></span>
 	<p class="hint">Indique el acceso</p>
