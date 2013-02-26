@@ -35,6 +35,10 @@ propel:
     descripcion_encuesta: { phpName: DescripcionEncuesta, type: VARCHAR, size: '255', required: false }
     tipo_encuesta: { phpName: TipoEncuesta, type: VARCHAR, size: '255', required: false }
     fecha_elaboracion: { phpName: FechaElaboracion, type: DATE, required: false, defaultExpr: now() }
+  estado:
+    _attributes: { phpName: Estado }
+    id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
+    nombre: { phpName: Nombre, type: VARCHAR, required: false }
   feria:
     _attributes: { phpName: Feria }
     id: { phpName: Id, type: BIGINT, primaryKey: true, autoIncrement: true, required: true }
@@ -45,7 +49,7 @@ propel:
     _attributes: { phpName: Informe }
     id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
     titulo_informe: { phpName: TituloInforme, type: VARCHAR, size: '255', required: false }
-    fecha_informe: { phpName: FechaInforme, type: TIMESTAMP, required: false }
+    fecha_informe: { phpName: FechaInforme, type: DATE, required: false }
     creado_por: { phpName: CreadoPor, type: VARCHAR, size: '255', required: false }
   item:
     _attributes: { phpName: Item }
@@ -77,12 +81,21 @@ propel:
     ante_grafico: { phpName: AnteGrafico, type: VARCHAR, size: '255', required: false }
     post_grafico: { phpName: PostGrafico, type: VARCHAR, size: '255', required: false }
     tipo_grafico: { phpName: TipoGrafico, type: INTEGER, required: false }
+  pais:
+    _attributes: { phpName: Pais }
+    id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
+    nombre: { phpName: Nombre, type: VARCHAR, required: false }
   ponente:
     _attributes: { phpName: Ponente }
     nombre: { phpName: Nombre, type: VARCHAR, required: false }
     nacionalidad: { phpName: Nacionalidad, type: VARCHAR, required: false }
     especialidad: { phpName: Especialidad, type: VARCHAR, required: false }
     id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
+  ponente_rel_actividad:
+    _attributes: { phpName: PonenteRelActividad }
+    id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
+    id_actividad: { phpName: IdActividad, type: INTEGER, required: false, foreignTable: actividad, foreignReference: id }
+    id_ponente: { phpName: IdPonente, type: INTEGER, required: false, foreignTable: ponente, foreignReference: id }
   respuesta_encuesta:
     _attributes: { phpName: RespuestaEncuesta }
     id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
@@ -94,6 +107,7 @@ propel:
     telefono: { phpName: Telefono, type: VARCHAR, required: false }
     email: { phpName: Email, type: VARCHAR, required: false }
     id_encuesta: { phpName: IdEncuesta, type: BIGINT, required: false, foreignTable: encuesta, foreignReference: id }
+    hora: { phpName: Hora, type: TIME, required: false }
   respuesta_item:
     _attributes: { phpName: RespuestaItem }
     id: { phpName: Id, type: BIGINT, primaryKey: true, autoIncrement: true, required: true }
@@ -119,6 +133,18 @@ propel:
     id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
     nombre_tipo: { phpName: NombreTipo, type: VARCHAR, size: '255', required: false }
     descripcion_tipo: { phpName: DescripcionTipo, type: VARCHAR, size: '255', required: false }
+  usuario:
+    _attributes: { phpName: Usuario }
+    id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
+    nombre: { phpName: Nombre, type: VARCHAR, required: false }
+    apellido: { phpName: Apellido, type: VARCHAR, required: false }
+    usuario: { phpName: Usuario, type: VARCHAR, required: false }
+    password: { phpName: Password, type: VARCHAR, required: false }
+    email: { phpName: Email, type: VARCHAR, required: false }
+    telefono: { phpName: Telefono, type: VARCHAR, required: false }
+    sexo: { phpName: Sexo, type: BOOLEAN, required: false }
+    activo: { phpName: Activo, type: BOOLEAN, required: false }
+    id_sf_guard_group: { phpName: IdSfGuardGroup, type: INTEGER, required: false }
   visitante:
     _attributes: { phpName: Visitante }
     id: { phpName: Id, type: BIGINT, primaryKey: true, autoIncrement: true, required: true }

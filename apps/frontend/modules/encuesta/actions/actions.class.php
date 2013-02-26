@@ -40,13 +40,11 @@ class encuestaActions extends sfActions
 
     $params=$request->getParameter($form->getName());
     
-    $params['fecha_elaboracion']['day']='1';//trampa
-    $fecha=$params['fecha_elaboracion']['year'].'/'.$params['fecha_elaboracion']['month'].'/'.$params['fecha_elaboracion']['day'];
     $Encuesta = new Encuesta();
     $Encuesta->setNombreEncuesta($params['nombre_encuesta']) ;
     $Encuesta->setTipoEncuesta($params['tipo_encuesta']) ;
     $Encuesta->setDescripcionEncuesta($params['descripcion_encuesta']);
-    $Encuesta->setFechaElaboracion($fecha);
+    $Encuesta->setFechaElaboracion($_POST['encuesta']['fecha_elaboracion']);
     $Encuesta->save();
     
       $this->redirect('item/agregarvarios?id_encuesta='.$Encuesta->getId());

@@ -8,7 +8,7 @@
 <?php endif; ?>
 <div class="field">
 	<label for="name">Fecha</label>
-  	 <?php echo $form['fecha'] ?>&nbsp;&nbsp;<?php echo $form['hora'] ?>
+  	 <?php echo $form['fecha']->render(array('type' => 'date')) ?>&nbsp;&nbsp;<?php echo $form['hora']->render(array('type' => 'time')) ?>
 	<p class="hint">Seleccione la fecha y hora deseada</p>
 </div>  
 <div class="field">

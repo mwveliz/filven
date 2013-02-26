@@ -16,14 +16,14 @@ abstract class BaseInformeForm extends BaseFormPropel
     $this->setWidgets(array(
       'id'             => new sfWidgetFormInputHidden(),
       'titulo_informe' => new sfWidgetFormInputText(),
-      'fecha_informe'  => new sfWidgetFormDateTime(),
+      'fecha_informe'  => new sfWidgetFormDate(),
       'creado_por'     => new sfWidgetFormInputText(),
     ));
 
     $this->setValidators(array(
       'id'             => new sfValidatorPropelChoice(array('model' => 'Informe', 'column' => 'id', 'required' => false)),
       'titulo_informe' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'fecha_informe'  => new sfValidatorDateTime(array('required' => false)),
+      'fecha_informe'  => new sfValidatorDate(array('required' => false)),
       'creado_por'     => new sfValidatorString(array('max_length' => 255, 'required' => false)),
     ));
 

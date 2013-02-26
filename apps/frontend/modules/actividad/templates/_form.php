@@ -101,7 +101,7 @@ $(document).on("click","select#actividad_id_sala", function(){
 <?php endif; ?>
 <div class="field">
 	<label for="name">Fecha</label>
-  	<?php echo $form['fecha'] ?>&nbsp;&nbsp;<?php echo $form['hora'] ?> 
+  	<?php echo $form['fecha']->render(array('type' => 'date')) ?>&nbsp;&nbsp;<?php echo $form['hora']->render(array('type' => 'time')) ?> 
 	<p class="hint">Introduzca la fecha y hora de la actividad</p>
 </div>
 <div class="field">

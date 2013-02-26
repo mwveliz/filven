@@ -12,13 +12,13 @@
 	<p class="hint">Introduzca el nombre de la feria</p>
 </div>  
 <div class="field">
-	<label for="name">Nombre</label>
-  	 <?php echo $form['fecha_inicio']->render(array('id' => 'fecha_inicio')) ?>
+	<label for="name">Fecha de inicio</label>
+  	 <?php echo $form['fecha_inicio']->render(array('id' => 'fecha_inicio','type' => 'date')) ?>
 	<p class="hint">Seleccione la fecha de inicio</p>
 </div>
 <div class="field">
-	<label for="name">Nombre</label>
-  	 <?php echo $form['fecha_fin']->render(array('id' => 'fecha_fin')) ?>
+	<label for="name">Fecha de cierre</label>
+  	 <?php echo $form['fecha_fin']->render(array('id' => 'fecha_fin','type' => 'date')) ?>
 	<p class="hint">Seleccione la fecha de cierre</p>
 </div>
         <?php echo $form['id'] ?>

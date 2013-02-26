@@ -23,6 +23,7 @@ abstract class BaseRespuestaEncuestaForm extends BaseFormPropel
       'telefono'        => new sfWidgetFormInputText(),
       'email'           => new sfWidgetFormInputText(),
       'id_encuesta'     => new sfWidgetFormPropelChoice(array('model' => 'Encuesta', 'add_empty' => true)),
+      'hora'            => new sfWidgetFormTime(),
     ));
 
     $this->setValidators(array(
@@ -35,6 +36,7 @@ abstract class BaseRespuestaEncuestaForm extends BaseFormPropel
       'telefono'        => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'email'           => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'id_encuesta'     => new sfValidatorPropelChoice(array('model' => 'Encuesta', 'column' => 'id', 'required' => false)),
+      'hora'            => new sfValidatorTime(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('respuesta_encuesta[%s]');

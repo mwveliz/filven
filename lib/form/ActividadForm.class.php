@@ -31,6 +31,10 @@ class ActividadForm extends BaseActividadForm
 
  $this->validatorSchema['hora'] = new sfValidatorPass();
       */
+      
+      $this->widgetSchema['fecha'] = new sfWidgetFormInput();
+      $this->widgetSchema['hora'] = new sfWidgetFormInput();
+      
          $this->widgetSchema['id_tipo_actividad'] =new sfWidgetFormPropelChoice(array(
             'model' => 'TipoActividad',
             ));

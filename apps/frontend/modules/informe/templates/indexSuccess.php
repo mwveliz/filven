@@ -15,8 +15,7 @@
     <tr>
       <td width="60%"><?php echo $Informe->getTituloInforme() ?></td>
        <?php
-        list($fecha, $hora) = explode(" ", $Informe->getFechaInforme());
-        list($anio,$mes,$dia) = explode("-",$fecha);
+        list($anio,$mes,$dia) = explode("-",$Informe->getFechaInforme());
         $anio = substr($anio,-2);
         $formato_fecha= $dia . "-" . $mes . "-" . $anio; 
       ?>     

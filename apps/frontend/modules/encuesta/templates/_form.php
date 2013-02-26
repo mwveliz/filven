@@ -18,7 +18,7 @@
 </div> 
 <div class="field">
 	<label for="name">Fecha</label>
-  	 <?php echo $form['fecha_elaboracion']->render(array('class'=>'fecha_elaboracion')) ;?> <?php /* echo " " . $form['hora'] */?>
+  	 <?php echo $form['fecha_elaboracion']->render(array('class'=>'fecha_elaboracion','type' => 'date')) ;?> <?php /* echo " " . $form['hora'] */?>
 	<p class="hint">Introduzca la fecha de elaboración de la encuesta</p>
 </div> 
 <br>

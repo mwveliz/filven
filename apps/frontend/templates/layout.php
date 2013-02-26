@@ -84,7 +84,7 @@
                                 </li>                                 
                                 <li><span><?php echo link_to('Página', 'pagina' )?></span></li>
                                 -->
-                                <li class="last"><span><?php echo link_to('Usuarios', '@usuarios' )?></span></li>
+                                <li class="last"><span><?php echo link_to('Usuarios', 'usuario/index' )?></span></li>
             </ul>  
       </div>
     </div>

@@ -13,7 +13,7 @@
 </div>  
 <div class="field">
 	<label for="name">Fecha</label>
-  	 <?php echo $form['fecha_informe']->render(array('class' => 'fecha_informe')) ?>
+  	 <?php echo $form['fecha_informe']->render(array('class' => 'fecha_informe','type' => 'date')) ?>
 	<p class="hint">Introduzca la fecha de creación del informe</p>
 </div> 
 <div class="field">

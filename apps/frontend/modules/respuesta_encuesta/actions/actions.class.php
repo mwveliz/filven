@@ -39,7 +39,8 @@ class respuesta_encuestaActions extends sfActions
      $numero_encuesta=  $_POST['numero_encuesta']; //numeracion de la hoja
      $nombre=  $_POST['nombre']; 
      $apellido=  $_POST['apellido']; 
-     $fecha=  $_POST['fecha'].' '.$_POST['hora']; 
+     $fecha=  $_POST['fecha'];
+     $hora= $_POST['hora']; 
      $observacion=  $_POST['observacion']; 
      $telefono=  $_POST['telefono']; 
      $email=  $_POST['email']; 
@@ -50,6 +51,7 @@ class respuesta_encuestaActions extends sfActions
      $REncuesta->setNombre($nombre);
      $REncuesta->setApellido($apellido);
      $REncuesta->setFecha($fecha);
+     $REncuesta->setHora($hora);
      $REncuesta->setTelefono($telefono);
      $REncuesta->setEmail($email);
      $REncuesta->setObservacion($observacion);
