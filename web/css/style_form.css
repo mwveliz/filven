@@ -316,3 +316,38 @@ table.tabla_item {
     padding-left: 10px;
     padding-right: 5px;
 }
+
+table.tablas_usuario {
+    font-family: sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    width: 100%;
+}
+
+.tablas_usuario td {
+    font-family: sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    margin: auto;
+    height:20px;
+    padding-left: 10px;
+    padding-right: 5px;
+    border : 1px solid  #979696;
+}
+
+.tablas_usuario tr:nth-child(even) {
+background-color: #d4d9de;
+}
+
+
+.tablas_usuario th {
+    font-family: sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    margin: auto;
+    height:24px;
+    background-color: #29415D;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}

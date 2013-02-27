@@ -34,7 +34,7 @@
 <p style="text-align: right; padding-right: 50px; margin-left: 50px; padding-top: 10px; border-top: 1px solid black;">
 <?php echo link_to(image_tag('list.png'),'informe/index',array('title' => 'Ver listado'))?>
 <?php echo link_to(image_tag('edit.png'),'informe/edit?id='.$Informe->getId(),array('title' => 'Editar'))?>
-<?php echo link_to(image_tag('delete.png'), 'informe/delete?id='.$Informe->getId(), array('method' => 'delete', 'confirm' => 'Seguro desea eleminar?')) ?>   
+<?php echo link_to(image_tag('delete.png'), 'informe/delete?id='.$Informe->getId(), array('method' => 'delete', 'confirm' => 'Seguro desea eliminar?')) ?>   
 </p>
 
 

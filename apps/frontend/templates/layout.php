@@ -40,7 +40,12 @@
           &nbsp;
       </div> 
       <div id="menubar">
+            <? $yo  = sfContext::getInstance()->getUser()->getGuardUser()->getUsername(); 
+               $Usuario = UsuarioQuery::create()->filterByUsuario($yo)->findOne();
+               $id_sf_guard_group = $Usuario->getIdSfGuardGroup();
+            ?>
             <ul class="nav">
+                                <? if ($id_sf_guard_group == 1 ) { ?>
                                 <li><span><?php echo link_to('Feria', 'feria/index' )?></span></li>
                                 <li><a href="#" title="Ponente">Ponente<span class="flecha">&#9660;</span></a>
                                     <ul>
@@ -63,13 +68,19 @@
                                         <li><span><?php echo link_to('Totales Generales', 'sala/totalgeneral' )?></span></li>
                                     </ul>
                                 </li>
+                                <? } ?>
                                 <li><a href="#" title="Encuestas">Encuestas<span class="flecha">&#9660;</span></a>
                                     <ul>
+                                        <? if ($id_sf_guard_group == 1 ) { ?>
                                         <li><span><?php echo link_to('Nueva Encuesta', 'encuesta/new' )?></span></li>
+                                        <? } ?>
                                         <li><span><?php echo link_to('Listar Encuestas', 'encuesta/index' )?></span></li>
+                                        <? if ($id_sf_guard_group == 1 ) { ?>
                                         <li><span><?php echo link_to('Totales de encuesta', 'informe/encuestas' )?></span></li>
+                                        <? } ?>
                                     </ul>
                                 </li>
+                                <? if ($id_sf_guard_group == 1 ) { ?>
                                 <li><a href="#" title="Visitantes">Visitantes<span class="flecha">&#9660;</span></a>
                                     <ul>
                                         <li><span><?php echo link_to('Registrar Visitantes', 'visitante/new' )?></span></li>
@@ -84,6 +95,7 @@
                                 </li>                                 
                                 <li><span><?php echo link_to('Página', 'pagina' )?></span></li>
                                 -->
+                                <? } ?>
                                 <li class="last"><span><?php echo link_to('Usuarios', 'usuario/index' )?></span></li>
             </ul>  
       </div>
