@@ -18,5 +18,8 @@
  * @package    propel.generator.lib.model
  */
 class Ponente extends BasePonente {
-
+public function __toString() {
+        
+        return $this->getNombre() ;
+    }
 } // Ponente

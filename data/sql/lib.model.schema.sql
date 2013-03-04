@@ -1,5 +1,23 @@
 
 -----------------------------------------------------------------------------
+-- acceso
+-----------------------------------------------------------------------------
+
+DROP TABLE "acceso" CASCADE;
+
+
+CREATE TABLE "acceso"
+(
+	"id" serial  NOT NULL,
+	"nombre" VARCHAR(255),
+	PRIMARY KEY ("id")
+);
+
+COMMENT ON TABLE "acceso" IS '';
+
+
+SET search_path TO public;
+-----------------------------------------------------------------------------
 -- actividad
 -----------------------------------------------------------------------------
 
@@ -23,7 +41,11 @@ CREATE TABLE "actividad"
 	"observaciones" VARCHAR(255),
 	"id_sala" INTEGER,
 	"id_tipo_actividad" INTEGER,
-	"fecha_hora" TIMESTAMP,
+	"fecha" DATE,
+	"hora" TIME,
+	"id_ponente" INTEGER,
+	"facilitador" INTEGER,
+	"id_feria" INTEGER,
 	PRIMARY KEY ("id")
 );
 
@@ -49,6 +71,24 @@ CREATE TABLE "encuesta"
 );
 
 COMMENT ON TABLE "encuesta" IS '';
+
+
+SET search_path TO public;
+-----------------------------------------------------------------------------
+-- estado
+-----------------------------------------------------------------------------
+
+DROP TABLE "estado" CASCADE;
+
+
+CREATE TABLE "estado"
+(
+	"id" serial  NOT NULL,
+	"nombre" VARCHAR(255),
+	PRIMARY KEY ("id")
+);
+
+COMMENT ON TABLE "estado" IS '';
 
 
 SET search_path TO public;
@@ -83,7 +123,7 @@ CREATE TABLE "informe"
 (
 	"id" serial  NOT NULL,
 	"titulo_informe" VARCHAR(255),
-	"fecha_informe" TIMESTAMP,
+	"fecha_informe" DATE,
 	"creado_por" VARCHAR(255),
 	PRIMARY KEY ("id")
 );
@@ -179,6 +219,63 @@ COMMENT ON TABLE "pagina" IS '';
 
 SET search_path TO public;
 -----------------------------------------------------------------------------
+-- pais
+-----------------------------------------------------------------------------
+
+DROP TABLE "pais" CASCADE;
+
+
+CREATE TABLE "pais"
+(
+	"id" serial  NOT NULL,
+	"nombre" VARCHAR(255),
+	PRIMARY KEY ("id")
+);
+
+COMMENT ON TABLE "pais" IS '';
+
+
+SET search_path TO public;
+-----------------------------------------------------------------------------
+-- ponente
+-----------------------------------------------------------------------------
+
+DROP TABLE "ponente" CASCADE;
+
+
+CREATE TABLE "ponente"
+(
+	"nombre" VARCHAR(255),
+	"nacionalidad" VARCHAR(255),
+	"especialidad" VARCHAR(255),
+	"id" serial  NOT NULL,
+	PRIMARY KEY ("id")
+);
+
+COMMENT ON TABLE "ponente" IS '';
+
+
+SET search_path TO public;
+-----------------------------------------------------------------------------
+-- ponente_rel_actividad
+-----------------------------------------------------------------------------
+
+DROP TABLE "ponente_rel_actividad" CASCADE;
+
+
+CREATE TABLE "ponente_rel_actividad"
+(
+	"id" serial  NOT NULL,
+	"id_actividad" INTEGER,
+	"id_ponente" INTEGER,
+	PRIMARY KEY ("id")
+);
+
+COMMENT ON TABLE "ponente_rel_actividad" IS '';
+
+
+SET search_path TO public;
+-----------------------------------------------------------------------------
 -- respuesta_encuesta
 -----------------------------------------------------------------------------
 
@@ -196,6 +293,7 @@ CREATE TABLE "respuesta_encuesta"
 	"telefono" VARCHAR(255),
 	"email" VARCHAR(255),
 	"id_encuesta" INT8,
+	"hora" TIME,
 	PRIMARY KEY ("id")
 );
 
@@ -285,6 +383,32 @@ COMMENT ON TABLE "tipo_actividad" IS '';
 
 SET search_path TO public;
 -----------------------------------------------------------------------------
+-- usuario
+-----------------------------------------------------------------------------
+
+DROP TABLE "usuario" CASCADE;
+
+
+CREATE TABLE "usuario"
+(
+	"id" serial  NOT NULL,
+	"nombre" VARCHAR(255),
+	"apellido" VARCHAR(255),
+	"usuario" VARCHAR(255),
+	"password" VARCHAR(255),
+	"email" VARCHAR(255),
+	"telefono" VARCHAR(255),
+	"sexo" BOOLEAN,
+	"activo" BOOLEAN,
+	"id_sf_guard_group" INTEGER,
+	PRIMARY KEY ("id")
+);
+
+COMMENT ON TABLE "usuario" IS '';
+
+
+SET search_path TO public;
+-----------------------------------------------------------------------------
 -- visitante
 -----------------------------------------------------------------------------
 
@@ -297,6 +421,10 @@ CREATE TABLE "visitante"
 	"fecha" DATE,
 	"numero" INTEGER,
 	"id_feria" INT8,
+	"tipo_conteo" VARCHAR(255),
+	"id_sala" INT8,
+	"id_acceso" INT8,
+	"hora" TIME,
 	PRIMARY KEY ("id")
 );
 
@@ -308,11 +436,17 @@ ALTER TABLE "actividad" ADD CONSTRAINT "actividad_FK_1" FOREIGN KEY ("id_sala") 
 
 ALTER TABLE "actividad" ADD CONSTRAINT "actividad_FK_2" FOREIGN KEY ("id_tipo_actividad") REFERENCES "tipo_actividad" ("id") ON UPDATE CASCADE;
 
+ALTER TABLE "actividad" ADD CONSTRAINT "actividad_FK_3" FOREIGN KEY ("id_feria") REFERENCES "feria" ("id");
+
 ALTER TABLE "item" ADD CONSTRAINT "item_FK_1" FOREIGN KEY ("id_encuesta") REFERENCES "encuesta" ("id");
 
 ALTER TABLE "opcion_respuesta" ADD CONSTRAINT "opcion_respuesta_FK_1" FOREIGN KEY ("id_item") REFERENCES "item" ("id") ON UPDATE CASCADE;
 
 ALTER TABLE "pagina" ADD CONSTRAINT "pagina_FK_1" FOREIGN KEY ("id_informe") REFERENCES "informe" ("id") ON UPDATE CASCADE;
+
+ALTER TABLE "ponente_rel_actividad" ADD CONSTRAINT "ponente_rel_actividad_FK_1" FOREIGN KEY ("id_actividad") REFERENCES "actividad" ("id");
+
+ALTER TABLE "ponente_rel_actividad" ADD CONSTRAINT "ponente_rel_actividad_FK_2" FOREIGN KEY ("id_ponente") REFERENCES "ponente" ("id");
 
 ALTER TABLE "respuesta_encuesta" ADD CONSTRAINT "respuesta_encuesta_FK_1" FOREIGN KEY ("id_encuesta") REFERENCES "encuesta" ("id");
 
@@ -325,3 +459,7 @@ ALTER TABLE "respuesta_item" ADD CONSTRAINT "respuesta_item_FK_3" FOREIGN KEY ("
 ALTER TABLE "sf_guard_user_profile" ADD CONSTRAINT "sf_guard_user_profile_FK_1" FOREIGN KEY ("user_id") REFERENCES "sf_guard_user" ("id") ON DELETE CASCADE;
 
 ALTER TABLE "visitante" ADD CONSTRAINT "visitante_FK_1" FOREIGN KEY ("id_feria") REFERENCES "feria" ("id");
+
+ALTER TABLE "visitante" ADD CONSTRAINT "visitante_FK_2" FOREIGN KEY ("id_sala") REFERENCES "sala" ("id");
+
+ALTER TABLE "visitante" ADD CONSTRAINT "visitante_FK_3" FOREIGN KEY ("id_acceso") REFERENCES "acceso" ("id");
