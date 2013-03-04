@@ -36,6 +36,7 @@ class actividadActions extends sfActions
 
     $this->form = new ActividadForm();
     
+    die(var_dump($_POST));
     $nombre_actividad = $_POST["actividad"]['nombre_actividad'];
     $ponente = $_POST["actividad"]['ponente'];
     $turno = $_POST["actividad"]['turno'];
@@ -56,6 +57,10 @@ class actividadActions extends sfActions
     $id_feria = $_POST["actividad"]['id_feria'];
     $fecha = $_POST['actividad']['fecha'];
     $hora = $_POST['actividad']['hora'];
+    
+    
+    
+    
     
     $Actividad = new Actividad();
     $Actividad->setNombreActividad($nombre_actividad);
@@ -78,6 +83,18 @@ class actividadActions extends sfActions
     $Actividad->setFacilitador($facilitador);
     $Actividad->setIdFeria($id_feria);
     $Actividad->save();
+    //si hay mas de un ponente
+    $id_actividad=$Actividad->getId();
+     foreach( $_POST['extraponente'] as $ponenteadicional){
+         $PonenteRelActividad= new PonenteRelActividad();
+         $PonenteRelActividad->setIdActividad($id_actividad);
+         $PonenteRelActividad->setIdPonente($ponenteadicional->getId());
+    
+    }  
+    
+    
+   
+    
 
 
      $this->redirect('actividad/index');

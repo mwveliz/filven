@@ -73,6 +73,9 @@ jQuery(document).ready(function() {
                   }
          });         
      } 
+     
+     
+     
 
 $(document).on("click","select#actividad_id_sala", function(){
     id = $(this).children(":selected").val();
@@ -89,6 +92,18 @@ $(document).on("click","select#actividad_id_sala", function(){
         $('div#div_facilitadores').css("visibility", "hidden");
     }    
 });
+
+$(document).on("click","img#agrega_ponente", function(){
+    
+     
+    $(this).before($("select#ponente").clone().attr('id', 'extraponente').attr('name', 'extraponente[]') );
+    
+    
+    
+});
+
+
+
 
 });     
 </script>
@@ -125,9 +140,10 @@ $(document).on("click","select#actividad_id_sala", function(){
 	<p class="hint">Introduzca el nombre de la actividad</p>
 </div>  
 <div class="field">
-	<label for="name">Ponente</label>
+	<label for="name">Ponente(s)</label>
   	 <?php echo $form['ponente']->render(array('class' => 'input','id' => 'ponente')) ?>
-	<p class="hint">Introduzca el nombre del ponente</p>
+	<p class="hint">Introduzca el nombre del ponente</p> 
+        <p><img id="agrega_ponente" src="/images/blue_add.png"></p>
 </div>  
 <div class="field">
 	<label for="name">Turno</label>

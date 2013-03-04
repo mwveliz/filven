@@ -45,7 +45,13 @@ class ActividadForm extends BaseActividadForm
             ));
          
         $this->widgetSchema['nombre_actividad']  = new sfWidgetFormInput(array(),array('size'=>50));
-        $this->widgetSchema['ponente']= new sfWidgetFormInput(array(),array('size'=>40));
+        
+        //$this->widgetSchema['ponente']= new sfWidgetFormInput(array(),array('size'=>40));
+        $this->widgetSchema['ponente'] =new sfWidgetFormPropelChoice(array(
+            'model' => 'Ponente',
+            ));
+         
+        
         $this->widgetSchema['turno']   =  new sfWidgetFormChoice(array('choices' => $choices));
         $this->widgetSchema['ejecutada']   =  new sfWidgetFormChoice(array('choices' => $choicesbool3));
         $this->widgetSchema['cantidad_participantes_m']   =  new sfWidgetFormInput(array(),array('size'=>5));
