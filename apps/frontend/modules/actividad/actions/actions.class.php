@@ -247,17 +247,23 @@ class actividadActions extends sfActions
   
   public function executeMostrarEstadosInicial(sfWebRequest $request)
   {
-   $Estados = MunicipioQuery::create()->select('Estado')->setDistinct('Estado')->orderByEstado('asc')->find();
+   //$Estados = MunicipioQuery::create()->select('Estado')->setDistinct('Estado')->orderByEstado('asc')->find();
     
-    $estados = '<select id="estados" class="select" name="estados">';
-    for($i = 0; $i < count($Estados); $i++) {
-        if ($Estados[$i] == 'DTTO. CAPITAL') {
-            $estados .= '<option id="'.$i.'" selected>'.$Estados[$i].'</option>';
+   $Stados = EstadoQuery::create()->orderByNombre('asc')->find();
+   $i=0;
+   $estados = '<select id="estados" class="select" name="estados">';
+    
+    foreach($Stados as $Stado) {
+        $i++;
+        if ($Stado->getNombre() == 'Distrito Capital') {
+            $estados .= '<option id="'.$i.'" selected>'.$Stado->getNombre().'</option>';
         } else {
-            $estados .= '<option id="'.$i.'">'.$Estados[$i].'</option>';
+            $estados .= '<option id="'.$i.'">'.$Stado->getNombre().'</option>';
         }
     }
     $estados .= '</select>';  
+    
+    
     
     $to  = array();
     $to[1]['select_estado'] = $estados;
