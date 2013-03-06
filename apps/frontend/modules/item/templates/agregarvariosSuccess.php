@@ -10,7 +10,7 @@ $I=  ItemQuery::create()->filterByIdEncuesta($id_encuesta)->orderById('desc')->f
 if (count($I)>0) $numeracion=$I->getNumeracion()+1;
 
 ?>
-<form action="<?php echo url_for('item/createvarios?id_encuesta='.$id_encuesta) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
+<form action="<?php echo url_for('item/finalcreate?id_encuesta='.$id_encuesta) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?>>
 <?php if (!$form->getObject()->isNew()): ?>
 <input type="hidden" name="sf_method" value="put" />
 <?php endif; ?>
@@ -148,7 +148,7 @@ if (count($I)>0) $numeracion=$I->getNumeracion()+1;
                             <option>8</option>
                             <option>9</option>
                             <option>10</option>
-                        </select>
+                        </select>http://
         </td>
         <td id="1">
             <input type="checkbox" name="opcion[]" id="H" checked="checked" id="1">&nbsp;&nbsp;
@@ -217,7 +217,7 @@ $('input#siguiente_submit').click(function (e){
     var i=0;
     var valor='';
     var tipo_item=$('select#tipo_item').val();
-    alert(tipo_item);
+    
     
     var max_escala=$('select#max_escala').val();
     var max_sub=$('select#max_sub').val();
@@ -225,16 +225,11 @@ $('input#siguiente_submit').click(function (e){
     var max=0;
     if(tipo_item=='G') max=max_escala;
     if(tipo_item=='H') max=max_sub;
-    
-    
     $('input[class="'+tipo_item+'"]').each(function(){
        valor=$(this).val() ;
        opcion[i]=valor;
        i++;
     });
-    
-    
-    
     $.ajax({ type: "POST",
 	    	url: "<?php echo url_for('item/createvarios'); ?>",
                 data: "numeracion=" + numeracion + "&id_encuesta="+id_encuesta
@@ -243,7 +238,6 @@ $('input#siguiente_submit').click(function (e){
 	    	success: function(message){
                     $('tr[param="clonado"]').remove();
                     $('td#mas').css('display','inline');
-                    
                     $('input#opcion').val("");
                     numeracion++;
                   $('input#numeracion').val("");
@@ -251,14 +245,52 @@ $('input#siguiente_submit').click(function (e){
                   $('textarea#texto').val("");
                   $('select#tipo_item').val('A').trigger('change');
                   $('select#tipo_item').trigger('click');
-                  
-                  
                  }
 	    });
     
 });
 
+
+$('input.button_finalizar').click(function (e){
+    e.preventDefault();
+    var numeracion=$('input#numeracion').val();
+    var texto=$('textarea#texto').val();
+    var opcion=new Array;
+    var i=0;
+    var valor='';
+    var tipo_item=$('select#tipo_item').val();
+    
+    
+    var max_escala=$('select#max_escala').val();
+    var max_sub=$('select#max_sub').val();
+    var id_encuesta=getidencuesta(); 
+    var max=0;
+    if(tipo_item=='G') max=max_escala;
+    if(tipo_item=='H') max=max_sub;
+    $('input[class="'+tipo_item+'"]').each(function(){
+       valor=$(this).val() ;
+       opcion[i]=valor;
+       i++;
+    });
+    $.ajax({ type: "POST",
+	    	url: "<?php echo url_for('item/finalcreate'); ?>",
+                data: "numeracion=" + numeracion + "&id_encuesta="+id_encuesta
+                +"&texto=" + texto+"&tipo_item="+ tipo_item+"&max="+max+"&opcion="+JSON.stringify(opcion),
+
+	    	success: function(message){
+                    window.location.href="<?echo url_for('encuesta')?>";
+                 }
+	    });
+    
 });
+
+
+
+
+});
+
+
+
 
 </script>
     

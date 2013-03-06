@@ -123,5 +123,41 @@ class itemActions extends sfActions
   }
 
   
+   public function executeFinalcreate(sfWebRequest $request){
+    
+    $numeracion=$request->getParameter('numeracion');
+    $id_encuesta=$request->getParameter('id_encuesta');
+    $max=$request->getParameter('max');
+    $texto=$request->getParameter('texto');
+    $tipo_item=$request->getParameter('tipo_item');
+    $opcion=$request->getParameter('opcion');
+    //$valores= explode('","',$opcion);
+    $valores=json_decode($opcion);
+   
+    $Item=new Item();
+    $Item->setIdEncuesta($id_encuesta);
+    $Item->setNumeracion($numeracion);
+    $Item->setTexto($texto);
+    $Item->setTipoItem($tipo_item);
+    $Item->setMaximo($max);
+    $Item->save();
+    $id_item=$Item->getId();
+    
+    
+    foreach ($valores as $valor){
+     $valor=trim($valor,'"');
+     $valor=trim($valor,'"');
+     $OpcionRespuesta= new OpcionRespuesta();
+     $OpcionRespuesta->setIdItem($id_item);
+     $OpcionRespuesta->setOpcion($valor);
+    $OpcionRespuesta->save();
+    }
+   
+    
+    
+    
+    return $this->renderText('ok');
+  }
+  
   
 }

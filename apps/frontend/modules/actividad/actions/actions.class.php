@@ -36,7 +36,7 @@ class actividadActions extends sfActions
 
     $this->form = new ActividadForm();
     
-    die(var_dump($_POST));
+  
     $nombre_actividad = $_POST["actividad"]['nombre_actividad'];
     $ponente = $_POST["actividad"]['ponente'];
     $turno = $_POST["actividad"]['turno'];

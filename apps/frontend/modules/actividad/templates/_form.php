@@ -94,11 +94,7 @@ $(document).on("click","select#actividad_id_sala", function(){
 });
 
 $(document).on("click","img#agrega_ponente", function(){
-    
-     
     $(this).before($("select#ponente").clone().attr('id', 'extraponente').attr('name', 'extraponente[]') );
-    
-    
     
 });
 
