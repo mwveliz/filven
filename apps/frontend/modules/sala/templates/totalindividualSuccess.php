@@ -268,3 +268,88 @@ if (count($Sala) > 0) {
   </tr>   
 </table>  
 <? } ?>
+<? if ($caso == 4) { ?>
+<table class="tablas">
+  <tr>
+    <th rowspan="2">Día</th>
+    <th width="30%">Número de Actividades Literarias por día</th>
+    <th>Número de Poetas participantes</th>
+    <th>Recital musical</th>
+  </tr>
+  <tr>
+  <?
+    $total_columna_actividades = 0;;
+    $total_columna_poetas = 0;
+    $total_columna_musicos = 0;
+    $total_columna_totales = 0;
+  ?>      
+  <? foreach($Actividades as $Actividad) {
+        list($anio,$mes,$dia) = explode("-",$Actividad);
+        $anio = substr($anio,-2);
+        $formato_fecha = $dia . "-" . $mes . "-" . $anio; 
+        $NumeroActividades = ActividadQuery::create()->filterByFecha($Actividad)->where('Actividad.IdSala ='.$id)->count();
+        $total_columna_actividades += $NumeroActividades;
+        $Acts = ActividadQuery::create()->filterByFecha($Actividad)->where('Actividad.IdSala ='.$id)->find();
+      
+        $cantidad_musico = 0;
+            $cantidad_poeta = 0;
+        foreach ($Acts as $Act) {
+         
+            $PonenteRelActividades = PonenteRelActividadQuery::create()->filterByIdActividad($Act->getId())->find();
+            foreach($PonenteRelActividades as $PonenteRelActividad) {
+                $Ponente = PonenteQuery::create()->filterById($PonenteRelActividad->getIdPonente())->findOne();
+                if (count($Ponente) > 0) {
+                    if ($Ponente->getEspecialidad() == 'Músico') {
+                        $cantidad_musico++;
+                    }
+                    if ($Ponente->getEspecialidad() == 'Poeta') {
+                        $cantidad_poeta++;
+                    }
+                }                
+            }
+                           
+        } 
+        
+        $total_columna_musicos +=  $cantidad_musico;
+        $total_columna_poetas +=  $cantidad_poeta;
+
+  ?>
+  <tr>
+      <td>
+          <center><? echo $formato_fecha  ?></center>
+      </td>
+       <td>
+          <center><? echo $NumeroActividades  ?></center>
+      </td>
+       <td>
+          <center><? echo $cantidad_poeta  ?></center>
+      </td>
+       <td>
+          <center><? echo $cantidad_musico  ?></center>
+      </td>     
+  </tr>
+<?  } ?>
+  <tr>
+      <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;">
+          <center><b>Totales</b></center>
+      </td>
+       <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;">
+          <center><? echo $total_columna_actividades  ?></center>
+      </td>
+       <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;">
+          <center><? echo $total_columna_poetas  ?></center>
+      </td>
+       <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;">
+          <center><? echo $total_columna_musicos  ?></center>
+      </td>     
+  </tr>
+  <tr>
+      <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;" colspan="2">
+          <center><b>Total General Participantes</b></center>
+      </td>
+       <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;" colspan="2">
+          <center><? echo $total_columna_poetas + $total_columna_musicos  ?></center>
+      </td>    
+  </tr>   
+</table>  
+<? } ?>

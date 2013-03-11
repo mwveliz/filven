@@ -28,7 +28,6 @@ abstract class BaseActividadFormFilter extends BaseFormFilterPropel
       'id_tipo_actividad'        => new sfWidgetFormPropelChoice(array('model' => 'TipoActividad', 'add_empty' => true)),
       'fecha'                    => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
       'hora'                     => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate())),
-      'id_ponente'               => new sfWidgetFormFilterInput(),
       'facilitador'              => new sfWidgetFormFilterInput(),
       'id_feria'                 => new sfWidgetFormPropelChoice(array('model' => 'Feria', 'add_empty' => true)),
     ));
@@ -50,7 +49,6 @@ abstract class BaseActividadFormFilter extends BaseFormFilterPropel
       'id_tipo_actividad'        => new sfValidatorPropelChoice(array('required' => false, 'model' => 'TipoActividad', 'column' => 'id')),
       'fecha'                    => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
       'hora'                     => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDate(array('required' => false)), 'to_date' => new sfValidatorDate(array('required' => false)))),
-      'id_ponente'               => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'facilitador'              => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'id_feria'                 => new sfValidatorPropelChoice(array('required' => false, 'model' => 'Feria', 'column' => 'id')),
     ));
@@ -87,7 +85,6 @@ abstract class BaseActividadFormFilter extends BaseFormFilterPropel
       'id_tipo_actividad'        => 'ForeignKey',
       'fecha'                    => 'Date',
       'hora'                     => 'Date',
-      'id_ponente'               => 'Number',
       'facilitador'              => 'Number',
       'id_feria'                 => 'ForeignKey',
     );

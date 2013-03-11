@@ -31,6 +31,62 @@ class ActividadQuery extends BaseActividadQuery {
         return $Actividades;
   }
   
+  static public function escritoresyescritorasparticipantes(){
+      
+     $html = '<center><h1>Escritores y escritoras  participantes</h1></center>
+                <table class="tablas">
+                  <tr>
+                    <th width="30%">Feria</th>
+                    <th width="40%">Escritores y Escritoras</th>
+                    <th width="30%">Cantidad</th>
+                  </tr> '; 
+     
+     $Ferias = FeriaQuery::create()->orderById('asc')->find();
+     foreach ($Ferias as $Feria) {
+         $id_feria = $Feria->getId();
+         $Actividades = ActividadQuery::create()->filterByIdFeria($id_feria)->find();
+         $Total = 0;
+         $Extranjero = 0;
+         $Nacional = 0;
+         foreach($Actividades as $Actividad) {
+             $id_actividad = $Actividad->getId();
+             $PonentesActividads = PonenteRelActividadQuery::create()->filterByIdActividad($id_actividad)->find();
+             foreach ($PonentesActividads as $PonentesActividad) {
+                 $id_ponente = $PonentesActividad->getIdPonente();
+                 $Ponente = PonenteQuery::create()->filterById($id_ponente)->where('Ponente.Especialidad like ?', '%Escritor%')->findOne();
+                 if (count($Ponente) > 0) {
+                     if ($Ponente->getNacionalidad()  == 'Extranjero') {
+                         $Extranjero++;
+                     } else {
+                         $Nacional++;
+                     }
+                 }
+             }
+         }
+         $Total = $Nacional+$Extranjero;
+         $html .= '<tr>
+                    <td width="30%" rowspan="3"><center>'. $Feria->getDescripcion() .'</center></td>
+                    <td width="40%"><center>Nacionales</center></td>
+                    <td width="30%"><center>'.$Nacional.'</center></td>
+                  </tr>
+                  <tr>
+                    <td width="40%"><center>Internacionales</center></td>
+                    <td width="30%"><center>'.$Extranjero.'</center></td>
+                  </tr>
+                  <tr>
+                    <td width="40%" style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>Totales de escritores participantes</b></center></td>
+                    <td width="30%" style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center>'.$Total.'</center></td>                 
+                  </tr>
+                 '; 
+     }
+     $html .= '</table>
+                <br>
+                <br>';
+     
+     return $html;
+      
+  }
+  
   static public function cantidaddeactividadesyasistencia(){
       
      $html = '<center><h1>Cantidad de actividades y asistencia</h1></center>

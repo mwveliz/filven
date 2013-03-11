@@ -148,6 +148,28 @@ class respuesta_encuestaActions extends sfActions
               }
              }
           break;
+          case "I": // Caso Pais
+             $RItem = new RespuestaItem();
+             $RItem->setIdRespuestaEncuesta($id_respuesta_encuesta);
+             $RItem->setIdItem($id_item);
+             $RItem->setTipoItem($tipo_item);
+             $RItem->setIdOpcion($opcion);
+             $RItem->setValor($_POST['pais']);
+             $RItem->save();
+          break;   
+          case "J": // Caso Estado
+             $RItem = new RespuestaItem();
+             $RItem->setIdRespuestaEncuesta($id_respuesta_encuesta);
+             $RItem->setIdItem($id_item);
+             $RItem->setTipoItem($tipo_item);
+             $RItem->setIdOpcion($opcion);
+             if ($_POST['pais'] == 'Venezuela') {
+                $RItem->setValor($_POST['estado']);
+             } else {
+                $RItem->setValor(''); 
+             }
+             $RItem->save();
+          break;       
         }
      }//fin foreach items
     $this->redirect('respuesta_encuesta/new?id_encuesta='.$id_encuesta);

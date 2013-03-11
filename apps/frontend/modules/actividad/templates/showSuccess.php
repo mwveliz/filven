@@ -115,8 +115,12 @@
     <tr>
       <th style="text-align:right; width:30%; line-height: 6px">&nbsp;</th>
       <td style="padding-left: 10px; line-height: 6px">&nbsp;</td>
-    </tr>     
-    <tr>
+    </tr>
+         <?
+          $Sala = SalaQuery::create()->filterById($Actividad->getIdSala())->findOne();
+          if ($Sala->getNombreSala() == 'Pabellón Infantil') {   
+          ?>
+      <tr>
       <? 
         if ($Actividad->getEscuela()) {
              $escuela = "Si";
@@ -130,7 +134,7 @@
       <tr>
       <th style="text-align:right; width:30%; line-height: 6px">&nbsp;</th>
       <td style="padding-left: 10px; line-height: 6px">&nbsp;</td>
-    </tr>     
+    </tr>  
     <tr>
       <? 
         if ($Actividad->getRefugio()) {
@@ -145,7 +149,10 @@
       <tr>
       <th style="text-align:right; width:30%; line-height: 6px">&nbsp;</th>
       <td style="padding-left: 10px; line-height: 6px">&nbsp;</td>
-    </tr>          
+    </tr>
+          <?
+          }
+          ?>    
     <tr>
          <?
           $Sala = SalaQuery::create()->filterById($Actividad->getIdSala())->findOne();
@@ -160,7 +167,25 @@
       <tr>
       <th style="text-align:right; width:30%; line-height: 6px">&nbsp;</th>
       <td style="padding-left: 10px; line-height: 6px">&nbsp;</td>
-    </tr>   
+    </tr>
+         <?
+          $Ponentes = PonenteRelActividadQuery::create()->filterByIdActividad($Actividad->getId())->find();
+          if (count($Ponentes) > 0) {
+              foreach ($Ponentes as $Ponente) {
+                  $PonenteExpo = PonenteQuery::create()->filterById($Ponente->getIdPonente())->findOne();
+         ?>
+    <tr>
+      <th style="text-align:right; width:30%">Ponente asistente:</th>
+      <td style="padding-left: 10px; text-align: justify"><?php echo $PonenteExpo->getNombre() ?></td>       
+    </tr>
+    <tr>
+      <th style="text-align:right; width:30%; line-height: 6px">&nbsp;</th>
+      <td style="padding-left: 10px; line-height: 6px">&nbsp;</td>
+    </tr>    
+        <?  
+              }
+          }
+        ?>         
     <tr>
          <?
           $TipoActividad = TipoActividadQuery::create()->filterById($Actividad->getIdTipoActividad())->findOne();

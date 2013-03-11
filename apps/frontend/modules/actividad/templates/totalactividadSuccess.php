@@ -1,5 +1,7 @@
 <?php
-
+    $escritoresyescritorasparticipantes = ActividadQuery::escritoresyescritorasparticipantes();
+    echo $escritoresyescritorasparticipantes;
+    
     $cantidaddeactividadesyasistencia = ActividadQuery::cantidaddeactividadesyasistencia();
     echo $cantidaddeactividadesyasistencia;
     

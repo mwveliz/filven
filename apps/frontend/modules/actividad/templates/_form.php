@@ -94,7 +94,7 @@ $(document).on("click","select#actividad_id_sala", function(){
 });
 
 $(document).on("click","img#agrega_ponente", function(){
-    $(this).before($("select#ponente").clone().attr('id', 'extraponente').attr('name', 'extraponente[]') );
+    $(this).before($("select#ponente").clone().attr('id', 'extraponente').attr('name', 'extraponente[]').attr('class','selectponente'));
     
 });
 
@@ -127,7 +127,7 @@ $(document).on("click","img#agrega_ponente", function(){
 </div>
 <div class="field">
 	<label for="name">Sala</label>
-  	 <span class="select"><?php echo $form['id_sala']->render(array('class' => 'select')) ;?></span>
+  	 <span class="select"><?php echo $form['id_sala']->render(array('class' => 'selectmediano')) ;?></span>
 	<p class="hint">Selecciona la sala en la que se realizará la actividad</p>
 </div>
 <div class="field">
@@ -137,9 +137,9 @@ $(document).on("click","img#agrega_ponente", function(){
 </div>  
 <div class="field">
 	<label for="name">Ponente(s)</label>
-  	 <?php echo $form['ponente']->render(array('class' => 'input','id' => 'ponente')) ?>
+  	<span class="select"><?php echo $form['ponente']->render(array('class' => 'select','id' => 'ponente')) ?></span>
 	<p class="hint">Introduzca el nombre del ponente</p> 
-        <p><img id="agrega_ponente" src="/images/blue_add.png"></p>
+        <p align="right"><img id="agrega_ponente" src="/images/blue_add.png"></p>
 </div>  
 <div class="field">
 	<label for="name">Turno</label>
@@ -192,13 +192,6 @@ $(document).on("click","img#agrega_ponente", function(){
         <span class="select"><?php echo $form['refugio']->render(array('class' => 'select')) ;?></span>
 	<p class="hint">Indique si la actividad se realizó en un refugio</p>
 </div>
-<!--
-<div class="field">
-	<label for="name">Ponente</label>
-  	<span class="select"><?php echo $form['id_ponente']->render(array('class' => 'select')) ?></span>
-	<p class="hint">Seleccione el ponente</p>
-</div> 
--->
 <div class="field" id="div_facilitadores">
 	<label for="name">N° Facilitadores</label>
   	<?php echo $form['facilitador']->render(array('class' => 'input', 'id' => 'facilitador')) ?>

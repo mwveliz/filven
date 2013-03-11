@@ -24,12 +24,6 @@
 </div> 
 <br>
 <div class="field">
-	<label for="name">Sala</label>
-        <span class="select"><?php echo $form['id_sala']->render(array('class' => 'select')) ;?></span>
-	<p class="hint">Indique la sala</p>
-</div>
-<br>
-<div class="field">
 	<label for="name">Feria</label>
         <span class="select"><?php echo $form['id_feria']->render(array('class' => 'select')) ;?></span>
 	<p class="hint">Indique la feria</p>

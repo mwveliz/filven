@@ -106,7 +106,45 @@
                                    $input = '<table>';
                                    foreach($OpcionRespuestas as $OpcionRespuesta) {
                                        $id_opcion=$OpcionRespuesta->getId();
-                                       $input .= '<tr><td><span style="padding-left:70px;">'.$OpcionRespuesta->getOpcion().': </span></td><td><input name="'.$id_item.'[]"  id="'.$id_item.'" class="input_show_med"></td></tr>';
+                                       
+                                       if ($OpcionRespuesta->getOpcion() == 'Estado' || $OpcionRespuesta->getOpcion() == 'País' ){
+                                           if($OpcionRespuesta->getOpcion() == 'Estado' ) {
+                                               $Estados = EstadoQuery::create()->orderByNombre('asc')->find();
+                                                $input  .= '<tr><td><span style="padding-left:70px;">'.$OpcionRespuesta->getOpcion().': </span></td>';
+                                            //    $input  = '<p style="vertical-align: middle; padding-top:10px; padding-bottom:10px;"><span style="padding-left: 50px; padding-right:10px;"><b>Estado</b>:</span>';
+                                                $input .= '<td><select name='.$id_item.'[]'.' id='.$id_item.'>';
+                                                $input .= '<option id="0"></option>';
+                                                foreach ($Estados as $Estado) {
+                                                    if ($Estado->getNombre() == 'Distrito Capital') {
+                                                       $input .= '<option id='.$Estado->getId().' selected>'.$Estado->getNombre().'</option>'; 
+                                                    } else {
+                                                       $input .= '<option id='.$Estado->getId().'>'.$Estado->getNombre().'</option>';
+                                                    }
+                                                }
+                                                $input .= '</select></td></tr>';
+                                                }
+                                                
+                                           if($OpcionRespuesta->getOpcion() == 'País' ) {
+                                               $Paises = PaisQuery::create()->orderByNombre('asc')->find();
+                                                $input .= '<tr><td><span style="padding-left:70px;">'.$OpcionRespuesta->getOpcion().': </span></td>';
+                                                $input .= '<td><select name='.$id_item.'[]'.' id='.$id_item.'>';
+                                                $input .= '<option id="0"></option>';
+                                                foreach ($Paises as $Pais) {
+                                                    if ($Pais->getNombre() == 'Venezuela') {
+                                                       $input .= '<option id='.$Pais->getId().' selected>'.$Pais->getNombre().'</option>'; 
+                                                    } else {
+                                                       $input .= '<option id='.$Pais->getId().'>'.$Pais->getNombre().'</option>';
+                                                    }
+                                                }
+                                                $input .= '</select></td></tr>';
+                                                }                                       
+                                           
+                                       }else{
+                                            $input .= '<tr><td><span style="padding-left:70px;">'.$OpcionRespuesta->getOpcion().': </span></td><td><input name="'.$id_item.'[]"  id="'.$id_item.'" class="input_show_med"></td></tr>';
+                                       }
+                                       
+                                       
+                                       
                                    }
                                }
                                $post = $pre.$texto.$input.'</table></p>';
@@ -201,6 +239,35 @@
                                }
                                $post = $pre.$texto.$tabla.'</table></center></p>';
                                echo $post;
+                           break;
+                           case 'I':
+                               $Paises = PaisQuery::create()->orderByNombre('asc')->find();
+                               $select_pais = '<p style="vertical-align: middle; padding-top:10px; padding-bottom:10px;"><span style="padding-left: 50px; padding-right:10px;"><b>País</b>:</span>';
+                               $select_pais .= '<select id="pais" name="pais">';
+                               foreach ($Paises as $Pais) {
+                                   if ($Pais->getNombre() == 'Venezuela') {
+                                      $select_pais .= '<option id='.$Pais->getId().' selected>'.$Pais->getNombre().'</option>'; 
+                                   } else {
+                                      $select_pais .= '<option id='.$Pais->getId().'>'.$Pais->getNombre().'</option>';
+                                   }
+                               }
+                               $select_pais .= '</select>';
+                               echo $select_pais;
+                           break;
+                           case 'J':
+                               $Estados = EstadoQuery::create()->orderByNombre('asc')->find();
+                               $select_estado = '<p style="vertical-align: middle; padding-top:10px; padding-bottom:10px;"><span style="padding-left: 50px; padding-right:10px;"><b>Estado</b>:</span>';
+                               $select_estado .= '<select id="estado" name="estado">';
+                               $select_estado .= '<option id="0"></option>';
+                               foreach ($Estados as $Estado) {
+                                   if ($Estado->getNombre() == 'Distrito Capital') {
+                                      $select_estado .= '<option id='.$Estado->getId().' selected>'.$Estado->getNombre().'</option>'; 
+                                   } else {
+                                      $select_estado .= '<option id='.$Estado->getId().'>'.$Estado->getNombre().'</option>';
+                                   }
+                               }
+                               $select_estado .= '</select>';
+                               echo $select_estado;
                            break;                             
                    } 
                  ?>

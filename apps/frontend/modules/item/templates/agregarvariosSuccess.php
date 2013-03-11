@@ -57,6 +57,8 @@ if (count($I)>0) $numeracion=$I->getNumeracion()+1;
             <option id="F" value="F"> Tipo F (Selección Múltiple con Completación)</option>
             <option id="G" value="G"> Tipo G (Seleccion Multiple Segundo Nivel)</option>
             <option id="H" value="H"> Tipo H (Completación Multiple Segundo Nivel)</option>
+            <option id="I" value="I"> Tipo I (Selección simple de País)</option>
+            <option id="J" value="J"> Tipo J (Selección simple de Estado (Venezuela))</option>
         </select>
         <p>&nbsp;</p>    
         </td>
@@ -157,7 +159,8 @@ if (count($I)>0) $numeracion=$I->getNumeracion()+1;
         <td id="mas">
             <a href="#" onclick='return false;'>&nbsp;<? echo image_tag('blue_add.png') ?></a>
         </td>
-     </tr>      
+     </tr>          
+     
     </tbody>
   </table>
 </center>    

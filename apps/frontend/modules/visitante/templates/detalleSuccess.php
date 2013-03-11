@@ -10,12 +10,6 @@
      <?
         $visitante_hora = $Visitante->getHora();
         $visitante_numero = $Visitante->getNumero();
-        $Sala = SalaQuery::create()->filterById($Visitante->getIdSala())->findOne();
-        if (count($Sala) > 0) {
-            $visitante_sala = $Sala->getNombreSala();
-        } else {
-            $visitante_sala = '--';
-        }
         $Acceso = AccesoQuery::create()->filterById($Visitante->getIdAcceso())->findOne();
         if (count($Acceso) > 0) {
             $visitante_acceso = $Acceso->getNombre();
@@ -40,10 +34,6 @@
       <th style="text-align:right; width:30%; line-height: 6px">&nbsp;</th>
       <td style="padding-left: 10px; line-height: 6px">&nbsp;</td>
     </tr>
-    <tr>
-      <th style="text-align:right; width:30%">Sala:</th>
-      <td style="padding-left: 10px; text-align: justify"><?php echo $visitante_sala ?></td>
-    </tr>
       <tr>
       <th style="text-align:right; width:30%; line-height: 6px">&nbsp;</th>
       <td style="padding-left: 10px; line-height: 6px">&nbsp;</td>
@@ -61,7 +51,6 @@
 <br>
 <br>
 <p style="text-align: right; padding-right: 50px; margin-left: 50px; padding-top: 10px; border-top: 1px solid black;">
-<?php echo link_to(image_tag('list.png'),'visitante/index',array('title' => 'Ver'))?>
 <?php echo link_to(image_tag('edit.png'),'visitante/edit?id='.$Visitante->getId(),array('title' => 'Editar'))?>
 <?php echo link_to(image_tag('delete.png'), 'visitante/delete?id='.$Visitante->getId(), array('method' => 'delete', 'confirm' => 'Seguro desea eliminar?')) ?>
 </p>

@@ -31,7 +31,6 @@ abstract class BaseActividadForm extends BaseFormPropel
       'id_tipo_actividad'        => new sfWidgetFormPropelChoice(array('model' => 'TipoActividad', 'add_empty' => true)),
       'fecha'                    => new sfWidgetFormDate(),
       'hora'                     => new sfWidgetFormTime(),
-      'id_ponente'               => new sfWidgetFormInputText(),
       'facilitador'              => new sfWidgetFormInputText(),
       'id_feria'                 => new sfWidgetFormPropelChoice(array('model' => 'Feria', 'add_empty' => true)),
     ));
@@ -54,7 +53,6 @@ abstract class BaseActividadForm extends BaseFormPropel
       'id_tipo_actividad'        => new sfValidatorPropelChoice(array('model' => 'TipoActividad', 'column' => 'id', 'required' => false)),
       'fecha'                    => new sfValidatorDate(array('required' => false)),
       'hora'                     => new sfValidatorTime(array('required' => false)),
-      'id_ponente'               => new sfValidatorInteger(array('min' => -2147483648, 'max' => 2147483647, 'required' => false)),
       'facilitador'              => new sfValidatorInteger(array('min' => -2147483648, 'max' => 2147483647, 'required' => false)),
       'id_feria'                 => new sfValidatorPropelChoice(array('model' => 'Feria', 'column' => 'id', 'required' => false)),
     ));

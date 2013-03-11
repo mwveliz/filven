@@ -171,7 +171,15 @@
                                }
                                $post = $pre.$texto.$tabla.'</table></center></p>';
                                echo $post;
-                           break;                           
+                           break; 
+                           
+                           case 'I':
+                               echo '<p style="vertical-align: middle; padding-top:10px; padding-bottom:10px;"><span style="padding-left: 50px; padding-right:10px;"><b>País</b>:</span><input name="pais" class="input_show_med">';
+                           break; 
+                       
+                           case 'J':
+                               echo '<p style="vertical-align: middle; padding-top:10px; padding-bottom:10px;"><span style="padding-left: 50px; padding-right:10px;"><b>Estado</b>:</span><input name="estado" class="input_show_med">';
+                           break;                        
                            
                         }
                     }
@@ -206,7 +214,7 @@
 <p style="text-align: right; padding-right: 50px; margin-left: 50px; padding-top: 10px; border-top: 1px solid black;">
 <?php echo link_to(image_tag('list.png'),'encuesta/index',array('title' => 'Ver listado'))?>
 <?php echo link_to(image_tag('edit.png'),'encuesta/edit?id='.$Encuesta->getId(),array('title' => 'Editar'))?>
-<?php echo link_to(image_tag('delete.png'), 'encuesta/delete?id='.$Encuesta->getId(), array('method' => 'delete', 'confirm' => 'Seguro desea eliminar?')) ?>
+<?php // echo link_to(image_tag('delete.png'), 'encuesta/delete?id='.$Encuesta->getId(), array('method' => 'delete', 'confirm' => 'Seguro desea eliminar?')) ?>
 </p>
 
 

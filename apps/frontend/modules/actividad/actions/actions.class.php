@@ -36,7 +36,7 @@ class actividadActions extends sfActions
 
     $this->form = new ActividadForm();
     
-  
+ // die(var_dump($_POST));
     $nombre_actividad = $_POST["actividad"]['nombre_actividad'];
     $ponente = $_POST["actividad"]['ponente'];
     $turno = $_POST["actividad"]['turno'];
@@ -52,7 +52,6 @@ class actividadActions extends sfActions
     $observaciones = $_POST["actividad"]['observaciones'];   
     $id_sala = $_POST["actividad"]['id_sala'];  
     $id_tipo_actividad = $_POST["actividad"]['id_tipo_actividad'];
-    $id_ponente = $_POST["actividad"]['id_ponente'];
     $facilitador = $_POST["actividad"]['facilitador'];
     $id_feria = $_POST["actividad"]['id_feria'];
     $fecha = $_POST['actividad']['fecha'];
@@ -79,24 +78,23 @@ class actividadActions extends sfActions
     $Actividad->setIdTipoActividad($id_tipo_actividad);
     $Actividad->setFecha($fecha);
     $Actividad->setHora($hora);
-    $Actividad->setIdPonente($id_ponente);
     $Actividad->setFacilitador($facilitador);
     $Actividad->setIdFeria($id_feria);
     $Actividad->save();
-    //si hay mas de un ponente
     $id_actividad=$Actividad->getId();
+     //el primer ponente   
+     $PonenteRelActividad= new PonenteRelActividad();
+     $PonenteRelActividad->setIdActividad($id_actividad);
+     $PonenteRelActividad->setIdPonente($ponente);    
+     $PonenteRelActividad->save();
+     //si hay mas de un ponente
      foreach( $_POST['extraponente'] as $ponenteadicional){
          $PonenteRelActividad= new PonenteRelActividad();
          $PonenteRelActividad->setIdActividad($id_actividad);
-         $PonenteRelActividad->setIdPonente($ponenteadicional->getId());
-    
+         $PonenteRelActividad->setIdPonente($ponenteadicional);
+         $PonenteRelActividad->save();
     }  
     
-    
-   
-    
-
-
      $this->redirect('actividad/index');
   }
 
@@ -163,10 +161,15 @@ class actividadActions extends sfActions
   {
     $request->checkCSRFProtection();
 
+    $PonenteRelActividads = PonenteRelActividadQuery::create()->filterByIdActividad($request->getParameter('id'))->find();
+    foreach ($PonenteRelActividads as $PonenteRelActividad) {
+        $PonenteRelActividad->delete();
+    }    
+    
     $Actividad = ActividadQuery::create()->findPk($request->getParameter('id'));
     $this->forward404Unless($Actividad, sprintf('Object Actividad does not exist (%s).', $request->getParameter('id')));
     $Actividad->delete();
-
+    
     $this->redirect('actividad/index');
   }
 
@@ -191,7 +194,7 @@ class actividadActions extends sfActions
   {
     $estado = $request->getParameter('estado');
 
-    $Municipios = MunicipioQuery::create()->where('Municipio.Estado like ?', '%'.$estado.'%')->find();
+    $Municipios = MunicipioQuery::create()->where('Municipio.Estado like ?', '%'.$estado.'%')->orderByMunicipio('asc')->find();
     
     $to  = array();
     foreach ($Municipios as $Municipio) {
@@ -247,23 +250,19 @@ class actividadActions extends sfActions
   
   public function executeMostrarEstadosInicial(sfWebRequest $request)
   {
-   //$Estados = MunicipioQuery::create()->select('Estado')->setDistinct('Estado')->orderByEstado('asc')->find();
+   $Estados = MunicipioQuery::create()->select('Estado')->setDistinct('Estado')->orderByEstado('asc')->find();
     
-   $Stados = EstadoQuery::create()->orderByNombre('asc')->find();
+   //$Stados = EstadoQuery::create()->orderByNombre('asc')->find();
    $i=0;
    $estados = '<select id="estados" class="select" name="estados">';
-    
-    foreach($Stados as $Stado) {
-        $i++;
-        if ($Stado->getNombre() == 'Distrito Capital') {
-            $estados .= '<option id="'.$i.'" selected>'.$Stado->getNombre().'</option>';
+    for($i = 0; $i < count($Estados); $i++) {
+        if ($Estados[$i] == 'DTTO. CAPITAL') {
+            $estados .= '<option id="'.$i.'" selected>'.$Estados[$i].'</option>';
         } else {
-            $estados .= '<option id="'.$i.'">'.$Stado->getNombre().'</option>';
+            $estados .= '<option id="'.$i.'">'.$Estados[$i].'</option>';
         }
     }
     $estados .= '</select>';  
-    
-    
     
     $to  = array();
     $to[1]['select_estado'] = $estados;

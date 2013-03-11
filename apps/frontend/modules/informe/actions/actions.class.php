@@ -89,7 +89,7 @@ class informeActions extends sfActions
           $page = $request->getParameter('page');
     }
     
-    $this->Encuestas = EncuestaQuery::create()->paginate($page,20);
+    $this->Encuestas = EncuestaQuery::create()->orderByFechaElaboracion('desc')->paginate($page,20);
   }  
   
    public function executeEstadisticas(sfWebRequest $request)

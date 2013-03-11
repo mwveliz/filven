@@ -25,7 +25,6 @@ propel:
     id_tipo_actividad: { phpName: IdTipoActividad, type: INTEGER, required: false, foreignTable: tipo_actividad, foreignReference: id, onUpdate: CASCADE }
     fecha: { phpName: Fecha, type: DATE, required: false }
     hora: { phpName: Hora, type: TIME, required: false }
-    id_ponente: { phpName: IdPonente, type: INTEGER, required: false }
     facilitador: { phpName: Facilitador, type: INTEGER, required: false }
     id_feria: { phpName: IdFeria, type: INTEGER, required: false, foreignTable: feria, foreignReference: id }
   encuesta:
@@ -152,6 +151,5 @@ propel:
     numero: { phpName: Numero, type: INTEGER, required: false }
     id_feria: { phpName: IdFeria, type: BIGINT, required: false, foreignTable: feria, foreignReference: id }
     tipo_conteo: { phpName: TipoConteo, type: VARCHAR, required: false }
-    id_sala: { phpName: IdSala, type: BIGINT, required: false, foreignTable: sala, foreignReference: id }
     id_acceso: { phpName: IdAcceso, type: BIGINT, required: false, foreignTable: acceso, foreignReference: id }
     hora: { phpName: Hora, type: TIME, required: false }
