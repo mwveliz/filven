@@ -81,4 +81,10 @@ class feriaActions extends sfActions
       $this->redirect('feria/index');
     }
   }
+  
+  public function executeProyeccion(sfWebRequest $request)
+  {
+    $this->Feria = FeriaPeer::retrieveByPk($request->getParameter('id'));
+    $this->forward404Unless($this->Feria);
+  }  
 }

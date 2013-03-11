@@ -1,7 +1,7 @@
 <?php $id_encuesta = $sf_params->get('id'); ?>
 <? // es  visitante
 if ($id_encuesta == 18) {
-
+     
     $poblacionencuestadaporgenero = InformeQuery::poblacionencuestadaporgenero($id_encuesta);
     echo $poblacionencuestadaporgenero;
    
@@ -27,7 +27,7 @@ if ($id_encuesta == 18) {
     echo $procedenciadelosvisitantesnacionales;    
     
     $relacionsegunlugardeprocedencia = InformeQuery::relacionsegunlugardeprocedencia($id_encuesta);
-    echo $relacionsegunlugardeprocedencia;
+    echo $relacionsegunlugardeprocedencia;   
     
     $gustoporlalectura = InformeQuery::gustoporlalectura($id_encuesta);
     echo $gustoporlalectura;
@@ -69,7 +69,10 @@ if ($id_encuesta == 18) {
     echo $valoracionfilvensegunvisitantes;
 }
 if ($id_encuesta == 17) {
-   
+    
+    $expositoresinternacionales = InformeQuery::expositoresinternacionales($id_encuesta);
+    echo $expositoresinternacionales;   
+    
     $generosmascomercializados = InformeQuery::generosmascomercializados($id_encuesta);
     echo $generosmascomercializados;
     

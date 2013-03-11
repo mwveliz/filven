@@ -536,7 +536,7 @@ class InformeQuery extends BaseInformeQuery {
   
   static public function procedenciadelosvisitantesinternacionales($id_encuesta) {
       
-      $html = '<center><h1>Procedencia de los visitantes Internacionales (Incompleto)</h1></center>
+      $html = '<center><h1>Procedencia de los visitantes Internacionales</h1></center>
                 <table class="tablas">
                   <tr>
                     <th>País</th>
@@ -547,15 +547,29 @@ class InformeQuery extends BaseInformeQuery {
     $Item = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%Lugar de procedencia%')->findOne();
     if (count($Item) > 0) {
         $id_item = $Item->getId();
-        $Pais = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%País%')->findOne();
-       
+        $Paises = PaisQuery::create()->orderByNombre('asc')->find();
+        $arreglo_pais = array();
+        foreach ($Paises as $Pais) {
+            if ($Pais->getNombre() != 'Venezuela') {
+               $TotalPais = RespuestaItemQuery::create()->filterByIdItem($id_item)->where('RespuestaItem.Valor like ?', $Pais->getNombre())->count(); 
+               if ($TotalPais > 0) {
+                    $arreglo_pais[$Pais->getNombre()] = $TotalPais;
+               }
+            }
+        }
+        $total_participacion_extranjera = array_sum($arreglo_pais);
+        arsort($arreglo_pais);
+        foreach ($arreglo_pais as $key => $val) {
+           $html .= '<tr><td><center>'.$key.'</center></td><td><center>'.$val.'</center></td><td><center>'.round(($val*100)/$total_participacion_extranjera,2).'%</center></td>';
+        }       
+        
     } 
     
     
     $html .= '  <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
+                <td width="30%" style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>Total Participación Extranjera</b></center></td>
+                <td width="40%" style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>'.$total_participacion_extranjera.'</b></center></td>
+                <td width="30%" style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>100%</b></center></td>
             </tr>
           </table>
           <br>
@@ -568,7 +582,7 @@ class InformeQuery extends BaseInformeQuery {
   
   static public function procedenciadelosvisitantesnacionales($id_encuesta) {
     
-     $html = '<center><h1>Procedencia de los visitantes Nacionales (Incompleto)</h1></center>
+      $html = '<center><h1>Procedencia de los visitantes nacionales</h1></center>
                 <table class="tablas">
                   <tr>
                     <th>Estados</th>
@@ -578,27 +592,39 @@ class InformeQuery extends BaseInformeQuery {
     $Item = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%Lugar de procedencia%')->findOne();
     if (count($Item) > 0) {
         $id_item = $Item->getId();
-        $Pais = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%País%')->findOne();
-       
+        $Estados = EstadoQuery::create()->orderByNombre('asc')->find();
+        $arreglo_estado = array();
+        foreach ($Estados as $Estado) {
+               $TotalEstado = RespuestaItemQuery::create()->filterByIdItem($id_item)->where('RespuestaItem.Valor like ?', $Estado->getNombre())->count(); 
+               if ($TotalEstado > 0) {
+                    $arreglo_estado[$Estado->getNombre()] = $TotalEstado;
+               }
+        }
+        $total_participacion_nacional = array_sum($arreglo_estado);
+        foreach ($arreglo_estado as $key => $val) {
+           $html .= '<tr><td><center>'.$key.'</center></td><td><center>'.$val.'</center></td>';
+        }       
+        
     } 
     
     
     $html .= '  <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-              </table>
-              <br>
-              <br>';
+                <td width="30%" style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>Total Visitantes</b></center></td>
+                <td width="20%" style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>'.$total_participacion_nacional.'</b></center></td>
+            </tr>
+          </table>
+          <br>
+          <br>';
     
     return $html;
+
       
   }
   
   
   static public function relacionsegunlugardeprocedencia($id_encuesta) {
       
-     $html = '<center><h1>Relación según lugar de procedencia (Incompleto)</h1></center>
+     $html = '<center><h1>Relación según lugar de procedencia</h1></center>
                 <table class="tablas">
                   <tr>
                     <th>Procedencia</th>
@@ -607,18 +633,50 @@ class InformeQuery extends BaseInformeQuery {
                   </tr>';
       
       
-     $Item = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%Lugar de procedencia%')->findOne();
+    $Item = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%Lugar de procedencia%')->findOne();
     if (count($Item) > 0) {
         $id_item = $Item->getId();
-        $Pais = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%País%')->findOne();
-       
+        $Paises = PaisQuery::create()->orderByNombre('asc')->find();
+        $arreglo_pais = array();
+        foreach ($Paises as $Pais) {
+            if ($Pais->getNombre() != 'Venezuela') {
+               $TotalPais = RespuestaItemQuery::create()->filterByIdItem($id_item)->where('RespuestaItem.Valor like ?', $Pais->getNombre())->count(); 
+               if ($TotalPais > 0) {
+                    $arreglo_pais[$Pais->getNombre()] = $TotalPais;
+               }
+            }
+        }
+        $total_participacion_extranjera = array_sum($arreglo_pais);
     }
     
+    $Item = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%Lugar de procedencia%')->findOne();
+    if (count($Item) > 0) {
+        $id_item = $Item->getId();
+        $Estados = EstadoQuery::create()->orderByNombre('asc')->find();
+        $arreglo_estado = array();
+        foreach ($Estados as $Estado) {
+               $TotalEstado = RespuestaItemQuery::create()->filterByIdItem($id_item)->where('RespuestaItem.Valor like ?', $Estado->getNombre())->count(); 
+               if ($TotalEstado > 0) {
+                    $arreglo_estado[$Estado->getNombre()] = $TotalEstado;
+               }
+        }
+        $total_participacion_nacional = array_sum($arreglo_estado);  
+    }
+    $Total = $total_participacion_nacional + $total_participacion_extranjera;
+    $porcentaje_extranjera = round(($total_participacion_extranjera*100)/$Total,2);   
+    $porcentaje_nacional = round(($total_participacion_nacional*100)/$Total,2);   
+    
     $html .= '  <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-            </tr>
+                    <td><center>Internacional</center></td><td><center>'.$total_participacion_extranjera.'</center></td><td><center>'.$porcentaje_extranjera.'</center></td>
+                </tr>
+                <tr>
+                    <td><center>Nacional</center></td><td><center>'.$total_participacion_nacional.'</center></td><td><center>'.$porcentaje_nacional.'</center></td>
+                </tr>
+                <tr>
+                    <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>Total de participación</b></center></td>
+                    <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>'.$Total.'</b></center></td>
+                    <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>100%</b></center></td>
+                </tr>
           </table>
           <br>
           <br>';
@@ -628,7 +686,6 @@ class InformeQuery extends BaseInformeQuery {
     
   }  
   
-
   static public function gustoporlalectura($id_encuesta) {
       
      $html = '<center><h1>Gusto por la lectura</h1></center>
@@ -1716,6 +1773,66 @@ class InformeQuery extends BaseInformeQuery {
   *                                                    *
   *                                                    *   
   ******************************************************/ 
+
+   static public function expositoresinternacionales($id_encuesta) {
+       
+     $html = '<center><h1>Expositores internacionales</h1></center>
+                <table class="tablas">
+                  <tr>
+                    <th>Expositor Representante</th>                  
+                    <th>País de procedencia</th>
+                  </tr>';
+     
+      $Item = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%Nombre de la editorial que representa%')->findOne();
+      if (count($Item) > 0) { 
+          $id_item = $Item->getId();
+          $Editoriales = RespuestaItemQuery::create()->filterByIdItem($id_item)->orderByValor('asc')->find();
+          $arreglo_editorial = array();
+          $arreglo_cantidad_paises = array();
+          $editorial_anterior = '';
+          $TotalExpositor = 0;
+          $TotalPais = 0;
+          $i = 0;
+          foreach($Editoriales as $Editorial) {
+              $editorial_actual = $Editorial->getValor();
+              $respuesta_encuesta = $Editorial->getIdRespuestaEncuesta();
+              $Pais = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%País%')->findOne();
+              $id_pais = $Pais->getId();
+              $PaisExp = RespuestaItemQuery::create()->filterByIdItem($id_pais)->where('RespuestaItem.IdRespuestaEncuesta = ?', $respuesta_encuesta)->orderByValor('asc')->findOne();             
+              if ($PaisExp->getValor() != 'Venezuela' )  {
+                    if ($editorial_anterior == $editorial_actual) {
+                       $arreglo_editorial[$editorial_actual] = $arreglo_editorial[$editorial_actual].'<br>'.$PaisExp->getValor();
+                       $arreglo_cantidad_paises[$i] = $PaisExp->getValor();
+                    } else {
+                       $arreglo_editorial[$editorial_actual] = $PaisExp->getValor();
+                       $arreglo_cantidad_paises[$i] = $PaisExp->getValor();
+                    }
+                    $editorial_anterior = $editorial_actual;
+                    $TotalExpositor++;
+                    $i++;
+              }
+          }
+      }
+      $paises = array_unique($arreglo_cantidad_paises);
+      $TotalPais = sizeof($paises);
+      foreach ($arreglo_editorial as $key => $val) {
+           $html .= '<tr><td><center>'.$key.'</center></td><td><center>'.$val.'</center></td>';
+      }     
+      $html .= '<tr>
+                    <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>Total países participantes</b></center></td>
+                    <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>'.$TotalPais.'</b></center></td>
+                </tr>
+                <tr>
+                    <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>Total Expositores internacionales participantes</b></center></td>
+                    <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>'.$TotalExpositor.'</b></center></td>
+                </tr>                
+                    ';      
+      
+      $html .= '</table><br><br>';
+     
+      return $html;
+     
+   }
     
    static public function valoracionfilvensegunexpositores($id_encuesta) {
        

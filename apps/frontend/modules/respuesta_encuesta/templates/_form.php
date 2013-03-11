@@ -1,4 +1,17 @@
 <? $nueva=true;?>
+<script>
+jQuery(document).ready(function() {    
+    $(document).on("change","select.pais", function(){
+            var pais = $(this).children(":selected").val();
+            if (pais != 'Venezuela') {
+                $(".estado option#0").attr("selected",true);
+                $('.estado').attr('disabled','disabled');
+            } else {
+                $('.estado').removeAttr('disabled');
+            }            
+    });
+});    
+</script>
 <form action="<?php echo url_for('respuesta_encuesta/create?id_encuesta='.$id_encuesta) ?> " method="post">
 <input type="hidden" value="<?echo $id_encuesta?>" name="id_encuesta">
 <table class="show_encuesta">
@@ -112,7 +125,7 @@
                                                $Estados = EstadoQuery::create()->orderByNombre('asc')->find();
                                                 $input  .= '<tr><td><span style="padding-left:70px;">'.$OpcionRespuesta->getOpcion().': </span></td>';
                                             //    $input  = '<p style="vertical-align: middle; padding-top:10px; padding-bottom:10px;"><span style="padding-left: 50px; padding-right:10px;"><b>Estado</b>:</span>';
-                                                $input .= '<td><select name='.$id_item.'[]'.' id='.$id_item.'>';
+                                                $input .= '<td><select name='.$id_item.'[]'.' id='.$id_item.' class="estado">';
                                                 $input .= '<option id="0"></option>';
                                                 foreach ($Estados as $Estado) {
                                                     if ($Estado->getNombre() == 'Distrito Capital') {
@@ -127,7 +140,7 @@
                                            if($OpcionRespuesta->getOpcion() == 'País' ) {
                                                $Paises = PaisQuery::create()->orderByNombre('asc')->find();
                                                 $input .= '<tr><td><span style="padding-left:70px;">'.$OpcionRespuesta->getOpcion().': </span></td>';
-                                                $input .= '<td><select name='.$id_item.'[]'.' id='.$id_item.'>';
+                                                $input .= '<td><select name='.$id_item.'[]'.' id='.$id_item.' class="pais">';
                                                 $input .= '<option id="0"></option>';
                                                 foreach ($Paises as $Pais) {
                                                     if ($Pais->getNombre() == 'Venezuela') {
@@ -243,7 +256,7 @@
                            case 'I':
                                $Paises = PaisQuery::create()->orderByNombre('asc')->find();
                                $select_pais = '<p style="vertical-align: middle; padding-top:10px; padding-bottom:10px;"><span style="padding-left: 50px; padding-right:10px;"><b>País</b>:</span>';
-                               $select_pais .= '<select id="pais" name="pais">';
+                               $select_pais .= '<select id="pais" name="pais" class="pais">';
                                foreach ($Paises as $Pais) {
                                    if ($Pais->getNombre() == 'Venezuela') {
                                       $select_pais .= '<option id='.$Pais->getId().' selected>'.$Pais->getNombre().'</option>'; 
@@ -257,7 +270,7 @@
                            case 'J':
                                $Estados = EstadoQuery::create()->orderByNombre('asc')->find();
                                $select_estado = '<p style="vertical-align: middle; padding-top:10px; padding-bottom:10px;"><span style="padding-left: 50px; padding-right:10px;"><b>Estado</b>:</span>';
-                               $select_estado .= '<select id="estado" name="estado">';
+                               $select_estado .= '<select id="estado" name="estado" class="estado">';
                                $select_estado .= '<option id="0"></option>';
                                foreach ($Estados as $Estado) {
                                    if ($Estado->getNombre() == 'Distrito Capital') {

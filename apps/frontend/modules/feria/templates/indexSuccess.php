@@ -13,7 +13,7 @@
   <tbody>
     <?php foreach ($Ferias as $Feria): ?>
     <tr>
-      <td width="60%"><?php echo $Feria->getDescripcion() ?></td>
+      <td width="60%"><?php echo link_to($Feria->getDescripcion(),'feria/proyeccion?id='.$Feria->getId())?></td>
        <?php
         list($anio,$mes,$dia) = explode("-",$Feria->getFechaInicio());
         $anio = substr($anio,-2);
