@@ -62,7 +62,7 @@ jQuery(document).ready(function() {
                            case 'B':
                                $pre = '<br><p style="vertical-align: middle; padding-top:10px; padding-bottom:10px;">';
                                $texto = '<span style="padding-left: 50px; padding-right:20px;"><b>'.$Item->getNumeracion().'.</b>  '.$Item->getTexto().':</span><br>';
-                               $OpcionRespuestas = OpcionRespuestaQuery::create()->filterByIdItem($Item->getId())->find();
+                               $OpcionRespuestas = OpcionRespuestaQuery::create()->filterByIdItem($Item->getId())->orderById('asc')->find();
                                if (count($OpcionRespuestas) > 0) {
                                    $radio = '<span style="padding-left:70px;">';
                                    foreach($OpcionRespuestas as $OpcionRespuesta) {
@@ -77,7 +77,7 @@ jQuery(document).ready(function() {
                              case 'C':
                                $pre = '<p style="vertical-align: middle; padding-top:10px; padding-bottom:10px;">';
                                $texto = '<span style="padding-left: 50px; padding-right:20px;"><b>'.$Item->getNumeracion().'.</b>  '.$Item->getTexto().':</span><br>';
-                               $OpcionRespuestas = OpcionRespuestaQuery::create()->filterByIdItem($Item->getId())->find();
+                               $OpcionRespuestas = OpcionRespuestaQuery::create()->filterByIdItem($Item->getId())->orderById('asc')->find();
                                if (count($OpcionRespuestas) > 0) {
                                    $radio = '<span style="padding-left:70px;">';
                                    $i= 0;
@@ -99,7 +99,7 @@ jQuery(document).ready(function() {
                            case 'D':
                                $pre = '<p style="vertical-align: middle; padding-top:10px; padding-bottom:10px;">';
                                $texto = '<span style="padding-left: 50px; padding-right:20px;"><b>'.$Item->getNumeracion().'.</b>  '.$Item->getTexto().':</span><br>';
-                               $OpcionRespuestas = OpcionRespuestaQuery::create()->filterByIdItem($Item->getId())->find();
+                               $OpcionRespuestas = OpcionRespuestaQuery::create()->filterByIdItem($Item->getId())->orderById('asc')->find();
                                if (count($OpcionRespuestas) > 0) {
                                    $checkbox = '';
                                    foreach($OpcionRespuestas as $OpcionRespuesta) {
@@ -114,7 +114,7 @@ jQuery(document).ready(function() {
                            case 'E':
                                $pre = '<p style="vertical-align: middle; padding-top:10px; padding-bottom:10px;">';
                                $texto = '<span style="padding-left: 50px; padding-right:20px;"><b>'.$Item->getNumeracion().'.</b>  '.$Item->getTexto().':</span><br>';
-                               $OpcionRespuestas = OpcionRespuestaQuery::create()->filterByIdItem($Item->getId())->find();
+                               $OpcionRespuestas = OpcionRespuestaQuery::create()->filterByIdItem($Item->getId())->orderById('asc')->find();
                                if (count($OpcionRespuestas) > 0) {
                                    $input = '<table>';
                                    foreach($OpcionRespuestas as $OpcionRespuesta) {
@@ -167,7 +167,7 @@ jQuery(document).ready(function() {
                           case 'F':
                                $pre = '<p style="vertical-align: middle; padding-top:10px; padding-bottom:10px;">';
                                $texto = '<span style="padding-left: 50px; padding-right:20px;"><b>'.$Item->getNumeracion().'.</b>  '.$Item->getTexto().':</span><br>';
-                               $OpcionRespuestas = OpcionRespuestaQuery::create()->filterByIdItem($Item->getId())->find();
+                               $OpcionRespuestas = OpcionRespuestaQuery::create()->filterByIdItem($Item->getId())->orderById('asc')->find();
                                if (count($OpcionRespuestas) > 0) {
                                    $checkbox = '';
                                    $i= 0;
@@ -189,7 +189,7 @@ jQuery(document).ready(function() {
                            case 'G':
                                $pre = '<p style="vertical-align: middle; padding-top:10px; padding-bottom:10px;">';
                                $texto = '<span style="padding-left: 50px; padding-right:20px;"><b>'.$Item->getNumeracion().'.</b>  '.$Item->getTexto().':</span><br><br>';
-                               $OpcionRespuestas = OpcionRespuestaQuery::create()->filterByIdItem($Item->getId())->find();
+                               $OpcionRespuestas = OpcionRespuestaQuery::create()->filterByIdItem($Item->getId())->orderById('asc')->find();
                                $maximo = $Item->getMaximo()+1;
                                $tabla = '<center><table BORDER="1" CELLSPACING="0" width="70%" align="center"><tr><td width="60%">&nbsp;</td>';
                                for ($j = 1; $j <= $maximo; $j++) {
@@ -223,7 +223,7 @@ jQuery(document).ready(function() {
                             case 'H':
                                $pre = '<p style="vertical-align: middle; padding-top:10px; padding-bottom:10px;">';
                                $texto = '<span style="padding-left: 50px; padding-right:20px;"><b>'.$Item->getNumeracion().'.</b>  '.$Item->getTexto().':</span><br><br>';
-                               $OpcionRespuestas = OpcionRespuestaQuery::create()->filterByIdItem($Item->getId())->find();
+                               $OpcionRespuestas = OpcionRespuestaQuery::create()->filterByIdItem($Item->getId())->orderById('asc')->find();
                                $maximo = $Item->getMaximo()+1;
                                $maximo_col = count($OpcionRespuestas)+1;
                                $tabla = '<center><table style="table-layout: fixed;" BORDER="1" CELLSPACING="0" width="100%" align="center"><tr><td width="7%"><center>N°</center></td>';
