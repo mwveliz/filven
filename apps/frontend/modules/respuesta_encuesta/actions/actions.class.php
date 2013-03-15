@@ -77,7 +77,8 @@ class respuesta_encuestaActions extends sfActions
                 $RItem->setIdRespuestaEncuesta($id_respuesta_encuesta);
                 $RItem->setIdItem($id_item);
                 $RItem->setTipoItem($tipo_item);
-                $RItem->setIdOpcion(intval($_POST[$id_item][0]));
+                if(intval($_POST[$id_item][0])>0) $RItem->setIdOpcion(intval($_POST[$id_item][0]));
+                
                 $RItem->save();
             break;
             case "C": //caso radiobox otro/especifique
@@ -85,7 +86,7 @@ class respuesta_encuestaActions extends sfActions
                 $RItem->setIdRespuestaEncuesta($id_respuesta_encuesta);
                 $RItem->setIdItem($id_item);
                 $RItem->setTipoItem($tipo_item);
-                $RItem->setIdOpcion(intval($_POST[$id_item][0]));
+                if(intval($_POST[$id_item][0])>0) $RItem->setIdOpcion(intval($_POST[$id_item][0]));
                 if (isset($_POST[$id_item.'otro'])){
                   $RItem->setValor($_POST[$id_item.'otro']);  //si agrego alguna opcion extra
                 } 
