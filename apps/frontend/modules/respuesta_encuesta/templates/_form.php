@@ -56,7 +56,7 @@ jQuery(document).ready(function() {
                    $caso = $Item->getTipoItem();
                    switch ($caso) {  
                            case 'A':
-                               echo '<p style="vertical-align: middle; padding-top:10px; padding-bottom:10px;"><span style="padding-left: 50px; padding-right:10px;"><b>'.$Item->getNumeracion().'.</b>  '.$Item->getTexto().':</span><input type="text" name="'. $id_item. '" id="'. $id_item.'" class="input_show_med"/>';
+                               echo '<p style="vertical-align: middle; padding-top:10px; padding-bottom:10px;"><span style="padding-left: 50px; padding-right:10px;"><b>'.$Item->getNumeracion().'.</b>  '.$Item->getTexto().':</span><input type="text" name="'. $id_item. '" id="'. $id_item.'" class="input_show_med" style=" text-transform:uppercase;"/>';
                            break;
                        
                            case 'B':
@@ -67,7 +67,7 @@ jQuery(document).ready(function() {
                                    $radio = '<span style="padding-left:70px;">';
                                    foreach($OpcionRespuestas as $OpcionRespuesta) {
                                        $id_opcion=$OpcionRespuesta->getId();
-                                       $radio .= '<input style="padding-right: 30px;" type="radio" name="'.$id_item.'[]"  value="'.$id_opcion.'"><span style="padding-right: 30px; padding-left:10px;">'.$OpcionRespuesta->getOpcion().'</span>';
+                                       $radio .= '<input style="padding-right: 30px; text-transform:uppercase;" type="radio" name="'.$id_item.'[]"  value="'.$id_opcion.'"><span style="padding-right: 30px; padding-left:10px;">'.$OpcionRespuesta->getOpcion().'</span>';
                                    }
                                }
                                $post = $pre.$texto.$radio.'</span></p>';
@@ -85,7 +85,7 @@ jQuery(document).ready(function() {
                                    foreach($OpcionRespuestas as $OpcionRespuesta) {
                                        $id_opcion=$OpcionRespuesta->getId();
                                        if (count($OpcionRespuestas)-1 == $i) {
-                                           $radio .= '<br><br><span style="padding-left: 70px; padding-right:10px;">'.$OpcionRespuesta->getOpcion().':</span><input name="'.$id_item.'otro"  value="" class="input_show_med">';
+                                           $radio .= '<br><br><span style="padding-left: 70px; padding-right:10px;">'.$OpcionRespuesta->getOpcion().':</span><input name="'.$id_item.'otro"  value="" class="input_show_med" style=" text-transform:uppercase;">';
                                        } else {
                                            $radio .= '<input style="padding-right: 30px; " type="radio" name="'.$id_item.'[]"  value="'.$id_opcion.'"><span style="padding-right: 30px; padding-left:10px;">'.$OpcionRespuesta->getOpcion().'</span>';  
                                        }
@@ -104,7 +104,7 @@ jQuery(document).ready(function() {
                                    $checkbox = '';
                                    foreach($OpcionRespuestas as $OpcionRespuesta) {
                                        $id_opcion=$OpcionRespuesta->getId();
-                                       $checkbox .= '<span style="padding-left:70px;"><input style="padding-right: 30px;" type="checkbox" name="'.$id_item.'[]" value="'.$id_opcion.'"></span><span style="padding-right: 30px; padding-left:10px;">'.$OpcionRespuesta->getOpcion().'</span><br>';
+                                       $checkbox .= '<span style="padding-left:70px;"><input style="padding-right: 30px;  text-transform:uppercase;" type="checkbox" name="'.$id_item.'[]" value="'.$id_opcion.'"></span><span style="padding-right: 30px; padding-left:10px;">'.$OpcionRespuesta->getOpcion().'</span><br>';
                                    }
                                }
                                $post = $pre.$texto.$checkbox.'</p>';
@@ -153,7 +153,7 @@ jQuery(document).ready(function() {
                                                 }                                       
                                            
                                        }else{
-                                            $input .= '<tr><td><span style="padding-left:70px;">'.$OpcionRespuesta->getOpcion().': </span></td><td><input name="'.$id_item.'[]"  id="'.$id_item.'" class="input_show_med"></td></tr>';
+                                            $input .= '<tr><td><span style="padding-left:70px;">'.$OpcionRespuesta->getOpcion().': </span></td><td><input name="'.$id_item.'[]"  id="'.$id_item.'" class="input_show_med" style=" text-transform:uppercase;"></td></tr>';
                                        }
                                        
                                        
@@ -175,9 +175,9 @@ jQuery(document).ready(function() {
                                    foreach($OpcionRespuestas as $OpcionRespuesta) {
                                        $id_opcion=$OpcionRespuesta->getId();
                                        if (count($OpcionRespuestas)-1 == $i) {
-                                           $checkbox .= '<br><br><span style="padding-left: 70px; padding-right:10px;">'.$OpcionRespuesta->getOpcion().':</span><input name="'.$id_item.'otro"  value="" class="input_show_med">';
+                                           $checkbox .= '<br><br><span style="padding-left: 70px; padding-right:10px;">'.$OpcionRespuesta->getOpcion().':</span><input name="'.$id_item.'otro"  value="" class="input_show_med" style=" text-transform:uppercase;">';
                                        } else {
-                                           $checkbox .= '<span style="padding-left:70px;"><input style="padding-right: 30px;" type="checkbox" name="'.$id_item.'[]"  value="'.$id_opcion.'"></span><span style="padding-right: 30px; padding-left:10px;">'.$OpcionRespuesta->getOpcion().'</span><br>';
+                                           $checkbox .= '<span style="padding-left:70px;"><input style="padding-right: 30px;  text-transform:uppercase;" type="checkbox" name="'.$id_item.'[]"  value="'.$id_opcion.'"></span><span style="padding-right: 30px; padding-left:10px;">'.$OpcionRespuesta->getOpcion().'</span><br>';
                                        }
                                        $i++;                                      
                                    }
@@ -245,7 +245,7 @@ jQuery(document).ready(function() {
                                              $tabla .= '<tr><td width="7%"><center>'.$columna.'</center></td>';
                                         } else {
                                              $k = $i-1;
-                                             $tabla .= '<td><center><input type="text" name="'.$id_item.'['.$respuesta[$k].']['.$j.']" /></center></td>';
+                                             $tabla .= '<td><center><input style="text-transform:uppercase;" type="text" name="'.$id_item.'['.$respuesta[$k].']['.$j.']" /></center></td>';
                                         }  
                                    }       
                                    $tabla .= '</tr>';
