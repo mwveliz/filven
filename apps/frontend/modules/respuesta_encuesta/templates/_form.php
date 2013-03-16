@@ -101,10 +101,13 @@ jQuery(document).ready(function() {
                                $texto = '<span style="padding-left: 50px; padding-right:20px;"><b>'.$Item->getNumeracion().'.</b>  '.$Item->getTexto().':</span><br>';
                                $OpcionRespuestas = OpcionRespuestaQuery::create()->filterByIdItem($Item->getId())->orderById('asc')->find();
                                if (count($OpcionRespuestas) > 0) {
+                                   $i = 1;
                                    $checkbox = '';
                                    foreach($OpcionRespuestas as $OpcionRespuesta) {
                                        $id_opcion=$OpcionRespuesta->getId();
-                                       $checkbox .= '<span style="padding-left:70px;"><input style="padding-right: 30px;  text-transform:uppercase;" type="checkbox" name="'.$id_item.'[]" value="'.$id_opcion.'"></span><span style="padding-right: 30px; padding-left:10px;">'.$OpcionRespuesta->getOpcion().'</span><br>';
+                                       $checkbox .= '<span style="padding-left:70px;"><b>'.$i.'. </b><input style="padding-right: 30px;  text-transform:uppercase;" type="checkbox" name="'.$id_item.'[]" value="'.$id_opcion.'"></span><span style="padding-right: 30px; padding-left:10px;">'.$OpcionRespuesta->getOpcion().'</span><br>';
+                                       $i++;
+                                       
                                    }
                                }
                                $post = $pre.$texto.$checkbox.'</p>';
@@ -171,15 +174,17 @@ jQuery(document).ready(function() {
                                if (count($OpcionRespuestas) > 0) {
                                    $checkbox = '';
                                    $i= 0;
+                                   $j = 1;
                                    $count = count($OpcionRespuestas);                                   
                                    foreach($OpcionRespuestas as $OpcionRespuesta) {
                                        $id_opcion=$OpcionRespuesta->getId();
                                        if (count($OpcionRespuestas)-1 == $i) {
                                            $checkbox .= '<br><br><span style="padding-left: 70px; padding-right:10px;">'.$OpcionRespuesta->getOpcion().':</span><input name="'.$id_item.'otro"  value="" class="input_show_med" style=" text-transform:uppercase;">';
                                        } else {
-                                           $checkbox .= '<span style="padding-left:70px;"><input style="padding-right: 30px;  text-transform:uppercase;" type="checkbox" name="'.$id_item.'[]"  value="'.$id_opcion.'"></span><span style="padding-right: 30px; padding-left:10px;">'.$OpcionRespuesta->getOpcion().'</span><br>';
+                                           $checkbox .= '<span style="padding-left:70px;"><b>'.$j.'. </b><input style="padding-right: 30px;  text-transform:uppercase;" type="checkbox" name="'.$id_item.'[]"  value="'.$id_opcion.'"></span><span style="padding-right: 30px; padding-left:10px;">'.$OpcionRespuesta->getOpcion().'</span><br>';
                                        }
-                                       $i++;                                      
+                                       $i++;
+                                       $j++;
                                    }
                                }
                                $post = $pre.$texto.$checkbox.'</p>';
