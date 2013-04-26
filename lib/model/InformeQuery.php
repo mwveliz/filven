@@ -1986,19 +1986,13 @@ class InformeQuery extends BaseInformeQuery {
                         ->setDistinct('Valor')
                         ->filterByIdOpcion($Genero->getId())
                         ->find();
-        $arraytotal=array();
-        foreach($RespuestaEncuesta as $Respuesta) {
-            $arraytotal[$Genero->getId()]=RespuestaItemQuery::create()->filterByIdOpcion($Genero->getId())->count();
-        }
-
-            //$Total = RespuestaItemQuery::create()->filterByIdOpcion($Genero->getId())->count();
-        //el total se calcyla en funcion de las respuestas que no estan en blanco
+        
+        $Total = RespuestaItemQuery::create()->filterByIdOpcion($Genero->getId())->where('IdOpcion IS NOT NULL')->count();
         
         
         foreach($RespuestaEncuesta as $Respuesta) {
             $Resultado = RespuestaItemQuery::create()->filterByIdOpcion($Genero->getId())->where('RespuestaItem.Valor like ?', $Respuesta)->count();
-            //$porcentaje_resultado = round(($Resultado*100)/$Total,2);
-            $porcentaje_resultado = round(($Resultado*100)/$arraytotal[$Genero->getId()],2);
+            $porcentaje_resultado = round(($Resultado*100)/$Total,2);
             $html .= '<tr><td><center>'.$Respuesta.'</center></td><td><center>'.$porcentaje_resultado.'%</center></td></tr>';
         }
         
