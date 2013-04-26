@@ -1776,7 +1776,7 @@ class InformeQuery extends BaseInformeQuery {
 
    static public function expositoresinternacionales($id_encuesta) {
        
-     $html = '<center><h1>Expositores internacionales</h1></center>
+     $html = '<center><h1>Expositores participantes</h1></center>
                 <table class="tablas">
                   <tr>
                     <th>Expositor Representante</th>                  
@@ -1793,20 +1793,28 @@ class InformeQuery extends BaseInformeQuery {
           $TotalExpositor = 0;
           $TotalPais = 0;
           $i = 0;
+          $c_expositor_nacional=0;
+          $c_expositor_internacional=0;
+          
           foreach($Editoriales as $Editorial) {
               $editorial_actual = $Editorial->getValor();
+              
               $respuesta_encuesta = $Editorial->getIdRespuestaEncuesta();
               $Pais = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%País%')->findOne();
               $id_pais = $Pais->getId();
               $PaisExp = RespuestaItemQuery::create()->filterByIdItem($id_pais)->where('RespuestaItem.IdRespuestaEncuesta = ?', $respuesta_encuesta)->orderByValor('asc')->findOne();             
+              if ( trim(strtoupper($PaisExp->getValor()))=='VENEZUELA') $c_expositor_nacional++;
               if ($PaisExp->getValor() != 'Venezuela' )  {
                     if ($editorial_anterior == $editorial_actual) {
                        $arreglo_editorial[$editorial_actual] = $arreglo_editorial[$editorial_actual].'<br>'.$PaisExp->getValor();
                        $arreglo_cantidad_paises[$i] = $PaisExp->getValor();
+                       
                     } else {
                        $arreglo_editorial[$editorial_actual] = $PaisExp->getValor();
                        $arreglo_cantidad_paises[$i] = $PaisExp->getValor();
+                       
                     }
+                    
                     $editorial_anterior = $editorial_actual;
                     $TotalExpositor++;
                     $i++;
@@ -1823,9 +1831,15 @@ class InformeQuery extends BaseInformeQuery {
                     <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>'.$TotalPais.'</b></center></td>
                 </tr>
                 <tr>
-                    <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>Total Expositores internacionales participantes</b></center></td>
+                    <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>Total Expositores nacionales participantes</b></center></td>
+                    <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>'.$c_expositor_nacional.'</b></center></td>
+                </tr>                
+                
+                <tr>
+                    <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>Total Expositores  participantes</b></center></td>
                     <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>'.$TotalExpositor.'</b></center></td>
                 </tr>                
+                
                     ';      
       
       $html .= '</table><br><br>';
@@ -1987,7 +2001,9 @@ class InformeQuery extends BaseInformeQuery {
                         ->filterByIdOpcion($Genero->getId())
                         ->find();
         
-        $Total = RespuestaItemQuery::create()->filterByIdOpcion($Genero->getId())->count();
+       // $Total = RespuestaItemQuery::create()->filterByIdOpcion($Genero->getId())->where('RespuestaItem.IdOpcion IS NOT NULL')->count();
+        $Total=count($RespuestaEncuesta);
+        
         foreach($RespuestaEncuesta as $Respuesta) {
             $Resultado = RespuestaItemQuery::create()->filterByIdOpcion($Genero->getId())->where('RespuestaItem.Valor like ?', $Respuesta)->count();
             $porcentaje_resultado = round(($Resultado*100)/$Total,2);
@@ -1996,7 +2012,7 @@ class InformeQuery extends BaseInformeQuery {
         
      }   
      
-     $html .= '</table><br><br>';
+     $html .= '<tr><td><center>Total de Géneros</center></td><td><center>'.$Total.'<center></td></tr></table><br><br>';
      
      return $html;
      
