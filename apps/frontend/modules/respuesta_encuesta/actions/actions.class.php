@@ -23,7 +23,13 @@ class respuesta_encuestaActions extends sfActions
   public function executeNew(sfWebRequest $request)
   {
     $this->id_encuesta=$request->getParameter('id_encuesta');
-    $this->Items= ItemQuery::create()->filterByIdEncuesta($this->id_encuesta)->orderByNumeracion('asc')->find();
+    $Encuesta=  EncuestaQuery::create()->findOneById($this->id_encuesta);
+    $tipo_encuesta=  $Encuesta->getTipoEncuesta();
+    $ET=  EncuestaQuery::create()->filterByTipoEncuesta($tipo_encuesta)->orderById('asc')->findOne();
+    $id_tipo=$ET->getId();
+                          
+    
+    $this->Items= ItemQuery::create()->filterByIdEncuesta($id_tipo)->orderByNumeracion('asc')->find();
     
     }
 

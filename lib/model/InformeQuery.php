@@ -1790,7 +1790,8 @@ class InformeQuery extends BaseInformeQuery {
           $arreglo_editorial = array();
           $arreglo_cantidad_paises = array();
           $editorial_anterior = '';
-          $TotalExpositor = 0;
+          //$TotalExpositor = 0;
+          $TotalExpositor=count($Editoriales);
           $TotalPais = 0;
           $i = 0;
           $c_expositor_nacional=0;
@@ -1803,7 +1804,9 @@ class InformeQuery extends BaseInformeQuery {
               $Pais = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%País%')->findOne();
               $id_pais = $Pais->getId();
               $PaisExp = RespuestaItemQuery::create()->filterByIdItem($id_pais)->where('RespuestaItem.IdRespuestaEncuesta = ?', $respuesta_encuesta)->orderByValor('asc')->findOne();             
-              if ( trim(strtoupper($PaisExp->getValor()))=='VENEZUELA') $c_expositor_nacional++;
+              if ( trim(strtoupper($PaisExp->getValor()))=='VENEZUELA') {
+                  $c_expositor_nacional++;
+              }
               if ($PaisExp->getValor() != 'Venezuela' )  {
                     if ($editorial_anterior == $editorial_actual) {
                        $arreglo_editorial[$editorial_actual] = $arreglo_editorial[$editorial_actual].'<br>'.$PaisExp->getValor();
@@ -1814,21 +1817,27 @@ class InformeQuery extends BaseInformeQuery {
                        $arreglo_cantidad_paises[$i] = $PaisExp->getValor();
                        
                     }
-                    
                     $editorial_anterior = $editorial_actual;
-                    $TotalExpositor++;
+  //                  $TotalExpositor++;
                     $i++;
               }
           }
       }
+      
+      
+      
+      
       $paises = array_unique($arreglo_cantidad_paises);
+      
       $TotalPais = sizeof($paises);
+      $c_expositor_internacional=$TotalPais -1;
+      
       foreach ($arreglo_editorial as $key => $val) {
            $html .= '<tr><td><center>'.$key.'</center></td><td><center>'.$val.'</center></td>';
       }     
       $html .= '<tr>
                     <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>Total países participantes</b></center></td>
-                    <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>'.$TotalPais.'</b></center></td>
+                    <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>'.$c_expositor_internacional .'</b></center></td>
                 </tr>
                 <tr>
                     <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>Total Expositores nacionales participantes</b></center></td>
@@ -1987,7 +1996,7 @@ class InformeQuery extends BaseInformeQuery {
                 <table class="tablas">
                   <tr>
                     <th>Género</th>
-                    <th>%</th>
+                    <th>Nro</th>
                   </tr>';
      
      $Item = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%Señale los tres títulos de libros mas vendidos%')->findOne();
@@ -2006,8 +2015,10 @@ class InformeQuery extends BaseInformeQuery {
         
         foreach($RespuestaEncuesta as $Respuesta) {
             $Resultado = RespuestaItemQuery::create()->filterByIdOpcion($Genero->getId())->where('RespuestaItem.Valor like ?', $Respuesta)->count();
-            $porcentaje_resultado = round(($Resultado*100)/$Total,2);
-            $html .= '<tr><td><center>'.$Respuesta.'</center></td><td><center>'.$porcentaje_resultado.'%</center></td></tr>';
+            //$porcentaje_resultado = round(($Resultado*100)/$Total,2);
+            $total_resultado = $Resultado;
+            //$html .= '<tr><td><center>'.$Respuesta.'</center></td><td><center>'.$porcentaje_resultado.'%</center></td></tr>';
+            $html .= '<tr><td><center>'.$Respuesta.'</center></td><td><center>'. $total_resultado .'</center></td></tr>';
         }
         
      }   

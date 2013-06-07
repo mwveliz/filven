@@ -19,6 +19,7 @@ abstract class BaseEncuestaForm extends BaseFormPropel
       'descripcion_encuesta' => new sfWidgetFormInputText(),
       'tipo_encuesta'        => new sfWidgetFormInputText(),
       'fecha_elaboracion'    => new sfWidgetFormDate(),
+      'id_feria'             => new sfWidgetFormPropelChoice(array('model' => 'Feria', 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
@@ -27,6 +28,7 @@ abstract class BaseEncuestaForm extends BaseFormPropel
       'descripcion_encuesta' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'tipo_encuesta'        => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'fecha_elaboracion'    => new sfValidatorDate(array('required' => false)),
+      'id_feria'             => new sfValidatorPropelChoice(array('model' => 'Feria', 'column' => 'id', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('encuesta[%s]');

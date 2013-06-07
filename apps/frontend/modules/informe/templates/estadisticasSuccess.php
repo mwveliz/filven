@@ -1,6 +1,16 @@
 <?php $id_encuesta = $sf_params->get('id'); ?>
-<? // es  visitante
-if ($id_encuesta == 18) {
+<?
+$E=  EncuestaQuery::create()->findOneById($id_encuesta);
+$tipo_encuesta=$E->getTipoEncuesta();
+$tipo_encuesta=  strtoupper($tipo_encuesta);
+
+
+?>
+    
+    <? // es  visitante
+
+
+if ($tipo_encuesta== 'VISITANTE') {
      
     $poblacionencuestadaporgenero = InformeQuery::poblacionencuestadaporgenero($id_encuesta);
     echo $poblacionencuestadaporgenero;
@@ -68,12 +78,12 @@ if ($id_encuesta == 18) {
     $valoracionfilvensegunvisitantes = InformeQuery::valoracionfilvensegunvisitantes($id_encuesta);
     echo $valoracionfilvensegunvisitantes;
 }
-if ($id_encuesta == 17) {
+if ($tipo_encuesta== 'EXPOSITOR') {
     
     $expositoresinternacionales = InformeQuery::expositoresinternacionales($id_encuesta);
     echo $expositoresinternacionales;   
     
-    $generosmascomercializados = InformeQuery::generosmascomercializados($id_encuesta);
+   $generosmascomercializados = InformeQuery::generosmascomercializados($id_encuesta);
     echo $generosmascomercializados;
     
     $valoracionfilvensegunexpositores = InformeQuery::valoracionfilvensegunexpositores($id_encuesta);

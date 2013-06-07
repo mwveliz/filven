@@ -7,7 +7,17 @@
                        <p style="vertical-align: middle;"><? echo image_tag('logo_mini.jpg')  ?> </p> 
                     </td>
                     <td>
+                        
+                        <?
+                          $tipo_encuesta=  $Encuesta->getTipoEncuesta();
+                          $ET=  EncuestaQuery::create()->filterByTipoEncuesta($tipo_encuesta)->orderById('asc')->findOne();
+                          $id_tipo=$ET->getId();
+                          ?>  
+                        
+                        
                         <p style="vertical-align: middle;"><b>Encuesta para <? echo $Encuesta->getTipoEncuesta()?></b></p>
+                        
+                          
                     </td>
                     <td>
                         <p style="vertical-align: middle;"><span style="padding-left: 10px;">Fecha: </span><input name="fecha" class="input_show_min"><span style="padding-left: 10px;">Hora: </span><input name="hora" class="input_show_min"><span style="padding-left: 10px;">N° de encuesta: </span><input name="numero_encuesta" class="input_show_min"></p>
@@ -21,7 +31,8 @@
     </tr> 
     <tr>
         <td>
-            <? $Items = ItemQuery::create()->filterByIdEncuesta($Encuesta->getId())->orderByNumeracion('asc')->find(); 
+            <?// $Items = ItemQuery::create()->filterByIdEncuesta($Encuesta->getId())->orderByNumeracion('asc')->find(); 
+            $Items = ItemQuery::create()->filterByIdEncuesta($id_tipo)->orderByNumeracion('asc')->find(); 
                 if (count($Items) > 0) {
                     foreach ($Items as $Item) {
                         $caso = $Item->getTipoItem();

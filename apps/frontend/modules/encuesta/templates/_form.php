@@ -27,6 +27,11 @@
   	 <span class="select"><?php echo $form['tipo_encuesta']->render(array('class' => 'select')) ;?></span>
 	<p class="hint">Introduzca el tipo de encuesta</p>
 </div>
+<div class="field">
+	<label for="feria">Feria</label>
+  	 <span class="select"><?php echo $form['id_feria']->render(array('class' => 'select')) ;?></span>
+	<p class="hint">Introduzca a que feria corresposnde esta encuesta</p>
+</div>
 
         <?php echo $form['id'] ?>
         <? echo $form['_csrf_token']?>
