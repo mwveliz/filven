@@ -45,8 +45,14 @@ class actividadActions extends sfActions
     $cantidad_participantes_f = $_POST["actividad"]['cantidad_participantes_f'];   
     $alcanzo_tiempo = $_POST["actividad"]['alcanzo_tiempo'];
     $causas_incumplimiento = $_POST["actividad"]['causas_incumplimiento'];
-    $Municipio = MunicipioQuery::create()->filterByEstado($_POST['estados'])->where('Municipio.Municipio = ?', $_POST['municipios'])->findOne();
-    $id_municipio = $Municipio->getId();   
+    /*$Estado = EstadoQuery::create()->filterByNombre($_POST['estados'])
+                                ->useMunicipioQuery()
+                                    ->where('Municipio.Municipio = ?', $_POST['municipios'])
+                                  ->enduse()     
+                                  ->findOne();
+    
+    $id_municipio = $Municipio->getId();   */
+    $id_municipio =1;
     $escuela = $_POST["actividad"]['escuela'];
     $refugio = $_POST["actividad"]['refugio'];
     $observaciones = $_POST["actividad"]['observaciones'];   

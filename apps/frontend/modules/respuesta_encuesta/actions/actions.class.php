@@ -23,7 +23,13 @@ class respuesta_encuestaActions extends sfActions
   public function executeNew(sfWebRequest $request)
   {
     $this->id_encuesta=$request->getParameter('id_encuesta');
-    $this->Items= ItemQuery::create()->filterByIdEncuesta($this->id_encuesta)->orderByNumeracion('asc')->find();
+    $Encuesta=  EncuestaQuery::create()->findOneById($this->id_encuesta);
+    $tipo_encuesta=  $Encuesta->getTipoEncuesta();
+    $ET=  EncuestaQuery::create()->filterByTipoEncuesta($tipo_encuesta)->orderById('asc')->findOne();
+    $id_tipo=$ET->getId();
+                          
+    
+    $this->Items= ItemQuery::create()->filterByIdEncuesta($id_tipo)->orderByNumeracion('asc')->find();
     
     }
 
@@ -217,4 +223,39 @@ class respuesta_encuestaActions extends sfActions
       $this->redirect('respuesta_encuesta/edit?id='.$RespuestaEncuesta->getId());
     }
   }
+  
+   public function executeAjaxcargarmunicipios(sfWebRequest $request)
+  {
+    $id_estado=$request->getParameter('id_estado');
+    $Municipios= MunicipioQuery::create()->filterByIdEstado($id_estado)->orderByMunicipio('asc')->find();
+       
+    $to=array();
+       $i=0;
+    $html='<select>';
+    foreach ( $Municipios as  $Municipio) {
+       $html.='<option id="' . $Municipio->getId() . '">' . $Municipio->getMunicipio(). '</option>' ;
+    }
+          $html.=   '</select>';
+         return $this->renderText($html);
+  }
+
+  
+   public function executeAjaxcargarparroquias(sfWebRequest $request)
+  {
+    $id_municipio=$request->getParameter('id_municipio');
+    $Parroquias= ParroquiaQuery::create()->filterByIdMunicipio($id_municipio)->orderByDescripcion('asc')->find();
+       
+    $to=array();
+       $i=0;
+    $html='<select>';
+    foreach ( $Parroquias as  $Parroquia) {
+       $html.='<option  id="' . $Parroquia->getId() . '">' . $Parroquia->getDescripcion(). '</option>' ;
+    }
+          $html.=   '</select>';
+         return $this->renderText($html);
+  }
+
+  
+  
+  
 }

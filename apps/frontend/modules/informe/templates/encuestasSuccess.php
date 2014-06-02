@@ -5,16 +5,21 @@
   <thead>
     <tr>
       <th>Nombre</th>
-      <th>Descripción</th>
+      <th>Desc.</th>
       <th>Tipo</th>
       <th>Fecha de elaboración</th>
+      <th>Cantidad.</th>
+      <th>&nbsp;</th>
       <th>&nbsp;</th>
     </tr>
   </thead>
   <tbody>
-    <?php foreach ($Encuestas as $Encuesta): ?>
+    <?php foreach ($Encuestas as $Encuesta): 
+        $cantidad= RespuestaEncuestaQuery::create()->filterByIdEncuesta($Encuesta->getId())->count();
+        ?>
     <tr>
       <td width="25%"><center><?php echo $Encuesta->getNombreEncuesta() ?></center></td>
+        
       <td width="35%"><?php echo $Encuesta->getDescripcionEncuesta() ?></td>
       <td><center><?php echo $Encuesta->getTipoEncuesta() ?></center></td>
       <?php
@@ -23,8 +28,11 @@
         $formato_fecha= $dia . "-" . $mes . "-" . $anio; 
       ?>
       <td width="15%"><center><?php echo $formato_fecha ?></center></td>
+     <td width="15%"><center><?php echo $cantidad?></center></td>
+
       <td width="15%"><center><?php echo link_to(image_tag('ver.png'),'informe/estadisticas?id='.$Encuesta->getId(),array('title' => 'Ver totales'))?>
-                     </center>
+      <td width="15%"><center><?php echo link_to(image_tag('ver.png'),'informe/consolidado?id='.$Encuesta->getId(),array('title' => 'Consolidado'))?>       
+      </center>
       </td>
    </tr>
     <?php endforeach; ?>

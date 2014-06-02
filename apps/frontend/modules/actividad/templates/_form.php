@@ -174,12 +174,12 @@ $(document).on("click","img#agrega_ponente", function(){
 <br>
 <div class="field">
 	<label for="name">Estado</label>  
-        <span class="select" id="span_estados"><select class="select" id="estados" name="estados" disabled="disabled"><option id="1">DTTO. CAPITAL</option></select></span>
+        <span class="select" id="span_estados"><select class="select" id="estados" name="estados" disabled="disabled"><option id="1">Distrito Capital</option></select></span>
 	<p class="hint">Indique el estado en donde se realizó la actividad</p>
 </div> 
 <div class="field">
 	<label for="name">Municipio</label>
-        <span class="select"><span id="span_municipio"><select class="select" id="municipios" name="municipios"><option id="1">LIBERTADOR</option></select></span></span>
+        <span class="select"><span id="span_municipio"><select class="select" id="municipios" name="municipios"><option id="1">Libertador</option></select></span></span>
 	<p class="hint">Indique el municipio en donde se realizó la actividad</p>
 </div> 
 <div class="field" id="div_escuela" style="visibility: hidden" >

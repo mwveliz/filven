@@ -12,6 +12,8 @@
                           $tipo_encuesta=  $Encuesta->getTipoEncuesta();
                           $ET=  EncuestaQuery::create()->filterByTipoEncuesta($tipo_encuesta)->orderById('asc')->findOne();
                           $id_tipo=$ET->getId();
+                          $numero_encuesta=$RespuestaEncuesta->getNumeroEncuesta();
+                          
                           ?>  
                         
                         
@@ -20,7 +22,7 @@
                           
                     </td>
                     <td>
-                        <p style="vertical-align: middle;"><span style="padding-left: 10px;">Fecha: </span><input name="fecha" class="input_show_min"><span style="padding-left: 10px;">Hora: </span><input name="hora" class="input_show_min"><span style="padding-left: 10px;">N° de encuesta: </span><input name="numero_encuesta" class="input_show_min"></p>
+                        <p style="vertical-align: middle;"><span style="padding-left: 10px;">Fecha: </span><input name="fecha" class="input_show_min"><span style="padding-left: 10px;">Hora: </span><input name="hora" class="input_show_min"><span style="padding-left: 10px;">N° de encuesta: </span><input name="numero_encuesta" class="input_show_min" value="<?php echo $numero_encuesta  ?> "></p>
                     </td>
                 </tr>
             </table> 

@@ -25,6 +25,22 @@ class encuestaActions extends sfActions
     $this->forward404Unless($this->Encuesta);
   }
 
+  public function executeBuscaymodifica(sfWebRequest $request)
+  {
+      $this->form= new EncuestaForm();
+       if ($request->isXmlHttpRequest()) {
+           
+           $this->Encuesta = EncuestaQuery::create()->filterByIdFeria($request->getParameter('id_feria'))->where('Encuesta.TipoEncuesta LIKE ?', $request->getParameter('tipo_encuesta') )->findOne();
+           
+           $this->RespuestaEncuesta=RespuestaEncuestaQuery::create()->filterByNumeroEncuesta($request->getParameter('nro_encuesta'))->filterByIdEncuesta($this->Encuesta->getId())->findOne();
+           return $this->renderPartial('encuesta/resultadobusqueda', 
+                   array('RespuestaEncuesta' => $this->RespuestaEncuesta,
+                         'Encuesta' => $this->Encuesta   
+                         ));
+       }
+      
+  }
+  
   public function executeNew(sfWebRequest $request)
   {
     $this->form = new EncuestaForm();
@@ -40,12 +56,18 @@ class encuestaActions extends sfActions
 
     $params=$request->getParameter($form->getName());
     
+    
+    
     $Encuesta = new Encuesta();
     $Encuesta->setNombreEncuesta($params['nombre_encuesta']) ;
     $Encuesta->setTipoEncuesta($params['tipo_encuesta']) ;
     $Encuesta->setDescripcionEncuesta($params['descripcion_encuesta']);
     $Encuesta->setFechaElaboracion($_POST['encuesta']['fecha_elaboracion']);
+    
+    $Encuesta->setIdFeria($params['id_feria']);
+    
     $Encuesta->save();
+    
     
       $this->redirect('item/agregarvarios?id_encuesta='.$Encuesta->getId());
     
@@ -93,4 +115,6 @@ class encuestaActions extends sfActions
       $this->redirect('encuesta/index');
     }
   }
+  
+  
 }

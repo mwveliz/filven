@@ -6,8 +6,14 @@ jQuery(document).ready(function() {
             if (pais != 'Venezuela') {
                 $(".estado option#0").attr("selected",true);
                 $('.estado').attr('disabled','disabled');
+                $(".municipio option#0").attr("selected",true);
+                $('.municipio').attr('disabled','disabled');
+                $(".parroquia option#0").attr("selected",true);
+                $('.parroquia').attr('disabled','disabled');
             } else {
                 $('.estado').removeAttr('disabled');
+                $('.municipio').removeAttr('disabled');
+                $('.parroquia').removeAttr('disabled');
             }            
     });
 });    
@@ -123,7 +129,38 @@ jQuery(document).ready(function() {
                                    foreach($OpcionRespuestas as $OpcionRespuesta) {
                                        $id_opcion=$OpcionRespuesta->getId();
                                        
-                                       if ($OpcionRespuesta->getOpcion() == 'Estado' || $OpcionRespuesta->getOpcion() == 'País' ){
+                                       if ( $OpcionRespuesta->getOpcion() == 'Parroquia' || $OpcionRespuesta->getOpcion() == 'Municipio' ||  $OpcionRespuesta->getOpcion() == 'Estado' || $OpcionRespuesta->getOpcion() == 'País' ){
+                                           if($OpcionRespuesta->getOpcion() == 'Parroquia' ) {
+                                               $Parroquias= ParroquiaQuery::create()->orderByDescripcion('asc')->find();
+                                                $input  .= '<tr><td><span style="padding-left:70px;">'.$OpcionRespuesta->getOpcion().': </span></td>';
+                                            //    $input  = '<p style="vertical-align: middle; padding-top:10px; padding-bottom:10px;"><span style="padding-left: 50px; padding-right:10px;"><b>Estado</b>:</span>';
+                                                $input .= '<td><select name='.$id_item.'[]'.' id='.$id_item.' class="parroquia">';
+                                                $input .= '<option id="0"></option>';
+                                                foreach ($Parroquias as $Parroquia) {
+                                                    if ($Parroquia->getDescripcion() == 'Sucre') {
+                                                       $input .= '<option id='.$Parroquia->getId().' selected>'.$Parroquia->getDescripcion().'</option>'; 
+                                                    } else {
+                                                       $input .= '<option id='.$Parroquia->getId().'>'.$Parroquia->getMunicipio().'</option>';
+                                                    }
+                                                }
+                                                $input .= '</select></td></tr>';
+                                                }
+                                           if($OpcionRespuesta->getOpcion() == 'Municipio' ) {
+                                               $Municipios = MunicipioQuery::create()->orderByMunicipio('asc')->find();
+                                                $input  .= '<tr><td><span style="padding-left:70px;">'.$OpcionRespuesta->getOpcion().': </span></td>';
+                                            //    $input  = '<p style="vertical-align: middle; padding-top:10px; padding-bottom:10px;"><span style="padding-left: 50px; padding-right:10px;"><b>Estado</b>:</span>';
+                                                $input .= '<td><select name='.$id_item.'[]'.' id='.$id_item.' class="municipio">';
+                                                $input .= '<option id="0"></option>';
+                                                foreach ($Municipios as $Municipio) {
+                                                    if ($Municipio->getMunicipio() == 'Libertador') {
+                                                       $input .= '<option id='.$Municipio->getId().' selected>'.$Municipio->getMunicipio().'</option>'; 
+                                                    } else {
+                                                       $input .= '<option id='.$Municipio->getId().'>'.$Municipio->getMunicipio().'</option>';
+                                                    }
+                                                }
+                                                $input .= '</select></td></tr>';
+                                                }
+                                           
                                            if($OpcionRespuesta->getOpcion() == 'Estado' ) {
                                                $Estados = EstadoQuery::create()->orderByNombre('asc')->find();
                                                 $input  .= '<tr><td><span style="padding-left:70px;">'.$OpcionRespuesta->getOpcion().': </span></td>';
@@ -153,7 +190,12 @@ jQuery(document).ready(function() {
                                                     }
                                                 }
                                                 $input .= '</select></td></tr>';
-                                                }                                       
+                                                }
+                                                
+                                                
+                                                
+                                                
+                                                
                                            
                                        }else{
                                             $input .= '<tr><td><span style="padding-left:70px;">'.$OpcionRespuesta->getOpcion().': </span></td><td><input name="'.$id_item.'[]"  id="'.$id_item.'" class="input_show_med" style=" text-transform:uppercase;"></td></tr>';
@@ -330,3 +372,41 @@ jQuery(document).ready(function() {
 <br>
 <br>
 </form>
+<script>
+    $(document).ready(function() {
+            $(window).keydown(function(event){
+                        if(event.keyCode == 13) event.preventDefault();
+                        
+            });//fin de windows keydown
+            
+            $('.estado').click(function(){
+            var id = $(".estado option:selected").attr("id");
+            $.ajax({
+            type: "POST",
+            url: "<?php   echo url_for('respuesta_encuesta/ajaxcargarmunicipios')?>",
+            data:   "id_estado=" + id,
+            success: function(html){
+                $(".municipio").empty();
+                $(".municipio").html(html);
+            
+            }
+            });//fin de ajax
+            }); //fin de estado change
+            
+            $('.municipio').click(function(){
+            var id = $(".municipio option:selected").attr("id");
+            $.ajax({
+            type: "POST",
+            url: "<?php   echo url_for('respuesta_encuesta/ajaxcargarparroquias')?>",
+            data:   "id_municipio=" + id,
+            success: function(html){
+                $(".parroquia").empty();
+                $(".parroquia").html(html);
+            
+            }
+            });//fin de ajax
+            }); //fin de estado change
+            
+            
+});//fin document ready
+    </script>
