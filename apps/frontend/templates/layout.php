@@ -76,7 +76,9 @@
                                         <? } ?>
                                         <li><span><?php echo link_to('Listar Encuestas', 'encuesta/index' )?></span></li>
                                         <? if ($id_sf_guard_group == 1 ) { ?>
+                                        <li><span><?php echo link_to('Buscar / Modificar', 'encuesta/buscaymodifica' )?></span></li>
                                         <li><span><?php echo link_to('Totales de encuesta', 'informe/encuestas' )?></span></li>
+                                        
                                         <? } ?>
                                     </ul>
                                 </li>

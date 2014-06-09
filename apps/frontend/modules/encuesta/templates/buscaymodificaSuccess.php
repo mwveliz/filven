@@ -24,20 +24,25 @@
  	<p class="hint">Introduzca el numero de la encuesta</p>
 </div>  
 
-    <div id="resultado">
-        
-    </div>
 
 <input id="buscar" type="submit" name="Submit"  class="button_next" value="Buscar" />    
 </form>
 </div>
+    <div id="resultado" width="100%">
+        
+    </div>
+
 <script>
     
     $(document).ready(function(){
          $('input#buscar').click(function(e){
             e.preventDefault(); 
             
-            $('#resultado').load('buscaymodifica/',   {tipo_encuesta: $("#encuesta_tipo_encuesta").val() , id_feria: $("#encuesta_id_feria").val(), nro_encuesta: $("#nro_encuesta").val() } ,function() {
+            $('#resultado').load('buscaymodifica/',   {tipo_encuesta: $("#encuesta_tipo_encuesta").val() ,
+                                                       id_feria: $("#encuesta_id_feria").val(), 
+                                                       nro_encuesta: $("#nro_encuesta").val() 
+                                                   
+                                                        } ,function() {
             
          });
          });
@@ -46,6 +51,8 @@
         });
         
         
+
+       
         
     });
     

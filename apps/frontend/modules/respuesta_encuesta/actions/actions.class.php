@@ -42,6 +42,8 @@ class respuesta_encuestaActions extends sfActions
     //debo chequear si esoty creado o editando la encuesta antes de emepzar <<-- ṔENDIENTE
     //LO MISMO QUE EN AGREGARITEM
      $id_encuesta= intval($request->getParameter('id_encuesta')); //fk a encuesta
+     $Encuesta=  EncuestaQuery::create()->findOneById($id_encuesta);
+     $tipo_encuesta=$Encuesta->getTipoEncuesta();
      $numero_encuesta=  $_POST['numero_encuesta']; //numeracion de la hoja
      $nombre=  $_POST['nombre']; 
      $apellido=  $_POST['apellido']; 
@@ -108,14 +110,19 @@ class respuesta_encuestaActions extends sfActions
                 $RItem->save();    
                 }
             break;
-            case "E": //caso completacion multiple 
+            case "E": //caso completacion multiple PAIS-ESTADO MUNICIPIO PARROQUIA debo distingor vistante expositor 26 / 47 
+                $id_opcion=57; // PAIS en visitante
+                if ($tipo_encuesta=='Expositor')$id_opcion=152; // PAIS en expositor
+                
                 foreach($_POST[$id_item] as $key=>$value){
                 $RItem = new RespuestaItem();
                 $RItem->setIdRespuestaEncuesta($id_respuesta_encuesta);
                 $RItem->setIdItem($id_item);
                 $RItem->setTipoItem($tipo_item);
                 $RItem->setValor($value);
+                $RItem->setIdOpcion($id_opcion);
                 $RItem->save();    
+                $id_opcion++; //incremento 58->Estado 59->Municipio (60->Parroquia solo en visitante)
                 }
             break;
            case "F": //caso Checkbox otro/especifique
@@ -131,7 +138,7 @@ class respuesta_encuestaActions extends sfActions
                 $RItem->save();
                 }
             break;
-          case "G": //caso opcion multiple
+          case "G": //caso opcion multiple (ejemplo pregunta 22 de visitante)
              foreach($_POST[$id_item] as $opcion=>$valor){
                 $RItem = new RespuestaItem();
                 $RItem->setIdRespuestaEncuesta($id_respuesta_encuesta);
@@ -142,7 +149,7 @@ class respuesta_encuestaActions extends sfActions
                 $RItem->save();
              }
           break;
-          case "H": //caso opcion multiple
+          case "H": //caso opcion multiple (solo en expositor)
              foreach($_POST[$id_item] as $opcion => $valores){ //itero sobre las opciones
               foreach($valores as $valor){ //obtengo los multiples valores de esas opciones y asigno cada uno
                 $RItem = new RespuestaItem();
@@ -155,7 +162,7 @@ class respuesta_encuestaActions extends sfActions
               }
              }
           break;
-          case "I": // Caso Pais
+         /* case "I": // Caso Pais
              $RItem = new RespuestaItem();
              $RItem->setIdRespuestaEncuesta($id_respuesta_encuesta);
              $RItem->setIdItem($id_item);
@@ -176,7 +183,7 @@ class respuesta_encuestaActions extends sfActions
                 $RItem->setValor(''); 
              }
              $RItem->save();
-          break;       
+          break;       */
         }
      }//fin foreach items
     $this->redirect('respuesta_encuesta/new?id_encuesta='.$id_encuesta);

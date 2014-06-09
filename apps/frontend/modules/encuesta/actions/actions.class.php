@@ -38,8 +38,17 @@ class encuestaActions extends sfActions
                          'Encuesta' => $this->Encuesta   
                          ));
        }
-      
   }
+  
+  public function executeActualizaencuesta(sfWebRequest $request){
+  if ($request->isXmlHttpRequest()) {
+      
+      $id_item=$request->getParameter('id_item');
+      return $this->renderText($id_item);
+      
+      
+      }
+  }  
   
   public function executeNew(sfWebRequest $request)
   {
