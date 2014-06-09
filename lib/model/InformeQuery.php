@@ -1915,10 +1915,16 @@ class InformeQuery extends BaseInformeQuery {
               $editorial_actual = $Editorial->getValor();
               
               $respuesta_encuesta = $Editorial->getIdRespuestaEncuesta();
+<<<<<<< HEAD
               //$Pais = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%País%')->findOne();
               //$id_pais = $Pais->getId();
               $PaisExp=$Editorial;
               //$PaisExp = RespuestaItemQuery::create()->filterByIdItem($id_item)->where('RespuestaItem.IdRespuestaEncuesta = ?', $respuesta_encuesta)->orderByValor('desc')->findOne();             
+=======
+              $Pais = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%País%')->findOne();
+              $id_pais = $Pais->getId();
+              $PaisExp = RespuestaItemQuery::create()->filterByIdItem($id_pais)->where('RespuestaItem.IdRespuestaEncuesta = ?', $respuesta_encuesta)->orderByValor('asc')->findOne();             
+>>>>>>> 5dc4684319c2fce5537460e29edd88cdbaf2b325
               if ( trim(strtoupper($PaisExp->getValor()))=='VENEZUELA') {
                   $c_expositor_nacional++;
               }

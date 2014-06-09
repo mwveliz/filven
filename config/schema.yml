@@ -69,6 +69,7 @@ propel:
     id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
     id_item: { phpName: IdItem, type: INTEGER, required: false, foreignTable: item, foreignReference: id, onUpdate: CASCADE }
     opcion: { phpName: Opcion, type: VARCHAR, size: '255', required: false }
+    _indexes: { opcionrespuestaiditem_i: [id_item] }
   pagina:
     _attributes: { phpName: Pagina }
     id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
@@ -85,11 +86,14 @@ propel:
     _attributes: { phpName: Pais }
     id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
     nombre: { phpName: Nombre, type: VARCHAR, size: '255', required: false }
+<<<<<<< HEAD
   parroquia:
     _attributes: { phpName: Parroquia }
     id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
     descripcion: { phpName: Descripcion, type: VARCHAR, required: false }
     id_municipio: { phpName: IdMunicipio, type: INTEGER, required: false, foreignTable: municipio, foreignReference: id, onUpdate: CASCADE }
+=======
+>>>>>>> 5dc4684319c2fce5537460e29edd88cdbaf2b325
   ponente:
     _attributes: { phpName: Ponente }
     nombre: { phpName: Nombre, type: VARCHAR, size: '255', required: false }
@@ -118,9 +122,14 @@ propel:
     id: { phpName: Id, type: BIGINT, primaryKey: true, autoIncrement: true, required: true }
     id_respuesta_encuesta: { phpName: IdRespuestaEncuesta, type: BIGINT, required: false, foreignTable: respuesta_encuesta, foreignReference: id }
     valor: { phpName: Valor, type: VARCHAR, size: '255', required: false }
+<<<<<<< HEAD
     id_item: { phpName: IdItem, type: BIGINT, required: false, foreignTable: item, foreignReference: id }
+=======
+    id_item: { phpName: IdItem, type: BIGINT, required: false, foreignTable: item, foreignReference: id, index: 'true' }
+>>>>>>> 5dc4684319c2fce5537460e29edd88cdbaf2b325
     tipo_item: { phpName: TipoItem, type: VARCHAR, size: '255', required: false }
     id_opcion: { phpName: IdOpcion, type: BIGINT, required: false, foreignTable: opcion_respuesta, foreignReference: id }
+    _indexes: { valor_i: [valor] }
   sala:
     _attributes: { phpName: Sala }
     id: { phpName: Id, type: INTEGER, primaryKey: true, autoIncrement: true, required: true }
