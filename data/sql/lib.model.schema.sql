@@ -43,7 +43,6 @@ CREATE TABLE "actividad"
 	"id_tipo_actividad" INTEGER,
 	"fecha" DATE,
 	"hora" TIME,
-	"id_ponente" INTEGER,
 	"facilitador" INTEGER,
 	"id_feria" INTEGER,
 	PRIMARY KEY ("id")
@@ -422,7 +421,6 @@ CREATE TABLE "visitante"
 	"numero" INTEGER,
 	"id_feria" INT8,
 	"tipo_conteo" VARCHAR(255),
-	"id_sala" INT8,
 	"id_acceso" INT8,
 	"hora" TIME,
 	PRIMARY KEY ("id")
@@ -460,6 +458,4 @@ ALTER TABLE "sf_guard_user_profile" ADD CONSTRAINT "sf_guard_user_profile_FK_1" 
 
 ALTER TABLE "visitante" ADD CONSTRAINT "visitante_FK_1" FOREIGN KEY ("id_feria") REFERENCES "feria" ("id");
 
-ALTER TABLE "visitante" ADD CONSTRAINT "visitante_FK_2" FOREIGN KEY ("id_sala") REFERENCES "sala" ("id");
-
-ALTER TABLE "visitante" ADD CONSTRAINT "visitante_FK_3" FOREIGN KEY ("id_acceso") REFERENCES "acceso" ("id");
+ALTER TABLE "visitante" ADD CONSTRAINT "visitante_FK_2" FOREIGN KEY ("id_acceso") REFERENCES "acceso" ("id");

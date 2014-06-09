@@ -13,12 +13,12 @@ abstract class BaseMunicipioFormFilter extends BaseFormFilterPropel
   {
     $this->setWidgets(array(
       'municipio' => new sfWidgetFormFilterInput(),
-      'estado'    => new sfWidgetFormFilterInput(),
+      'id_estado' => new sfWidgetFormPropelChoice(array('model' => 'Estado', 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
       'municipio' => new sfValidatorPass(array('required' => false)),
-      'estado'    => new sfValidatorPass(array('required' => false)),
+      'id_estado' => new sfValidatorPropelChoice(array('required' => false, 'model' => 'Estado', 'column' => 'id')),
     ));
 
     $this->widgetSchema->setNameFormat('municipio_filters[%s]');
@@ -38,7 +38,7 @@ abstract class BaseMunicipioFormFilter extends BaseFormFilterPropel
     return array(
       'id'        => 'Number',
       'municipio' => 'Text',
-      'estado'    => 'Text',
+      'id_estado' => 'ForeignKey',
     );
   }
 }

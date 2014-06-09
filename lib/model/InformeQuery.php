@@ -215,8 +215,6 @@ class InformeQuery extends BaseInformeQuery {
             </table>
             <br>
             <br>';
-    
-    
       return $html;
   }
   
@@ -230,7 +228,7 @@ class InformeQuery extends BaseInformeQuery {
                     <th width="30%">%</th>
                   </tr>';
       
-    $Item = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%Cursa o estudió estudios en%')->findOne();
+    $Item = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%Cursa o cursó estudios en%')->findOne();
     if (count($Item) > 0) {
         $id_item = $Item->getId();
         $Misionrobinson = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%Misión Robinson%')->findOne();
@@ -239,17 +237,28 @@ class InformeQuery extends BaseInformeQuery {
         $Misioncultura = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%Misión Cultura%')->findOne();
         $Nohaparticipado = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%No ha participado%')->findOne();
         
-        $id_misionrobinson = $Misionrobinson->getId();
-        $id_misionribas = $Misionribas->getId();
-        $id_misionsucre = $Misionsucre->getId();
-        $id_misioncultura = $Misioncultura->getId();
-        $id_nohaparticipado = $Nohaparticipado->getId();
-        
-        $CantidadMisionrobinson = RespuestaItemQuery::create()->filterByIdItem($id_item)->where('RespuestaItem.IdOpcion = '.$id_misionrobinson)->count();
-        $CantidadMisionribas = RespuestaItemQuery::create()->filterByIdItem($id_item)->where('RespuestaItem.IdOpcion = '.$id_misionribas)->count();
-        $CantidadMisionsucre = RespuestaItemQuery::create()->filterByIdItem($id_item)->where('RespuestaItem.IdOpcion = '.$id_misionsucre)->count();
-        $CantidadMisioncultura = RespuestaItemQuery::create()->filterByIdItem($id_item)->where('RespuestaItem.IdOpcion = '.$id_misioncultura)->count();
-        $CantidadNohaparticipado = RespuestaItemQuery::create()->filterByIdItem($id_item)->where('RespuestaItem.IdOpcion = '.$id_nohaparticipado)->count();
+       
+        if(count($Misionrobinson)>0) {
+            $id_misionrobinson = $Misionrobinson->getId();
+                    $CantidadMisionrobinson = RespuestaItemQuery::create()->filterByIdItem($id_item)->where('RespuestaItem.IdOpcion = '.$id_misionrobinson)->count();
+
+        }
+        if(count($Misionribas)>0){
+            $id_misionribas = $Misionribas->getId();
+            $CantidadMisionribas = RespuestaItemQuery::create()->filterByIdItem($id_item)->where('RespuestaItem.IdOpcion = '.$id_misionribas)->count();
+        }
+        if(count($Misionsucre)>0){
+            $id_misionsucre = $Misionsucre->getId();
+            $CantidadMisionsucre = RespuestaItemQuery::create()->filterByIdItem($id_item)->where('RespuestaItem.IdOpcion = '.$id_misionsucre)->count();
+        }
+        if(count($Misioncultura)>0){
+            $id_misioncultura = $Misioncultura->getId();
+            $CantidadMisioncultura = RespuestaItemQuery::create()->filterByIdItem($id_item)->where('RespuestaItem.IdOpcion = '.$id_misioncultura)->count();
+        }
+        if(count($Nohaparticipado)>0){
+            $id_nohaparticipado = $Nohaparticipado->getId();
+            $CantidadNohaparticipado = RespuestaItemQuery::create()->filterByIdItem($id_item)->where('RespuestaItem.IdOpcion = '.$id_nohaparticipado)->count();
+        }
         
         $Total = RespuestaItemQuery::create()->filterByIdItem($id_item)->count();
         $porcentaje_misionrobinson = round(($CantidadMisionrobinson*100)/$Total,2);
@@ -699,10 +708,13 @@ class InformeQuery extends BaseInformeQuery {
     $Item = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%¿Le gusta leer?%')->findOne();
     if (count($Item) > 0) {
         $id_item = $Item->getId();
-        $Si = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%Si%')->findOne();
-        $No = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%No%')->findOne();
+        $Si = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%S%')->findOne();
+        $No = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%N%')->findOne();
+        
         $id_si = $Si->getId();
+        
         $id_no = $No->getId();
+        
         $CantidadSi = RespuestaItemQuery::create()->filterByIdOpcion($id_si)->count();
         $CantidadNo = RespuestaItemQuery::create()->filterByIdOpcion($id_no)->count();        
         $Total = RespuestaItemQuery::create()->filterByIdItem($id_item)->count();
@@ -748,16 +760,23 @@ class InformeQuery extends BaseInformeQuery {
     $Item = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%¿Qué le gusta leer?%')->findOne();
     if (count($Item) > 0) {
         $id_item = $Item->getId();
+        
         $Libro = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%Libros%')->findOne();
-        $Revista= OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%Revistas%')->findOne();
-        $Periodico= OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%Periódicos%')->findOne();
+        
         $id_libro = $Libro->getId();
+        
+        $Revista= OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%Revistas%')->findOne();
         $id_revista = $Revista->getId();
+        
+        $Periodico= OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%Periódicos%')->findOne();
         $id_periodico = $Periodico->getId();
         $CantidadLibro = RespuestaItemQuery::create()->filterByIdOpcion($id_libro)->count();
         $CantidadRevista = RespuestaItemQuery::create()->filterByIdOpcion($id_revista)->count(); 
         $CantidadPeriodico = RespuestaItemQuery::create()->filterByIdOpcion($id_periodico)->count(); 
+        
         $Total = RespuestaItemQuery::create()->filterByIdItem($id_item)->count();
+        
+        
         $porcentaje_libro = round(($CantidadLibro*100)/$Total,2);
         $porcentaje_revista = round(($CantidadRevista*100)/$Total,2);
         $porcentaje_periodico = round(($CantidadPeriodico*100)/$Total,2);
@@ -804,7 +823,7 @@ class InformeQuery extends BaseInformeQuery {
                     <th>%</th>
                   </tr>';
        
-    $Item = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%¿En qué medio Lee?%')->findOne();
+    $Item = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%¿En qué medio lee?%')->findOne();
     if (count($Item) > 0) {
         $id_item = $Item->getId();
         $SoporteFisico = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%En soporte físico%')->findOne();
@@ -946,7 +965,10 @@ class InformeQuery extends BaseInformeQuery {
         $Mejorartrabajo = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%Mejorar en el trabajo%')->findOne();
         $Conocimiento = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%Conocimiento%')->findOne();
         $Otro = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%Otro%')->findOne();
+        
+        
         $id_divertirse = $Divertirse->getId();
+        
         $id_informarse = $Informarse->getId();
         $id_mejorartrabajo = $Mejorartrabajo->getId();
         $id_conocimiento = $Conocimiento->getId(); 
@@ -1001,8 +1023,7 @@ class InformeQuery extends BaseInformeQuery {
     
     
     return $html;
-       
-       
+        
    }
    
    
@@ -1012,16 +1033,26 @@ class InformeQuery extends BaseInformeQuery {
                 <table class="tablas">
                   <tr>
                     <th>Género</th>
-                    <th>Poesía</th>
-                    <th>Narrativa</th>
-                    <th>Ensayo</th>
-                    <th>Teatro/Dramaturgia</th>
-                    <th>Biografía/Testimonio</th>
-                    <th>Otro</th>
+                    <th>Poe.</th>
+                    <th>%</th>
+                    <th>Nar.</th>
+                    <th>%</th>
+                    <th>Ens.</th>
+                    <th>%</th>
+                    <th>Tea.</th>
+                    <th>%</th>
+                    <th>Bio.</th>
+                    <th>%</th>
+                    <th>Otr.</th>
+                    <th>%</th>
+                    
                   </tr>';
        
-    $Item = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%Sexo%')->findOne();
-    $ItemGenero = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%Cuáles son los géneros literarios que le han interesado dentro de la feria%')->findOne();
+    
+     $Item = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%Sexo%')->findOne();
+    
+     $ItemGenero = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%Cuáles son los géneros literarios que le han interesado dentro de la feria%')->findOne();
+    
     
     if (count($Item) > 0) {
         $id_item = $Item->getId();
@@ -1034,7 +1065,7 @@ class InformeQuery extends BaseInformeQuery {
                 $Narrativa = OpcionRespuestaQuery::create()->filterByIdItem($id_item_genero)->where('OpcionRespuesta.Opcion like ?', '%Narrativa%')->findOne();
                 $Ensayo = OpcionRespuestaQuery::create()->filterByIdItem($id_item_genero)->where('OpcionRespuesta.Opcion like ?', '%Ensayo%')->findOne();
                 $Teatro = OpcionRespuestaQuery::create()->filterByIdItem($id_item_genero)->where('OpcionRespuesta.Opcion like ?', '%Teatro%')->findOne();
-                $Biografia = OpcionRespuestaQuery::create()->filterByIdItem($id_item_genero)->where('OpcionRespuesta.Opcion like ?', '%Biografia%')->findOne();
+                $Biografia = OpcionRespuestaQuery::create()->filterByIdItem($id_item_genero)->where('OpcionRespuesta.Opcion like ?', '%Biografía%')->findOne();
                 $Otro = OpcionRespuestaQuery::create()->filterByIdItem($id_item_genero)->where('OpcionRespuesta.Opcion like ?', '%Otros%')->findOne();
 
                 $id_poesia = $Poesia->getId();
@@ -1105,21 +1136,32 @@ class InformeQuery extends BaseInformeQuery {
     }       
      
     $html .= '  <tr>
-            <td><b><center>Masculino</center><b></td>
+         <td><b><center>Masculino</center><b></td>
+            <td><center>'. $CantidadPoesiaH.'</center></td>
             <td><center>'. $porcentaje_poesia_h.'%</center></td>
-            <td><center>'. $porcentaje_narrativa_h.'%</center></td>
+            <td><center>'. $CantidadNarrativaH.'</center></td>
+           <td><center>'. $porcentaje_narrativa_h.'%</center></td>
+            <td><center>'. $CantidadEnsayoH.'</center></td>
             <td><center>'. $porcentaje_ensayo_h.'%</center></td>
+            <td><center>'. $CantidadTeatroH.'</center></td>
             <td><center>'. $porcentaje_teatro_h.'%</center></td>
+            <td><center>'. $CantidadBiografiaH.'</center></td>
             <td><center>'. $porcentaje_biografia_h.'%</center></td>
-            <td><center>'. $porcentaje_otro_h.'%</center></td>
-          </tr>
+            <td><center>'. $CantidadOtroH.'</center></td>
+             <td><center>'. $porcentaje_otro_h.'%</center></td> </tr>
           <tr>
             <td><b><center>Femenino</center><b></td>
+            <td><center>'. $CantidadPoesiaM.'</center></td>
             <td><center>'. $porcentaje_poesia_m.'%</center></td>
+            <td><center>'. $CantidadNarrativaM.'</center></td>
             <td><center>'. $porcentaje_narrativa_m.'%</center></td>
+            <td><center>'. $CantidadEnsayoM.'</center></td>
             <td><center>'. $porcentaje_ensayo_m.'%</center></td>
+            <td><center>'. $CantidadTeatroM.'</center></td>
             <td><center>'. $porcentaje_teatro_m.'%</center></td>
+            <td><center>'. $CantidadBiografiaM.'</center></td>
             <td><center>'. $porcentaje_biografia_m.'%</center></td>
+            <td><center>'. $CantidadOtroM.'</center></td>
             <td><center>'. $porcentaje_otro_m.'%</center></td>
           </tr>  
         </table>
@@ -1140,8 +1182,22 @@ class InformeQuery extends BaseInformeQuery {
                     <th>Temática/Géneros</th>
                     <th>%</th>
                   </tr>';
-       
-    $Item = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%¿Cuáles son las temáticas que le han interesado en la feria?%')->findOne();
+        $id_cuentos = 0;
+        $id_novela = 0;
+        $id_historia = 0;
+        $id_cocina = 0; 
+        $id_infantil = 0;
+        $id_cientifico = 0;       
+        $id_autoayuda = 0;
+        $id_poesia = 0;
+        $id_religion = 0;
+        $id_politica = 0;
+        $id_arte = 0; 
+        $id_tecnico = 0;
+        $id_textosescolares = 0;      
+        $id_textosuniversitarios = 0;
+     
+        $Item = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%¿Cuáles son las temáticas que le han interesado en la feria?%')->findOne();
     if (count($Item) > 0) {
         $id_item = $Item->getId();
         $Cuentos = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%Cuentos%')->findOne();
@@ -1160,21 +1216,23 @@ class InformeQuery extends BaseInformeQuery {
         $TextosEscolares = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%Textos Escolares%')->findOne();
         $TextosUniversitarios = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%Textos Universitarios%')->findOne();
       
-        $id_cuentos = $Cuentos->getId();
-        $id_novela = $Novela->getId();
-        $id_historia = $Historia->getId();
-        $id_cocina = $Cocina->getId(); 
-        $id_infantil = $Infantil->getId();
-        $id_cientifico = $Cientifico->getId();       
-        $id_autoayuda = $Autoayuda->getId();
+        if (count($Cuentos)>0)$id_cuentos = $Cuentos->getId();
+        if (count($Novela)>0)$id_novela = $Novela->getId();
+        if (count($Historia)>0)$id_historia = $Historia->getId();
+        if (count($Cocina)>0)$id_cocina = $Cocina->getId(); 
+        if (count($Infantil)>0)$id_infantil = $Infantil->getId();
+        if (count($Cientifico)>0) $id_cientifico = $Cientifico->getId();       
+        if (count($Autoayuda)>0) $id_autoayuda = $Autoayuda->getId();
 
-        $id_poesia = $Poesia->getId();
-        $id_religion = $Religion->getId();
-        $id_politica = $Politica->getId();
-        $id_arte = $Arte->getId(); 
-        $id_tecnico = $Tecnico->getId();
-        $id_textosescolares = $TextosEscolares->getId();       
-        $id_textosuniversitarios = $TextosUniversitarios->getId();
+        if (count($Poesia )>0) $id_poesia = $Poesia->getId();
+        if (count($Religion )>0) $id_religion = $Religion->getId();
+        if (count($Politica)>0) $id_politica = $Politica->getId();
+        if (count($Arte )>0) $id_arte = $Arte->getId(); 
+        if (count($Tecnico )>0) $id_tecnico = $Tecnico->getId();
+        if (count($TextosEscolares )>0) $id_textosescolares = $TextosEscolares->getId();       
+        if (count($TextosUniversitarios )>0) $id_textosuniversitarios = $TextosUniversitarios->getId();
+        
+        
         
         $CantidadCuentos = RespuestaItemQuery::create()->filterByIdOpcion($id_cuentos)->count();
         $CantidadNovela = RespuestaItemQuery::create()->filterByIdOpcion($id_novela)->count(); 
@@ -1425,8 +1483,8 @@ class InformeQuery extends BaseInformeQuery {
     $Item = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%¿Conoce usted la red de librerías del Sur?%')->findOne();
     if (count($Item) > 0) {
         $id_item = $Item->getId();
-        $Si = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%Si%')->findOne();
-        $No = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%No%')->findOne();
+        $Si = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%S%')->findOne();
+        $No = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%N%')->findOne();
         $id_si = $Si->getId();
         $id_no = $No->getId();
         $CantidadSi = RespuestaItemQuery::create()->filterByIdOpcion($id_si)->count();
@@ -1475,8 +1533,8 @@ class InformeQuery extends BaseInformeQuery {
     $Item = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%¿Recomienda este evento a otras personas?%')->findOne();
     if (count($Item) > 0) {
         $id_item = $Item->getId();
-        $Si = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%Si%')->findOne();
-        $No = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%No%')->findOne();
+        $Si = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%S%')->findOne();
+        $No = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%N%')->findOne();
         $id_si = $Si->getId();
         $id_no = $No->getId();
         $CantidadSi = RespuestaItemQuery::create()->filterByIdOpcion($id_si)->count();
@@ -1520,7 +1578,13 @@ class InformeQuery extends BaseInformeQuery {
                     <th>Descriptivo</th>
                     <th>%</th>
                   </tr>';
-       
+       $id_radio = 0;
+        $id_prensa =0;
+        $id_television = 0;
+        $id_afiches = 0; 
+        $id_recomendacion = 0;
+        $id_internet = 0;        
+        
     $Item = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%¿Cómo se enteró usted sobre la feria del libro?%')->findOne();
     if (count($Item) > 0) {
         $id_item = $Item->getId();
@@ -1531,12 +1595,12 @@ class InformeQuery extends BaseInformeQuery {
         $Recomendacion = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%Recomendación Personal%')->findOne();
         $Internet = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%Internet%')->findOne();
         
-        $id_radio = $Radio->getId();
-        $id_prensa = $Prensa->getId();
-        $id_television = $Television->getId();
-        $id_afiches = $Afiches->getId(); 
-        $id_recomendacion = $Recomendacion->getId();
-        $id_internet = $Internet->getId();        
+        if(count($Radio)>0)$id_radio = $Radio->getId();
+        if(count($Prensa)>0)$id_prensa = $Prensa->getId();
+        if(count($Television)>0)$id_television = $Television->getId();
+        if(count($Afiches)>0)$id_afiches = $Afiches->getId(); 
+        if(count($Recomendacion)>0)$id_recomendacion = $Recomendacion->getId();
+        if(count($Internet)>0)$id_internet = $Internet->getId();        
         
         $CantidadRadio = RespuestaItemQuery::create()->filterByIdOpcion($id_radio)->count();
         $CantidadPrensa = RespuestaItemQuery::create()->filterByIdOpcion($id_prensa)->count(); 
@@ -1605,21 +1669,28 @@ class InformeQuery extends BaseInformeQuery {
                   <tr>
                     <th>Valoración FILVEN  según Visitantes</th>
                     <th>Buena</th>
+                    <th>%</th>
                     <th>Regular</th>
+                    <th>%</th>
                     <th>Malo</th>
+                    <th>%</th>
                     <th>N/S N/C</th>
+                    <th>%</th>
                     <th>Total</th>
                   </tr>';  
-     $Item = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%Valore los siguientes aspectos, utilizando la escala del 1 al 4%')->findOne();
+     $Item = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%Valore los siguientes aspectos de la Feria Internacional del Libro de Venezuela%')->findOne();
      if (count($Item) > 0) {
         $id_item = $Item->getId();
         $Promocion = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%Promoción de la FILVEN%')->findOne();
+        
         $Instalaciones = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%Condición de las instalaciones en general%')->findOne();
         $Senalizacion = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%Señalización de los stand dentro del recinto ferial%')->findOne();
         $Guias = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%Servicio de atención de guias y módulos de información%')->findOne();
         $Atencion = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%Atención de los expositores%')->findOne();
         $Organizacion = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%Organización del evento%')->findOne();   
         $Mantenimiento = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%Mantenimiento del recinto ferial%')->findOne();
+        
+        
         
         $id_promocion = $Promocion->getId();
         $id_instalaciones = $Instalaciones->getId();
@@ -1701,64 +1772,106 @@ class InformeQuery extends BaseInformeQuery {
         $porcentaje_mantenimiento4 = round(($Mantenimiento4*100)/$TotalMantenimiento,2);        
         
      }
-     
+     if (count($Promocion) > 0){
          $html .= '  <tr>
                 <td width="40%"><center>'. $Promocion->getOpcion() .'</center></td>
+                <td width="12%"><center>'.$Promocion1.'</center></td>    
                 <td width="12%"><center>'.$porcentaje_promocion1.'%</center></td>
+                    <td width="12%"><center>'.$Promocion2.'</center></td>    
                 <td width="12%"><center>'.$porcentaje_promocion2.'%</center></td>
+                    <td width="12%"><center>'.$Promocion3.'</center></td>    
                 <td width="12%"><center>'.$porcentaje_promocion3.'%</center></td>
+                    <td width="12%"><center>'.$Promocion4.'</center></td>    
                 <td width="12%"><center>'.$porcentaje_promocion4.'%</center></td>
                 <td width="12%"><center>100%</center></td>
-              </tr>
-              <tr>
+              </tr>';
+              }
+     if (count($Instalaciones) > 0){
+         $html .= '  <tr>
                 <td width="40%"><center>'. $Instalaciones->getOpcion() .'</center></td>
+                <td width="12%"><center>'.$Instalaciones1.'</center></td>    
                 <td width="12%"><center>'.$porcentaje_instalaciones1.'%</center></td>
-                <td width="12%"><center>'.$porcentaje_instalaciones2.'%</center></td>
+                <td width="12%"><center>'.$Instalaciones2.'</center></td>
+                 <td width="12%"><center>'.$porcentaje_instalaciones2.'%</center></td>
+                 <td width="12%"><center>'.Instalaciones3.'</center></td>
                 <td width="12%"><center>'.$porcentaje_instalaciones3.'%</center></td>
+                <td width="12%"><center>'.$Instalaciones4.'</center></td>
                 <td width="12%"><center>'.$porcentaje_instalaciones4.'%</center></td>
                 <td width="12%"><center>100%</center></td>
-              </tr>
-              <tr>
+              </tr>';
+     }
+     if (count($Senalizacion) > 0){
+         $html .= '  <tr>
                 <td width="40%"><center>'. $Senalizacion->getOpcion() .'</center></td>
-                <td width="12%"><center>'.$porcentaje_senalizacion1.'%</center></td>
+                <td width="12%"><center>'.$Senalizacion1.'</center></td>
+               <td width="12%"><center>'.$porcentaje_senalizacion1.'%</center></td>
+                <td width="12%"><center>'.$Senalizacion2.'</center></td>
                 <td width="12%"><center>'.$porcentaje_senalizacion2.'%</center></td>
-                <td width="12%"><center>'.$porcentaje_senalizacion3.'%</center></td>
-                <td width="12%"><center>'.$porcentaje_senalizacion4.'%</center></td>
+                <td width="12%"><center>'.$Senalizacion3.'</center></td>
+                    <td width="12%"><center>'.$porcentaje_senalizacion3.'%</center></td>
+                <td width="12%"><center>'.$Senalizacion4.'</center></td>
+                    <td width="12%"><center>'.$porcentaje_senalizacion4.'%</center></td>
                 <td width="12%"><center>100%</center></td>
-              </tr>
-              <tr>
+              </tr>';
+     }
+     if (count($Guias) > 0){
+         $html .= '  <tr>
                 <td width="40%"><center>'. $Guias->getOpcion() .'</center></td>
-                <td width="12%"><center>'.$porcentaje_guias1.'%</center></td>
+                <td width="12%"><center>'.$Guias1.'</center></td>
+                <td width="12%"><center>'.$porcentaje_guias1.'%</center></td>                    
+                <td width="12%"><center>'.$Guias2.'</center></td>
                 <td width="12%"><center>'.$porcentaje_guias2.'%</center></td>
+                <td width="12%"><center>'.$Guias3.'</center></td>
                 <td width="12%"><center>'.$porcentaje_guias3.'%</center></td>
+                <td width="12%"><center>'.$Guias4.'</center></td>
                 <td width="12%"><center>'.$porcentaje_guias4.'%</center></td>
                 <td width="12%"><center>100%</center></td>
-              </tr>
-              <tr>
+              </tr>';
+     }
+      
+     if (count($Atencion) > 0){
+         $html .= '  <tr>
               <td width="40%"><center>'. $Atencion->getOpcion() .'</center></td>
+                <td width="12%"><center>'.$Atencion1.'</center></td>
                 <td width="12%"><center>'.$porcentaje_atencion1.'%</center></td>
-                <td width="12%"><center>'.$porcentaje_atencion2.'%</center></td>
+                <td width="12%"><center>'.$Atencion2.'</center></td>
+                <td width="12%"><center>'.$porcentaje_atencion2.'%</center></td>                    
+                <td width="12%"><center>'.$Atencion3.'</center></td>
                 <td width="12%"><center>'.$porcentaje_atencion3.'%</center></td>
-                <td width="12%"><center>'.$porcentaje_atencion4.'%</center></td>
+                <td width="12%"><center>'.$Atencion4.'</center></td>
+                 <td width="12%"><center>'.$porcentaje_atencion4.'%</center></td>
                 <td width="12%"><center>100%</center></td> 
-              </tr>
-              <tr>
+              </tr>';
+     }
+     if (count($Organizacion) > 0){
+         $html .= '  <tr>
                 <td width="40%"><center>'. $Organizacion->getOpcion() .'</center></td>
-                <td width="12%"><center>'.$porcentaje_organizacion1.'%</center></td>
-                <td width="12%"><center>'.$porcentaje_organizacion2.'%</center></td>
+                <td width="12%"><center>'.$Organizacion1.'</center></td>
+                <td width="12%"><center>'.$porcentaje_organizacion1.'%</center></td>                    
+                <td width="12%"><center>'.$Organizacion2.'</center></td>
+                <td width="12%"><center>'.$porcentaje_organizacion2.'%</center></td>                    
+                <td width="12%"><center>'.$Organizacion3.'</center></td>
                 <td width="12%"><center>'.$porcentaje_organizacion3.'%</center></td>
+                <td width="12%"><center>'.$Organizacion4.'</center></td>
                 <td width="12%"><center>'.$porcentaje_organizacion4.'%</center></td>
                 <td width="12%"><center>100%</center></td>
-              </tr>
-              <tr>
+              </tr>';
+     }
+     
+     if (count($Mantenimiento) > 0){
+         $html .= '  <tr>
                 <td width="40%"><center>'. $Mantenimiento->getOpcion() .'</center></td>
+                <td width="12%"><center>'.$Mantenimiento1.'</center></td>
                 <td width="12%"><center>'.$porcentaje_mantenimiento1.'%</center></td>
+                <td width="12%"><center>'.$Mantenimiento2.'</center></td>
                 <td width="12%"><center>'.$porcentaje_mantenimiento2.'%</center></td>
+                <td width="12%"><center>'.$Mantenimiento3.'</center></td>
                 <td width="12%"><center>'.$porcentaje_mantenimiento3.'%</center></td>
+                <td width="12%"><center>'.$Mantenimiento4.'</center></td>
                 <td width="12%"><center>'.$porcentaje_mantenimiento4.'%</center></td>
                 <td width="12%"><center>100%</center></td>              
               </tr></table><br><br>';
-         
+     }
          
          return $html;
   
@@ -1782,15 +1895,17 @@ class InformeQuery extends BaseInformeQuery {
                     <th>Expositor Representante</th>                  
                     <th>País de procedencia</th>
                   </tr>';
-     
+     $id_pais =1;
       $Item = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%Nombre de la editorial que representa%')->findOne();
       if (count($Item) > 0) { 
           $id_item = $Item->getId();
-          $Editoriales = RespuestaItemQuery::create()->filterByIdItem($id_item)->orderByValor('asc')->find();
+          $id_opcion=ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%País%')->findOne();
+          $Editoriales = RespuestaItemQuery::create()->filterByIdItem($id_item)->filterByIdOpcion($id_opcion)->orderByValor('asc')->find();
           $arreglo_editorial = array();
           $arreglo_cantidad_paises = array();
           $editorial_anterior = '';
-          $TotalExpositor = 0;
+          //$TotalExpositor = 0;
+          $TotalExpositor=count($Editoriales);
           $TotalPais = 0;
           $i = 0;
           $c_expositor_nacional=0;
@@ -1800,13 +1915,16 @@ class InformeQuery extends BaseInformeQuery {
               $editorial_actual = $Editorial->getValor();
               
               $respuesta_encuesta = $Editorial->getIdRespuestaEncuesta();
-              $Pais = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%País%')->findOne();
-              $id_pais = $Pais->getId();
-              $PaisExp = RespuestaItemQuery::create()->filterByIdItem($id_pais)->where('RespuestaItem.IdRespuestaEncuesta = ?', $respuesta_encuesta)->orderByValor('asc')->findOne();             
-              if ( trim(strtoupper($PaisExp->getValor()))=='VENEZUELA') $c_expositor_nacional++;
+              //$Pais = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%País%')->findOne();
+              //$id_pais = $Pais->getId();
+              $PaisExp=$Editorial;
+              //$PaisExp = RespuestaItemQuery::create()->filterByIdItem($id_item)->where('RespuestaItem.IdRespuestaEncuesta = ?', $respuesta_encuesta)->orderByValor('desc')->findOne();             
+              if ( trim(strtoupper($PaisExp->getValor()))=='VENEZUELA') {
+                  $c_expositor_nacional++;
+              }
               if ($PaisExp->getValor() != 'Venezuela' )  {
                     if ($editorial_anterior == $editorial_actual) {
-                       $arreglo_editorial[$editorial_actual] = $arreglo_editorial[$editorial_actual].'<br>'.$PaisExp->getValor();
+                    //   $arreglo_editorial[$editorial_actual] = $arreglo_editorial[$editorial_actual].'<br>'.$PaisExp->getValor();
                        $arreglo_cantidad_paises[$i] = $PaisExp->getValor();
                        
                     } else {
@@ -1814,21 +1932,27 @@ class InformeQuery extends BaseInformeQuery {
                        $arreglo_cantidad_paises[$i] = $PaisExp->getValor();
                        
                     }
-                    
                     $editorial_anterior = $editorial_actual;
-                    $TotalExpositor++;
+  //                  $TotalExpositor++;
                     $i++;
               }
           }
       }
+      
+      
+      
+      
       $paises = array_unique($arreglo_cantidad_paises);
+      
       $TotalPais = sizeof($paises);
+      $c_expositor_internacional=$TotalPais -1;
+      
       foreach ($arreglo_editorial as $key => $val) {
            $html .= '<tr><td><center>'.$key.'</center></td><td><center>'.$val.'</center></td>';
       }     
       $html .= '<tr>
                     <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>Total países participantes</b></center></td>
-                    <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>'.$TotalPais.'</b></center></td>
+                    <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>'.$c_expositor_internacional .'</b></center></td>
                 </tr>
                 <tr>
                     <td style="background-color: #0c131b; color:white; border : 1px solid  #979696;"><center><b>Total Expositores nacionales participantes</b></center></td>
@@ -1987,7 +2111,7 @@ class InformeQuery extends BaseInformeQuery {
                 <table class="tablas">
                   <tr>
                     <th>Género</th>
-                    <th>%</th>
+                    <th>Nro</th>
                   </tr>';
      
      $Item = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%Señale los tres títulos de libros mas vendidos%')->findOne();
@@ -2006,8 +2130,10 @@ class InformeQuery extends BaseInformeQuery {
         
         foreach($RespuestaEncuesta as $Respuesta) {
             $Resultado = RespuestaItemQuery::create()->filterByIdOpcion($Genero->getId())->where('RespuestaItem.Valor like ?', $Respuesta)->count();
-            $porcentaje_resultado = round(($Resultado*100)/$Total,2);
-            $html .= '<tr><td><center>'.$Respuesta.'</center></td><td><center>'.$porcentaje_resultado.'%</center></td></tr>';
+            //$porcentaje_resultado = round(($Resultado*100)/$Total,2);
+            $total_resultado = $Resultado;
+            //$html .= '<tr><td><center>'.$Respuesta.'</center></td><td><center>'.$porcentaje_resultado.'%</center></td></tr>';
+            $html .= '<tr><td><center>'.$Respuesta.'</center></td><td><center>'. $total_resultado .'</center></td></tr>';
         }
         
      }   
@@ -2034,7 +2160,7 @@ class InformeQuery extends BaseInformeQuery {
       $Item = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%Nombre de la editorial que representa%')->findOne();
       if (count($Item) > 0) { 
         $id_item = $Item->getId();
-        $EjemplaresVendidos = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%Señale el total de ejemplares vendidos%')->findOne();
+        $EjemplaresVendidos = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%Cantidad de ejemplares vendidos%')->findOne();
         $id_ejemplares = $EjemplaresVendidos->getId();
         $Visitantes = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%Señale el número promedio del total de visitantes a su Stand%')->findOne();
         $id_visitantes = $Visitantes->getId();
@@ -2076,28 +2202,31 @@ class InformeQuery extends BaseInformeQuery {
                   <tr>
                     <th>N°</th>
                     <th>Títulos</th>
-                    <th>Autor</th>
                     <th>Géneros</th>
+                    <th>Autor</th>
                     <th>Total de ejemplares</th>
                   </tr>';
      
      $Item = ItemQuery::create()->filterByIdEncuesta($id_encuesta)->where('Item.Texto like ?', '%Señale los tres títulos de libros mas vendidos%')->findOne();
-     
+     $id_cantidad=0;
+     $id_titulo='';
      if (count($Item) > 0) { 
         $id_item = $Item->getId(); 
         $Titulo = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%Título%')->findOne();
+        if (count($Titulo)==0) die(var_dump($id_item));
         $CantidadEjemplares = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%Cantidad de ejemplares vendidos%')->findOne();
-        $id_cantidad = $CantidadEjemplares->getId();
+        if (count($CantidadEjemplares )>0) $id_cantidad = $CantidadEjemplares->getId();
         $CantidadGenero = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%Género%')->findOne();
         $id_genero = $CantidadGenero->getId();
         $CantidadAutor = OpcionRespuestaQuery::create()->filterByIdItem($id_item)->where('OpcionRespuesta.Opcion like ?', '%Autor%')->findOne();
-        $id_autor = $CantidadAutor->getId();       
+        $id_autor = $CantidadAutor->getId();
+        
         $RespuestaEncuesta = RespuestaItemQuery::create()
                         ->select('Valor')
                         ->setDistinct('Valor')
                         ->filterByIdOpcion($Titulo->getId())
                         ->find();
-        
+         
         $arreglo = array();
         $NombreGenero = '';
         $NombreAutor = '';

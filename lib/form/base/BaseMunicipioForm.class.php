@@ -16,13 +16,13 @@ abstract class BaseMunicipioForm extends BaseFormPropel
     $this->setWidgets(array(
       'id'        => new sfWidgetFormInputHidden(),
       'municipio' => new sfWidgetFormInputText(),
-      'estado'    => new sfWidgetFormInputText(),
+      'id_estado' => new sfWidgetFormPropelChoice(array('model' => 'Estado', 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
       'id'        => new sfValidatorPropelChoice(array('model' => 'Municipio', 'column' => 'id', 'required' => false)),
       'municipio' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'estado'    => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'id_estado' => new sfValidatorPropelChoice(array('model' => 'Estado', 'column' => 'id', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('municipio[%s]');
